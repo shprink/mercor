@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+.list-inline {
+  margin: 10px 0;
+}
+.list-inline ul {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+  *zoom: 1;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+.list-inline li {
+  display: inline;
+  float: left;
+  margin-right:10px;
+  margin-bottom:10px;
+}
+
+.sub-menu .nav{
+	margin-bottom: 0px;
+}
