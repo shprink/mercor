@@ -80,18 +80,17 @@
 					</div>
 					<div class="span4">
 						<h3><span class="label label-warning">Intermediate</span> Open a Confirm Box</h3>
-						<p>Success messages are great to let users know about a form successfully sent.</p>
+						<p>You might want to ask users permission before to do nasty stuff!</p>
 						<button id="modal-confirm" href="#" class="btn">Demo</button>
 						<hr/>
 <pre class="prettyprint linenums"><code class="language-js">$('modal-confirm').addEvent('click',function(e){
 var button = this;
 var modal = new MercorModal.Confirm({
 	'title': 'Confirm',
-	'html': 'Do you want to change the button color?',
+	'html': 'Do you want [...] button size?',
 	'confirm':{
 		'callback': function(){
-			button.setStyle('background-color',
-			['pink', 'red', 'green', 'purple'].getRandom());
+			button.setStyle('width',300);
 		}
 	}
 });
@@ -100,23 +99,23 @@ e.stop();
 });</code></pre>
 					</div>
 					<div class="span4">
-						<h3><span class="label label-warning">Intermediate</span> Add footer buttons</h3>
-						<p></p>
+						<h3><span class="label label-warning">Intermediate</span> Add a button</h3>
+						<p>Adding buttons as never been that easy! </p>
 						<button id="modal-footer" href="#" class="btn">Demo</button>
 						<hr/>
 <pre class="prettyprint linenums"><code class="language-js">$('modal-footer').addEvent('click',function(e){
-	var modal = new MercorModal({
-		'styles': {
-			'width' : 400,
-			'height' : 200
-		},
-		'title': 'My Modal with footer',
-		'html': '&lt;p&gt;My HTML content&lt;/p&gt;',
-		'buttons':[{ html: 'Close', styles: {}, 
-		event: function() { this.close(); }}]
-	});
-	modal.open();
-	e.stop();
+var modal = new MercorModal({
+	'styles': {
+		'width' : 400,
+		'height' : 200
+	},
+	'title': 'My Modal with footer',
+	'html': '&lt;p&gt;My HTML content&lt;/p&gt;',
+	'buttons':[{ html: 'Close', styles: {}, 
+	event: function() { this.close(); }}]
+});
+modal.open();
+e.stop();
 });</code>
 			</pre>
 					</div>
@@ -127,30 +126,93 @@ e.stop();
 						<p>Success messages are great to let users know about a form successfully sent.</p>
 						<button id="modal-iframe" href="#" class="btn">Demo</button>
 						<hr/>
+<pre class="prettyprint linenums"><code class="language-js">$('modal-iframe').addEvent('click',function(e){
+var modal = new MercorModal.Iframe({
+	'iframe':{
+		'link':'http://google.com'
+	}
+});
+modal.open();
+e.stop();
+});</code></pre>
 					</div>
-					<div class="span4">
-						<h3><span class="label label-important">Advanced</span> Ajax Requests</h3>
-						<p></p>
-						<a target="_blank" href="demo/data.json">Open the data source used for this exemple</a>
-						<br/>
-						<button id="modal-request" href="#" class="btn">Demo</button>
+					<div class="span8">
+						<h3><span class="label label-warning">Intermediate</span> Create a UNIQUE Modal !</h3>
+						<p>Bored of cummun designs? Want to create a unique Modal? It is as easy as the below code. You can easily load an Iframe within a Fullscreen modal with a red Overlay and some buttons.</p>
+						<button id="modal-custom" href="#" class="btn">Demo</button>
 						<hr/>
-					</div>
-					<div class="span4">
-						<h3><span class="label label-important">Advanced</span> Ajax HTML Request</h3>
-						<p></p>
-						<a target="_blank" href="demo/data.html">Open the data source used for this exemple</a>
-						<br/>
-						<button id="modal-request-html" href="#" class="btn">Demo</button>
-						<hr/>
+<pre class="prettyprint linenums"><code class="language-js">$('modal-custom').addEvent('click',function(e){
+var modal = new MercorModal.Iframe({
+	'fullScreen': {
+		'active': true
+	},
+	'iframe':{
+		'link':'http://google.com'
+	},
+	'overlay': {
+		'styles': {
+			'background': 'red'
+		}
+	},
+	'buttons':[{ html: 'Close', styles: {}, event: function() { this.close(); }},
+	           { html: 'Do not click me', styles: {}, event: function() { alert('I told you not to!'); }}]
+});
+modal.open();
+e.stop();
+});</code></pre>
 					</div>
 				</div>
 				<div class="row">
 					<div class="span4">
-						<h3>Create a UNIQUE Modal !</h3>
-						<p></p>
-						<button id="modal-custom" href="#" class="btn">Demo</button>
+						<h3><span class="label label-important">Advanced</span> Ajax HTML Request</h3>
+						<p>Get and display the content of an HTML page.</p>
+						<a target="_blank" href="demo/data.html">Open the data source used for this exemple</a>
+						<br/>
+						<button id="modal-request-html" href="#" class="btn">Demo</button>
 						<hr/>
+<pre class="prettyprint linenums"><code class="language-js">$('modal-request-html').addEvent('click',function(e){
+var button = this;
+var modal = new MercorModal.Request({
+	'title': 'HTML Request',
+	'request':{
+		'type': 'html',
+		'url': 'demo/data.html'
+	}
+});
+modal.open();
+e.stop();
+});</code></pre>
+					</div>
+					<div class="span8">
+						<h3><span class="label label-important">Advanced</span> Ajax Requests</h3>
+						<p>Get a Json string from an external source and do whatever you want with it!</p>
+						<a target="_blank" href="demo/data.json">Open the data source used for this exemple</a>
+						<br/>
+						<button id="modal-request" href="#" class="btn">Demo</button>
+						<hr/>
+<pre class="prettyprint linenums"><code class="language-js">$('modal-request').addEvent('click',function(e){
+var button = this;
+var modal = new MercorModal.Request({
+	'title': 'Request',
+	'request':{
+		'url': 'demo/data.json',
+		'success': function(responseText){
+			var  items = JSON.decode(responseText), ol = new Element('ol');
+			Array.each(items, function(item, offset) {
+				var li = new Element('li',{
+					html: '&lt;h1&gt;' + item.title 
+					+ '&lt;/h1&gt;&lt;br/&gt;&lt;span&gt;' 
+					+ item.desc + '&lt;/span&gt;'
+				});
+				li.inject(ol);
+			}.bind(this));
+			return ol;
+		}
+	}
+});
+modal.open();
+e.stop();
+});</code></pre>
 					</div>
 				</div>
 			</section>

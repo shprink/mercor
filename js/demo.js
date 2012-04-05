@@ -103,7 +103,7 @@ window.addEvent('domready',function(){
 			'buttons':[{ html: 'Close', styles: {}, event: function() { this.close(); }},
 			           { html: 'Do not click me', styles: {}, event: function() { alert('I told you not to!'); }}]
 		});
-		modal.open('', '');
+		modal.open();
 		e.stop();
 	});
 	
@@ -111,10 +111,10 @@ window.addEvent('domready',function(){
 		var button = this;
 		var modal = new MercorModal.Confirm({
 			'title': 'Confirm',
-			'html': 'Do you want to change the button color?',
+			'html': 'Do you want to enlarge the button size?',
 			'confirm':{
 				'callback': function(){
-					button.setStyle('background-color',['pink', 'red', 'green', 'purple'].getRandom());
+					button.setStyle('width',300);
 				}
 			}
 		});
