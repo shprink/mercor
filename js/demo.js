@@ -62,7 +62,7 @@ window.addEvent('domready',function(){
 		
 	});
 	/* Modal */
-	
+
 	$('modal-footer').addEvent('click',function(e){
 		var modal = new MercorModal({
 			'styles': {
@@ -76,12 +76,39 @@ window.addEvent('domready',function(){
 		modal.open();
 		e.stop();
 	});
-	
+
 	$('modal-iframe').addEvent('click',function(e){
 		var modal = new MercorModal.Iframe({
 			'iframe':{
 				'link':'http://google.com'
 			}
+		});
+		modal.open();
+		e.stop();
+	});
+	
+	$('modal-bootstrap').addEvent('click',function(e){
+		var modal = new MercorModal.Iframe({
+			'id': 'mercor-modal-custom',
+			'title': '<h3>Bootstrap Modal</h3>',
+			'classes': 'modal',
+			'template':'<div class="close mercor-close" title="Close"></div>'
+				+'<div class="modal-header mercor-header"></div>'
+				+'<div class="modal-body mercor-body"></div>'
+				+'<div class="modal-footer mercor-footer"></div>',
+			'styles': {
+				'margin' : 0
+			},
+			'iframe':{
+				'link':'http://google.com'
+			},
+			'footer': {
+				'height': 62
+			},
+			'header': {
+				'height': 46
+			},
+			'buttons':[{ html: 'Close', styles: {}, classes: 'btn btn-primary', event: function() { this.close(); }}]
 		});
 		modal.open();
 		e.stop();

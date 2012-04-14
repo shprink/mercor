@@ -83,10 +83,15 @@ var MercorModal = new Class({
 				'background': '#fff'
 			}
 		},
+		'header': {
+			'height': 40,
+			'styles': {}
+		},
 		'content': {
 			'styles': {}
 		},
 		'footer': {
+			'height': 46,
 			'styles': {
 				'text-align': 'left'
 			}
@@ -96,6 +101,7 @@ var MercorModal = new Class({
 		    'transition': 'linear'
 		},
 		'id': 'mercor-modal',
+		'classes': '',
 		'styles': {
 			'width' : 800,
 			'height' : 500,
@@ -170,6 +176,7 @@ var MercorModal = new Class({
 	_injectNode: function(){
 		this.node = new Element('div',{
 			'id': this.options.id,
+			'class': this.options.classes,
 			'html': this.options.template,
 			'styles' : this.options.styles
 		});
@@ -193,6 +200,7 @@ var MercorModal = new Class({
 		Array.each(this.options.buttons, function(button, index){
 			new Element( (button.element || 'button'), {
 				'html' :  (button.html || 'button'),
+				'class' : button.classes,
 				'styles': button.styles,
 				'events':{
 					'click': button.event.bind(this)
@@ -256,14 +264,15 @@ var MercorModal = new Class({
 		});
 		this.footer.setStyles(this.options.footer.styles);	
 		if (this.options.draggable && !this.options.fullScreen.active) this._drag();
-
+		this.body.setStyle('margin-top', this.options.header.height);
 		// TODO Find another way to handle footer
 		if (this.options.buttons.length > 0){
-			this.body.setStyle('margin-bottom', 46);
+			this.body.setStyle('margin-bottom', this.options.footer.height);
 			this._injectButtons();
 		}
 		else{
 			this.footer.destroy();
+			
 			this.body.setStyle('margin-bottom', 5);
 		}
 		this.fade = new Fx.Morph(this.node, {
@@ -491,7 +500,6 @@ MercorModal.Request = new Class({
 	}
 
 });
-
 window.addEvent('domready',function(){
 	$$('[mercor-modal]').each(function(button){
 		var options = JSON.decode(button.get('mercor-modal'));
