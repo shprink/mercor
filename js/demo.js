@@ -65,9 +65,11 @@ window.addEvent('domready',function(){
 
 	$('modal-footer').addEvent('click',function(e){
 		var modal = new MercorModal({
-			'styles': {
-				'width' : 400,
-				'height' : 200
+			'node': {
+				'styles': {
+					'width' : 400,
+					'height' : 200
+				}
 			},
 			'title': 'My Modal with footer',
 			'html': '<p>My HTML content</p>',
@@ -76,39 +78,43 @@ window.addEvent('domready',function(){
 		modal.open();
 		e.stop();
 	});
+	$('modal-footer-bootstrap').addEvent('click',function(e){
+		var modal = new MercorModal({
+			'bootstrap': {
+				'active': true
+			},
+			'node': {
+				'styles': {
+					'width' : 400,
+					'height' : 200
+				}
+			},
+			'title': '<h3>My Modal with footer</h3>',
+			'html': '<p>My HTML content</p>',
+			'buttons':[{ html: 'Close', styles: {}, classes: 'btn btn-primary', event: function() { this.close(); }}]
+		});
+		modal.open();
+		e.stop();
+	});
 
 	$('modal-iframe').addEvent('click',function(e){
 		var modal = new MercorModal.Iframe({
 			'iframe':{
-				'link':'http://google.com'
+				'url':'http://google.com'
 			}
 		});
 		modal.open();
 		e.stop();
 	});
 	
-	$('modal-bootstrap').addEvent('click',function(e){
+	$('modal-iframe-bootstrap').addEvent('click',function(e){
 		var modal = new MercorModal.Iframe({
-			'id': 'mercor-modal-custom',
-			'title': '<h3>Bootstrap Modal</h3>',
-			'classes': 'modal',
-			'template':'<div class="close mercor-close" title="Close"></div>'
-				+'<div class="modal-header mercor-header"></div>'
-				+'<div class="modal-body mercor-body"></div>'
-				+'<div class="modal-footer mercor-footer"></div>',
-			'styles': {
-				'margin' : 0
+			'bootstrap': {
+				'active': true
 			},
 			'iframe':{
-				'link':'http://google.com'
-			},
-			'footer': {
-				'height': 62
-			},
-			'header': {
-				'height': 46
-			},
-			'buttons':[{ html: 'Close', styles: {}, classes: 'btn btn-primary', event: function() { this.close(); }}]
+				'url':'http://google.com'
+			}
 		});
 		modal.open();
 		e.stop();
@@ -120,7 +126,7 @@ window.addEvent('domready',function(){
 				'active': true
 			},
 			'iframe':{
-				'link':'http://google.com'
+				'url':'http://google.com'
 			},
 			'overlay': {
 				'styles': {
@@ -129,6 +135,29 @@ window.addEvent('domready',function(){
 			},
 			'buttons':[{ html: 'Close', styles: {}, event: function() { this.close(); }},
 			           { html: 'Do not click me', styles: {}, event: function() { alert('I told you not to!'); }}]
+		});
+		modal.open();
+		e.stop();
+	});
+	
+	$('modal-custom-bootstrap').addEvent('click',function(e){
+		var modal = new MercorModal.Iframe({
+			'bootstrap': {
+				'active': true
+			},
+			'fullScreen': {
+				'active': true
+			},
+			'iframe':{
+				'url':'http://baidu.com'
+			},
+			'overlay': {
+				'styles': {
+					'background': 'red'
+				}
+			},
+			'buttons':[{ html: 'Close', styles: {}, classes: 'btn btn-primary', event: function() { this.close(); }},
+			           { html: 'Do not click me', styles: {}, classes: 'btn btn-danger', event: function() { alert('I told you not to!'); }}]
 		});
 		modal.open();
 		e.stop();
@@ -144,6 +173,32 @@ window.addEvent('domready',function(){
 					button.setStyle('width',300);
 				}
 			}
+		});
+		modal.open();
+		e.stop();
+	});
+	
+	$('modal-confirm-bootstrap').addEvent('click',function(e){
+		var button = this;
+		var modal = new MercorModal.Confirm({
+			'bootstrap': {
+				'active': true
+			},
+			'node': {
+				'styles': {
+					'width' : 230,
+					'height' : 190
+				}
+			},
+			'title': '<h3>Confirm</h3>',
+			'html': 'Do you want to enlarge the button size?',
+			'confirm':{
+				'callback': function(){
+					button.setStyle('width',300);
+				}
+			},
+			'buttons':[{ html: 'Yes', styles: {}, classes: 'btn btn-primary', event: function() { this.options.confirm.callback(); this.close(); }},
+			           { html: 'No', styles: {}, classes: 'btn', event: function() { this.close(); }}]
 		});
 		modal.open();
 		e.stop();

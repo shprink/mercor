@@ -81,7 +81,12 @@
 						<div class="list-inline">
 							<ul>
 								<li><img class="thumbnail" src="img/icon_drag.png"/></li>
+								<li><img class="thumbnail" src="img/icon_expand.png"/></li>
+								<li><img class="thumbnail" src="img/icon_keyboard.png"/></li>
 								<li><img class="thumbnail" src="img/icon_customizable.png"/></li>
+								<li><img class="thumbnail" src="img/icon_confirm.png"/></li>
+								<li><img class="thumbnail" src="img/icon_iframe.png"/></li>
+								<li><img class="thumbnail" src="img/icon_ajax.png"/></li>
 							</ul>
 						</div>
 						<h3>Browser Compatibility <a class="btn btn-danger btn-mini" target="_blank" href="https://github.com/shprink/mercor-modal/issues">Found a bug?</a></h3>
@@ -100,6 +105,33 @@
 							<h3>Bootstrap compatible!</h3>
 							<p>Mercor Library supports the fabulous <a href="http://twitter.github.com/bootstrap" target="_blank">Bootstrap</a> framework.</p>
 							<button id="modal-bootstrap" href="#" class="btn">Demo</button>
+							<hr/>
+							<pre class="prettyprint linenums"><code class="language-js">$('modal-bootstrap').addEvent('click',function(e){
+var modal = new MercorModal.Iframe({
+'id': 'mercor-modal-custom',
+'title': '&lt;h3&gt;Bootstrap Modal&lt;/h3&gt;',
+'classes': 'modal',
+'template':&#039;&lt;div class=&quot;close mercor-close&quot; title=&quot;Close&quot;&gt;&lt;/div&gt;&#039;
+	+&#039;&lt;div class=&quot;modal-header mercor-header&quot;&gt;&lt;/div&gt;&#039;
+	+&#039;&lt;div class=&quot;modal-body mercor-body&quot;&gt;&lt;/div&gt;&#039;
+	+&#039;&lt;div class=&quot;modal-footer mercor-footer&quot;&gt;&lt;/div&gt;&#039;,
+'styles': {
+	'margin' : 0
+},
+'iframe':{
+	'link':'http://google.com'
+},
+'footer': {
+	'height': 62
+},
+'header': {
+	'height': 46
+},
+'buttons':[{ html: 'Close', styles: {}, classes: 'btn btn-primary', event: function() { this.close(); }}]
+});
+modal.open();
+e.stop();
+});</code></pre>
 						</div>
 					</div>
 				</div>
@@ -110,15 +142,17 @@
 						<h3><span class="label label-success">Beginner</span> No need to know JavaScript!</h3>
 						<p>Define your option in the 'mercor-modal' parameter to create your Modal.</p>
 						<p>Worried about the way your source code look? No worries the 'mercor-modal' parameter is destroy after use.</p>
-						<button mercor-modal="{'styles': {'width' : 200,'height' : 200}}" href="#" class="btn">Demo</button>
+						<button mercor-modal="{'node':{'styles': {'width' : 200,'height' : 200}}}" href="#" class="btn">Demo</button>
+						<button mercor-modal="{'bootstrap': {'active': true},'node':{'styles': {'width' : 200,'height' : 200}}}" href="#" class="btn btn-primary">Bootstrap compatible</button>
 						<hr/>
-<pre class="prettyprint linenums"><code>&lt;button mercor-modal=&quot;{&#039;styles&#039;: {&#039;width&#039; : 200,&#039;height&#039; : 200}}&quot; href=&quot;#&quot; class=&quot;btn&quot;&gt;Demo&lt;/button&gt;
+<pre class="prettyprint linenums"><code>&lt;button mercor-modal=&quot;{&#039;node&#039;:{&#039;styles&#039;: {&#039;width&#039; : 200,&#039;height&#039; : 200}}}&quot; href=&quot;#&quot; class=&quot;btn&quot;&gt;Demo&lt;/button&gt;
 </code></pre>
 					</div>
 					<div class="span4">
 						<h3><span class="label label-warning">Intermediate</span> Open a Confirm Box</h3>
 						<p>You might want to ask users permission before to do nasty stuff!</p>
 						<button id="modal-confirm" href="#" class="btn">Demo</button>
+						<button id="modal-confirm-bootstrap" href="#" class="btn btn-primary">Bootstrap compatible</button>
 						<hr/>
 <pre class="prettyprint linenums"><code class="language-js">$('modal-confirm').addEvent('click',function(e){
 var button = this;
@@ -139,6 +173,7 @@ e.stop();
 						<h3><span class="label label-warning">Intermediate</span> Add a button</h3>
 						<p>Adding buttons as never been that easy! </p>
 						<button id="modal-footer" href="#" class="btn">Demo</button>
+						<button id="modal-footer-bootstrap" href="#" class="btn btn-primary">Bootstrap compatible</button>
 						<hr/>
 <pre class="prettyprint linenums"><code class="language-js">$('modal-footer').addEvent('click',function(e){
 var modal = new MercorModal({
@@ -162,6 +197,7 @@ e.stop();
 						<h3><span class="label label-warning">Intermediate</span> Open an Iframe</h3>
 						<p>Success messages are great to let users know about a form successfully sent.</p>
 						<button id="modal-iframe" href="#" class="btn">Demo</button>
+						<button id="modal-iframe-bootstrap" href="#" class="btn btn-primary">Bootstrap compatible</button>
 						<hr/>
 <pre class="prettyprint linenums"><code class="language-js">$('modal-iframe').addEvent('click',function(e){
 var modal = new MercorModal.Iframe({
@@ -177,6 +213,7 @@ e.stop();
 						<h3><span class="label label-warning">Intermediate</span> Create a UNIQUE Modal !</h3>
 						<p>Bored of cummun designs? Want to create a unique Modal? It is as easy as the below code. You can easily load an Iframe within a Fullscreen modal with a red Overlay and some buttons.</p>
 						<button id="modal-custom" href="#" class="btn">Demo</button>
+						<button id="modal-custom-bootstrap" href="#" class="btn btn-primary">Bootstrap compatible</button>
 						<hr/>
 <pre class="prettyprint linenums"><code class="language-js">$('modal-custom').addEvent('click',function(e){
 var modal = new MercorModal.Iframe({
@@ -277,20 +314,38 @@ e.stop();
 					<div class="span4">
 						<h3>Create a Success message</h3>
 						<p>Success messages are great to let users know about a form successfully sent.</p>
-						<button id="tip1" href="#" class="btn">Demo</button>
-						<hr/>
+						<div class="tooltip-demo well">
+				            <p class="muted">
+				            	Tight pants next level keffiyeh <a rel="tooltip" href="#" data-original-title="first tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a rel="tooltip" href="#" data-original-title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A <a rel="tooltip" href="#" data-original-title="Another one here too">really ironic</a> artisan whatever keytar, scenester farm-to-table banksy Austin <a rel="tooltip" href="#" data-original-title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
+				            </p>
+			          	</div>
+			          	<hr/>
+<pre class="prettyprint linenums"><code>&lt;button mercor-modal=&quot;{&#039;styles&#039;: {&#039;width&#039; : 200,&#039;height&#039; : 200}}&quot; href=&quot;#&quot; class=&quot;btn&quot;&gt;Demo&lt;/button&gt;
+</code></pre>
 					</div>
 					<div class="span4">
 						<h3>Create a Notice message</h3>
 						<p>Success messages are great to let users know about a form successfully sent.</p>
-						<button id="tip2" href="#" class="btn">Demo</button>
-						<hr/>
+						<div class="tooltip-demo well">
+				            <p class="muted">
+				            	Tight pants next level keffiyeh <a rel="tooltip" href="#" data-original-title="first tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a rel="tooltip" href="#" data-original-title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A <a rel="tooltip" href="#" data-original-title="Another one here too">really ironic</a> artisan whatever keytar, scenester farm-to-table banksy Austin <a rel="tooltip" href="#" data-original-title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
+				            </p>
+			          	</div>
+			          	<hr/>
+<pre class="prettyprint linenums"><code>&lt;button mercor-modal=&quot;{&#039;styles&#039;: {&#039;width&#039; : 200,&#039;height&#039; : 200}}&quot; href=&quot;#&quot; class=&quot;btn&quot;&gt;Demo&lt;/button&gt;
+</code></pre>
 					</div>
 					<div class="span4">
 						<h3>Load Anything</h3>
 						<p></p>
-						<button id="tip3" href="#" class="btn">Demo</button>
-						<hr/>
+						<div class="tooltip-demo well">
+				            <p class="muted">
+				            	Tight pants next level keffiyeh <a rel="tooltip" href="#" data-original-title="first tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a rel="tooltip" href="#" data-original-title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A <a rel="tooltip" href="#" data-original-title="Another one here too">really ironic</a> artisan whatever keytar, scenester farm-to-table banksy Austin <a rel="tooltip" href="#" data-original-title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
+				            </p>
+			          	</div>
+			          	<hr/>
+<pre class="prettyprint linenums"><code>&lt;button mercor-modal=&quot;{&#039;styles&#039;: {&#039;width&#039; : 200,&#039;height&#039; : 200}}&quot; href=&quot;#&quot; class=&quot;btn&quot;&gt;Demo&lt;/button&gt;
+</code></pre>
 					</div>
 				</div>
 			</section>
