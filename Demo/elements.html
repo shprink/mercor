@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mercor Library - Open Source library based on Mootools</title>
+<!-- Include Bootstrap css -->
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"
+	media="screen">
+<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="css/more.css">
+<link rel="stylesheet" href="../Source/CSS/Mercor.Alert.css">
+<link rel="stylesheet" href="../Source/CSS/Mercor.Modal.css">
+<link href="css/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/prettify.js"></script>
+<script type="text/javascript"
+	src="js/mootools-core-1.4.1-full-nocompat.js"></script>
+<script type="text/javascript" src="js/mootools-more-1.4.0.1.js"></script>
+<link rel="stylesheet" href="css/mercor.css" type="text/css"
+	media="screen">
+<script src="js/mercor.js" type="text/javascript"></script>
+<script src="js/demo.js" type="text/javascript"></script>
+</head>
+<body onload="prettyPrint()">
+	<div class="container">
+		<section id="modal" class="first">
+		<div class="page-header">
+			<h1>Modal</h1>
+		</div>
+		<div class="row">
+			<div class="span6">
+				<div style="background-color: #888; border: none;" class="well">
+					<div id="mercor-modal" style="position: relative;">
+						<div class="mercor-outer">
+							<div class="mercor-inner">
+								<div class="mercor-header">
+									<button class="mercor-close" title="Close">x</button>
+									<h1>Header</h1>
+								</div>
+								<div class="mercor-body">Body</div>
+								<div class="mercor-footer">Footer</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="span6">...</div>
+		</div>
+		</section>
+		<section id="tip" class="first">
+		<div class="page-header">
+			<h1>Tip</h1>
+		</div>
+		<div class="row"></div>
+		</section>
+		<section id="alert" class="first">
+		<div class="page-header">
+			<h1>Alert</h1>
+		</div>
+		<h2>Success</h2>
+		<div class="row">
+			<div class="span6">
+				<div style="background-color: #888; border: none;" class="well">
+					<div id="mercor-alert-container" style="position: relative;">
+						<div class="mercor-alert success">
+							<div class="mercor-inner">
+								<div class="mercor-close" title="Close"></div>
+								<div class="mercor-title">{TITLE}</div>
+								<div class="mercor-text">{TEXT}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="span6"></div>
+		</div>
+		<h2>Notice</h2>
+		<div class="row">
+			<div class="span6">
+
+				<div style="background-color: #888; border: none;" class="well">
+					<div id="mercor-alert-container" style="position: relative;">
+						<div class="mercor-alert notice">
+							<div class="mercor-inner">
+								<div class="mercor-close" title="Close"></div>
+								<div class="mercor-title">{TITLE}</div>
+								<div class="mercor-text">{TEXT}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="span6"></div>
+		</div>
+		<h2>Error</h2>
+		<div class="row">
+			<div class="span6">
+				<div style="background-color: #888; border: none;" class="well">
+					<div id="mercor-alert-container" style="position: relative;">
+						<div class="mercor-alert error">
+							<div class="mercor-inner">
+								<div class="mercor-close" title="Close"></div>
+								<div class="mercor-title">{TITLE}</div>
+								<div class="mercor-text">{TEXT}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="span6"></div>
+		</div>
+		</section>
+		<section id="slideshow" class="first">
+		<div class="page-header">
+			<h1>Slideshow</h1>
+		</div>
+		<div class="row"></div>
+		</section>
+	</div>
+</body>
+</html>
