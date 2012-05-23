@@ -1,0 +1,138 @@
+/*
+---
+
+name: MercorAlert
+
+version: 1.0
+
+description: A lightweight Mootools Class that provides alerts
+
+authors: Julien Renaux
+
+repository: https://github.com/shprink/mercor-alert
+
+license: MIT
+
+Copyright (c) 2012 Julien Renaux <contact@julienrenaux.fr>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+...
+*/
+
+@CHARSET "UTF-8";
+
+#mercor-modal{
+	font-family: Arial,Verdana,sans-serif;
+	border: 1px solid #FFF;
+	background-color: white;
+	color:#000;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    background: rgb(255,255,255); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(229,229,229,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-8 */
+}
+
+#mercor-modal .mercor-header{
+	-moz-border-radius: 5px 5px 0px 0px;
+	-webkit-border-radius: 5px 5px 0px 0px;
+	border-radius: 5px 5px 0px 0px;
+	padding: 5px;
+	border-bottom: 1px solid #FFF;
+	margin-bottom: 5px;
+	background: rgb(229,229,229); /* Old browsers */
+	background: rgb(229,229,229); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(229,229,229,1) 1%, rgba(206,206,206,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(229,229,229,1)), color-stop(100%,rgba(206,206,206,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(229,229,229,1) 1%,rgba(206,206,206,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(229,229,229,1) 1%,rgba(206,206,206,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(229,229,229,1) 1%,rgba(206,206,206,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(229,229,229,1) 1%,rgba(206,206,206,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#cecece',GradientType=0 ); /* IE6-8 */
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+	font-size: 1.2em;
+    line-height: 1.25;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+#mercor-modal .mercor-inner{
+	padding: 5px;	
+}
+
+#mercor-modal .mercor-body{
+	font-size: 13px;
+}	
+
+#mercor-modal .mercor-footer{
+	padding: 5px;
+	border-top: 1px solid #CCC;
+	margin-top: 5px;
+}
+
+#mercor-modal .mercor-close,
+#mercor-modal-custom .mercor-close{
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	background-image: url("../img/close.png"); /* http://www.gentleface.com */
+	opacity: 0.5;
+	cursor: pointer;
+}
+#mercor-modal .mercor-close:hover,
+#mercor-modal-custom .mercor-close:hover{
+	opacity: 1;
+}
+
+#mercor-modal .spinner-msg,
+#mercor-modal-custom .spinner-msg{
+	text-align: center;
+	font-weight: bold;
+}
+
+#mercor-modal .spinner-img,
+#mercor-modal .error-img,.error-img,
+#mercor-modal-custom .spinner-img, 
+#mercor-modal-custom .error-img{
+	width: 24px;
+	height: 24px;
+	margin: 0 auto;
+}
+
+#mercor-modal .spinner-img,
+#mercor-modal-custom .spinner-img{
+	background: url(../img/spinner.gif) no-repeat;
+}
+
+#mercor-modal .error-img,
+#mercor-modal-custom .error-img{
+	background: url(../img/error.png) no-repeat;
+}
