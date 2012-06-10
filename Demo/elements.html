@@ -8,7 +8,7 @@
 	media="screen">
 <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
 <link rel="stylesheet" href="css/more.css">
-<link rel="stylesheet" href="../Source/CSS/Mercor.css">
+<link rel="stylesheet" href="../Source/CSS/Mercor.Element.css">
 <link rel="stylesheet" href="../Source/CSS/Mercor.Alert.css">
 <link rel="stylesheet" href="../Source/CSS/Mercor.Tip.css">
 <link rel="stylesheet" href="../Source/CSS/Mercor.Modal.css">
@@ -22,20 +22,22 @@
 		<div class="page-header">
 			<h1>Modal</h1>
 		</div>
+		<h3>Default style</h3>
 		<div class="row">
 			<div class="span6">
 				<div style="background-color: #888; border: none;" class="well">
 
 					<!-- Modal -->
-					<div class="mercor-modal" style="position: relative;">
-						<div class="mercor-modal-outer">
-							<div class="mercor-modal-inner">
-								<button class="mercor-modal-close" title="Close">x</button>
-								<div class="mercor-modal-header">
-									<h3>Title</h3>
+					<div class="mercor-element mercor-modal"
+						style="position: relative;">
+						<div class="mercor-outer">
+							<div class="mercor-inner">
+								<button class="mercor-close" title="Close">x</button>
+								<div class="mercor-header">
+									<h3 class="mercor-header-title">{HEADER}</h3>
 								</div>
-								<div class="mercor-modal-body">Body</div>
-								<div class="mercor-modal-footer">Footer</div>
+								<div class="mercor-body">{BODY}</div>
+								<div class="mercor-footer">{FOOTER}</div>
 							</div>
 						</div>
 					</div>
@@ -44,17 +46,57 @@
 				</div>
 			</div>
 			<div class="span6">
-<pre class="prettyprint linenums"><code>&lt;div class=&quot;mercor-modal&quot;&gt;
-	&lt;div class=&quot;mercor-modal-outer&quot;&gt;
-		&lt;div class=&quot;mercor-modal-inner&quot;&gt;
-			&lt;button class=&quot;mercor-modal-close&quot; title=&quot;Close&quot;&gt;x&lt;/button&gt;
-			&lt;div class=&quot;mercor-modal-header&quot;&gt;
-				&lt;h3&gt;Title&lt;/h3&gt;
+				<pre class="prettyprint linenums">
+<code>&lt;div class=&quot;mercor-element mercor-modal&quot;&gt;
+	&lt;div class=&quot;mercor-outer&quot;&gt;
+		&lt;div class=&quot;mercor-inner&quot;&gt;
+			&lt;button class=&quot;mercor-close&quot; title=&quot;Close&quot;&gt;x&lt;/button&gt;
+			&lt;div class=&quot;mercor-header&quot;&gt;
+				&lt;h3 class=&quot;mercor-header-title&quot;&gt;{HEADER}&lt;/h3&gt;
 			&lt;/div&gt;
-			&lt;div class=&quot;mercor-modal-body&quot;&gt;Body&lt;/div&gt;
-			&lt;div class=&quot;mercor-modal-footer&quot;&gt;Footer&lt;/div&gt;
+			&lt;div class=&quot;mercor-body&quot;&gt;{BODY}&lt;/div&gt;
+			&lt;div class=&quot;mercor-footer&quot;&gt;{FOOTER}&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+		<h3>
+			Bootstrap style <small><a
+				href="http://twitter.github.com/bootstrap" target="_blank">Bootstrap</a>,
+				from Twitter</small>
+		</h3>
+		<div class="row">
+			<div class="span6">
+				<div style="background-color: #888; border: none;" class="well">
+
+					<!-- Modal -->
+					<div class="mercor-bootstrap-element mercor-bootstrap-modal modal"
+						style="position: relative; top: auto; left: auto; margin: 0 auto; z-index: 1; max-width: 100%;">
+						<div class="mercor-header modal-header">
+							<button class="mercor-close close" type="button">×</button>
+							<h3 class="mercor-header-title">{HEADER}</h3>
+						</div>
+						<div class="mercor-body modal-body">
+							<p>{BODY}</p>
+						</div>
+						<div class="mercor-footer modal-footer">{FOOTER}</div>
+					</div>
+					<!-- Modal -->
+
+				</div>
+			</div>
+			<div class="span6">
+				<pre class="prettyprint linenums">
+<code>&lt;div class=&quot;mercor-bootstrap-element mercor-bootstrap-modal modal&quot;&gt;
+	&lt;div class=&quot;mercor-header modal-header&quot;&gt;
+		&lt;button class=&quot;mercor-close close&quot; type=&quot;button&quot;&gt;x&lt;/button&gt;
+		&lt;h3 class=&quot;mercor-header-title&quot;&gt;{HEADER}&lt;/h3&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;mercor-body modal-body&quot;&gt;
+		&lt;p&gt;{BODY}&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;mercor-footer modal-footer&quot;&gt;{FOOTER}&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 			</div>
@@ -65,16 +107,18 @@
 			<h1>Tip</h1>
 		</div>
 		<h2>Simple</h2>
+		<h3>Default style</h3>
 		<div class="row">
 			<div class="span6">
 				<div style="background-color: #888; border: none;" class="well">
 
 					<!-- Tip -->
-					<div class="mercor-tip" style="position: relative;">
-						<div class="mercor-tip-outer">
-							<div class="mercor-tip-inner">
-								<div class="mercor-tip-header">
-									<h3>Title</h3>
+					<div class="mercor-element mercor-tip arrow-top" style="position: relative;">
+						<div class="mercor-arrow"></div>
+						<div class="mercor-outer">
+							<div class="mercor-inner">
+								<div class="mercor-body">
+									{BODY}
 								</div>
 							</div>
 						</div>
@@ -84,32 +128,64 @@
 				</div>
 			</div>
 			<div class="span6">
-<pre class="prettyprint linenums"><code>&lt;div class=&quot;mercor-tip&quot;&gt;
-	&lt;div class=&quot;mercor-tip-outer&quot;&gt;
-		&lt;div class=&quot;mercor-tip-inner&quot;&gt;
-			&lt;div class=&quot;mercor-tip-header&quot;&gt;
-				&lt;h3&gt;Title&lt;/h3&gt;
+				<pre class="prettyprint linenums">
+<code>&lt;div class=&quot;mercor-element mercor-tip&quot;&gt;
+	&lt;div class=&quot;mercor-arrow&quot;&gt;&lt;/div&gt;
+	&lt;div class=&quot;mercor-outer&quot;&gt;
+		&lt;div class=&quot;mercor-inner&quot;&gt;
+			&lt;div class=&quot;mercor-body&quot;&gt;
+				{BODY}
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
+		<h3>
+			Bootstrap style <small><a
+				href="http://twitter.github.com/bootstrap" target="_blank">Bootstrap</a>,
+				from Twitter</small>
+		</h3>
+		<div class="row">
+			<div class="span6">
+				<div style="background-color: #888; border: none;" class="well">
+
+					<!-- Tip -->
+					<div
+						class="mercor-bootstrap-element mercor-bootstrap-tip tooltip tade top in"
+						style="position: relative;">
+						<div class="tooltip-arrow"></div>
+						<div class="tooltip-inner" style="max-width: none;">{BODY}</div>
+					</div>
+					<!-- Tip -->
+
+				</div>
+			</div>
+			<div class="span6">
+				<pre class="prettyprint linenums">
+<code>&lt;div class=&quot;mercor-bootstrap-element mercor-bootstrap-tip tooltip&quot;&gt;
+	&lt;div class=&quot;tooltip-arrow&quot;&gt;&lt;/div&gt;
+	&lt;div class=&quot;tooltip-inner&quot; style=&quot;max-width: none;&quot;&gt;{BODY}&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
 		<h2>Complexe</h2>
+		<h3>Default style</h3>
 		<div class="row">
 			<div class="span6">
 				<div style="background-color: #888; border: none;" class="well">
 
 					<!-- Tip Complexe -->
-					<div class="mercor-tip-complexe" style="position: relative;">
-						<div class="mercor-tip-complexe-outer">
-							<div class="mercor-tip-complexe-inner">
-								<button class="mercor-tip-complexe-close" title="Close">x</button>
-								<div class="mercor-tip-complexe-header">
-									<h3>Title</h3>
+					<div class="mercor-element mercor-tip-complexe arrow-top"
+						style="position: relative;">
+						<div class="mercor-arrow"></div>
+						<div class="mercor-outer">
+							<div class="mercor-inner">
+								<button class="mercor-close" title="Close">x</button>
+								<div class="mercor-header">
+									<h3>{HEADER}</h3>
 								</div>
-								<div class="mercor-tip-complexe-body">Body</div>
-								<div class="mercor-tip-complexe-footer">Footer</div>
+								<div class="mercor-body">{BODY}</div>
 							</div>
 						</div>
 					</div>
@@ -118,15 +194,57 @@
 				</div>
 			</div>
 			<div class="span6">
-<pre class="prettyprint linenums"><code>&lt;div class=&quot;mercor-tip-complexe&quot;&gt;
-	&lt;div class=&quot;mercor-tip-complexe-outer&quot;&gt;
-		&lt;div class=&quot;mercor-tip-complexe-inner&quot;&gt;
-			&lt;button class=&quot;mercor-tip-complexe-close&quot; title=&quot;Close&quot;&gt;x&lt;/button&gt;
-			&lt;div class=&quot;mercor-tip-complexe-header&quot;&gt;
-				&lt;h3&gt;Title&lt;/h3&gt;
+				<pre class="prettyprint linenums">
+<code>&lt;div class=&quot;mercor-element mercor-tip-complexe&quot;&gt;
+	&lt;div class=&quot;mercor-arrow&quot;&gt;&lt;/div&gt;
+	&lt;div class=&quot;mercor-outer&quot;&gt;
+		&lt;div class=&quot;mercor-inner&quot;&gt;
+			&lt;button class=&quot;mercor-close&quot; title=&quot;Close&quot;&gt;x&lt;/button&gt;
+			&lt;div class=&quot;mercor-header&quot;&gt;
+				&lt;h3&gt;{HEADER}&lt;/h3&gt;
 			&lt;/div&gt;
-			&lt;div class=&quot;mercor-tip-complexe-body&quot;&gt;Body&lt;/div&gt;
-			&lt;div class=&quot;mercor-tip-complexe-footer&quot;&gt;Footer&lt;/div&gt;
+			&lt;div class=&quot;mercor-body&quot;&gt;{BODY}&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+
+		<h3>
+			Bootstrap style <small><a
+				href="http://twitter.github.com/bootstrap" target="_blank">Bootstrap</a>,
+				from Twitter</small>
+		</h3>
+		<div class="row">
+			<div class="span6">
+				<div style="background-color: #888; border: none;" class="well">
+
+					<!-- Tip -->
+					<div
+						class="mercor-bootstrap-element mercor-bootstrap-tip-complexe popover fade top in"
+						style="position: relative; display: block;">
+						<div class="arrow"></div>
+						<div class="popover-inner" style="width: auto;">
+							<button class="mercor-close close" type="button">×</button>
+							<h3 class="mercor-header popover-title">{HEADER}</h3>
+							<div class="mercor-body popover-content">
+								<p>{BODY}</p>
+							</div>
+						</div>
+					</div>
+					<!-- Tip -->
+
+				</div>
+			</div>
+			<div class="span6">
+				<pre class="prettyprint linenums">
+<code>&lt;div class=&quot;mercor-bootstrap-element mercor-bootstrap-tip-complexe popover&quot;&gt;
+	&lt;div class=&quot;arrow&quot;&gt;&lt;/div&gt;
+	&lt;div class=&quot;popover-inner&quot; style=&quot;width: auto;&quot;&gt;
+		&lt;button class=&quot;mercor-close close&quot; type=&quot;button&quot;&gt;x&lt;/button&gt;
+		&lt;h3 class=&quot;mercor-header popover-title&quot;&gt;{HEADER}&lt;/h3&gt;
+		&lt;div class=&quot;mercor-body popover-content&quot;&gt;
+			&lt;p&gt;{BODY}&lt;/p&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -138,63 +256,86 @@
 			<h1>Alert</h1>
 		</div>
 		<h2>Success</h2>
+		<h3>Default style</h3>
 		<div class="row">
 			<div class="span6">
 				<div style="background-color: #888; border: none;" class="well">
-					
+
 					<!-- Alert -->
-					<div class="mercor-alert mercor-alert-success" style="position: relative;">
-						<div class="mercor-alert-outer">
-							<div class="mercor-alert-inner">
-								<button class="mercor-alert-close" title="Close">x</button>
-								<div class="mercor-alert-header">
-									<h3>Title</h3>
+					<div class="mercor-element mercor-alert mercor-alert-success"
+						style="position: relative;">
+						<div class="mercor-outer">
+							<div class="mercor-inner">
+								<button class="mercor-close" title="Close">x</button>
+								<div class="mercor-header">
+									<h3>{HEADER}</h3>
 								</div>
-								<div class="mercor-alert-body">Body</div>
+								<div class="mercor-body">{BODY}</div>
 							</div>
 						</div>
 					</div>
 					<!-- Alert -->
-					
+
 				</div>
 			</div>
 			<div class="span6">
-<pre class="prettyprint linenums"><code>&lt;div class=&quot;mercor-alert mercor-alert-success&quot;&gt;
-	&lt;div class=&quot;mercor-alert-outer&quot;&gt;
-		&lt;div class=&quot;mercor-alert-inner&quot;&gt;
-			&lt;button class=&quot;mercor-alert-close&quot; title=&quot;Close&quot;&gt;x&lt;/button&gt;
-			&lt;div class=&quot;mercor-alert-header&quot;&gt;
-				&lt;h3&gt;Title&lt;/h3&gt;
-			&lt;/div&gt;
-			&lt;div class=&quot;mercor-alert-body&quot;&gt;Body&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+				<pre class="prettyprint linenums">
+					<code></code>
+				</pre>
+			</div>
+		</div>
+		<h3>
+			Bootstrap style <small><a
+				href="http://twitter.github.com/bootstrap" target="_blank">Bootstrap</a>,
+				from Twitter</small>
+		</h3>
+		<div class="row">
+			<div class="span6">
+				<div style="background-color: #888; border: none;" class="well">
+
+					<!-- Alert -->
+					<div
+						class="mercor-bootstrap-element mercor-bootstrap-alert alert alert-success">
+						<button class="mercor-close close" type="button">×</button>
+						<strong class="mercor-header">{HEADER}</strong><span
+							class="mercor-body">{BODY}</span>
+					</div>
+					<!-- Alert -->
+
+				</div>
+			</div>
+			<div class="span6">
+				<pre class="prettyprint linenums">
+					<code></code>
+				</pre>
 			</div>
 		</div>
 		<h2>Notice</h2>
+		<h3>Default style</h3>
 		<div class="row">
 			<div class="span6">
 				<div style="background-color: #888; border: none;" class="well">
-					
+
 					<!-- Alert -->
-					<div class="mercor-alert mercor-alert-notice" style="position: relative;">
-						<div class="mercor-alert-outer">
-							<div class="mercor-alert-inner">
-								<button class="mercor-alert-close" title="Close">x</button>
-								<div class="mercor-alert-header">
+					<div class="mercor-element mercor-alert mercor-alert-notice"
+						style="position: relative;">
+						<div class="mercor-outer">
+							<div class="mercor-inner">
+								<button class="mercor-close" title="Close">x</button>
+								<div class="mercor-header">
 									<h3>Title</h3>
 								</div>
-								<div class="mercor-alert-body">Body</div>
+								<div class="mercor-body">Body</div>
 							</div>
 						</div>
 					</div>
 					<!-- Alert -->
-					
+
 				</div>
 			</div>
 			<div class="span6">
-<pre class="prettyprint linenums"><code>&lt;div class=&quot;mercor-alert mercor-alert-notice&quot;&gt;
+				<pre class="prettyprint linenums">
+					<code>&lt;div class=&quot;mercor-alert mercor-alert-notice&quot;&gt;
 	&lt;div class=&quot;mercor-alert-outer&quot;&gt;
 		&lt;div class=&quot;mercor-alert-inner&quot;&gt;
 			&lt;button class=&quot;mercor-alert-close&quot; title=&quot;Close&quot;&gt;x&lt;/button&gt;
@@ -204,32 +345,62 @@
 			&lt;div class=&quot;mercor-alert-body&quot;&gt;Body&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;</code>
+				</pre>
+			</div>
+		</div>
+		<h3>
+			Bootstrap style <small><a
+				href="http://twitter.github.com/bootstrap" target="_blank">Bootstrap</a>,
+				from Twitter</small>
+		</h3>
+		<div class="row">
+			<div class="span6">
+				<div style="background-color: #888; border: none;" class="well">
+
+					<!-- Alert -->
+					<div
+						class="mercor-bootstrap-element mercor-bootstrap-alert alert alert-info">
+						<button class="mercor-close close" type="button">×</button>
+						<strong class="mercor-header">{HEADER}</strong><span
+							class="mercor-body">{BODY}</span>
+					</div>
+					<!-- Alert -->
+
+				</div>
+			</div>
+			<div class="span6">
+				<pre class="prettyprint linenums">
+					<code></code>
+				</pre>
 			</div>
 		</div>
 		<h2>Error</h2>
+		<h3>Default style</h3>
 		<div class="row">
 			<div class="span6">
 				<div style="background-color: #888; border: none;" class="well">
-					
+
 					<!-- Alert -->
-					<div class="mercor-alert mercor-alert-error" style="position: relative;">
-						<div class="mercor-alert-outer">
-							<div class="mercor-alert-inner">
-								<button class="mercor-alert-close" title="Close">x</button>
-								<div class="mercor-alert-header">
+					<div class="mercor-element mercor-alert mercor-alert-error"
+						style="position: relative;">
+						<div class="mercor-outer">
+							<div class="mercor-inner">
+								<button class="mercor-close" title="Close">x</button>
+								<div class="mercor-header">
 									<h3>Title</h3>
 								</div>
-								<div class="mercor-alert-body">Body</div>
+								<div class="mercor-body">Body</div>
 							</div>
 						</div>
 					</div>
 					<!-- Alert -->
-					
+
 				</div>
 			</div>
 			<div class="span6">
-<pre class="prettyprint linenums"><code>&lt;div class=&quot;mercor-alert mercor-alert-error&quot;&gt;
+				<pre class="prettyprint linenums">
+					<code>&lt;div class=&quot;mercor-alert mercor-alert-error&quot;&gt;
 	&lt;div class=&quot;mercor-alert-outer&quot;&gt;
 		&lt;div class=&quot;mercor-alert-inner&quot;&gt;
 			&lt;button class=&quot;mercor-alert-close&quot; title=&quot;Close&quot;&gt;x&lt;/button&gt;
@@ -239,7 +410,33 @@
 			&lt;div class=&quot;mercor-alert-body&quot;&gt;Body&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;</code>
+				</pre>
+			</div>
+		</div>
+		<h3>
+			Bootstrap style <small><a
+				href="http://twitter.github.com/bootstrap" target="_blank">Bootstrap</a>,
+				from Twitter</small>
+		</h3>
+		<div class="row">
+			<div class="span6">
+				<div style="background-color: #888; border: none;" class="well">
+
+					<!-- Alert -->
+					<div
+						class="mercor-bootstrap-element mercor-bootstrap-alert alert alert-error">
+						<button class="mercor-close close" type="button">×</button>
+						<strong class="mercor-header">{HEADER}</strong><span
+							class="mercor-body">{BODY}</span>
+					</div>
+					<!-- Alert -->
+				</div>
+			</div>
+			<div class="span6">
+				<pre class="prettyprint linenums">
+					<code></code>
+				</pre>
 			</div>
 		</div>
 		</section>
@@ -247,32 +444,74 @@
 		<div class="page-header">
 			<h1>Slideshow</h1>
 		</div>
+		<h3>Default style</h3>
 		<div class="row">
 			<div class="span6">
 				<div style="background-color: #888; border: none;" class="well">
-					
+
 					<!-- Slideshow -->
-					<div class="mercor-slideshow" style="position: relative;">
-						<div class="mercor-slideshow-outer">
-							<div class="mercor-slideshow-inner">
-								<button class="mercor-slideshow-previous" title="Previous"><</button>
-								<button class="mercor-slideshow-next" title="Next">></button>
-								<div class="mercor-slideshow-header">
+					<div class="mercor-element mercor-slideshow"
+						style="position: relative;">
+						<div class="mercor-outer">
+							<div class="mercor-inner">
+								<button class="mercor-previous" title="Previous"><</button>
+								<button class="mercor-next" title="Next">></button>
+								<div class="mercor-header">
 									<h3>Title</h3>
 								</div>
-								<div class="mercor-slideshow-body">Body</div>
-								<div class="mercor-slideshow-footer">Footer</div>
+								<div class="mercor-body">Body</div>
+								<div class="mercor-footer">Footer</div>
 							</div>
 						</div>
 					</div>
 					<!-- Slideshow -->
-					
+
 				</div>
 			</div>
 			<div class="span6">
-<pre class="prettyprint linenums"><code>
+				<pre class="prettyprint linenums">
+					<code>
 
-</code></pre>
+</code>
+				</pre>
+			</div>
+		</div>
+		<h3>
+			Bootstrap style <small><a
+				href="http://twitter.github.com/bootstrap" target="_blank">Bootstrap</a>,
+				from Twitter</small>
+		</h3>
+		<div class="row">
+			<div class="span6">
+				<div style="background-color: #888; border: none;" class="well">
+
+					<!-- Caroussel -->
+					<div
+						class="mercor-bootstrap-element mercor-bootstrap-slideshow carousel slide"
+						style="position: relative;">
+						<div class="carousel-inner">
+							<div class="item active">
+								<img alt="" src="img/slideshow.jpg">
+								<div class="carousel-caption">
+									<h4>First Thumbnail label</h4>
+									<p>Cras justo odio, dapibus ac facilisis in, egestas eget
+										quam. Donec id elit non mi porta gravida at eget metus. Nullam
+										id dolor id nibh ultricies vehicula ut id elit.</p>
+								</div>
+							</div>
+						</div>
+						<a data-slide="prev" href="#myCarousel"
+							class="left carousel-control">‹</a> <a data-slide="next"
+							href="#myCarousel" class="right carousel-control">›</a>
+					</div>
+					<!-- Caroussel -->
+
+				</div>
+			</div>
+			<div class="span6">
+				<pre class="prettyprint linenums">
+					<code></code>
+				</pre>
 			</div>
 		</div>
 		</section>

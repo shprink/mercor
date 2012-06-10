@@ -1,0 +1,215 @@
+/*
+---
+
+name: Mercor
+
+version: 1.0
+
+description: CSS for Mercor
+
+authors: Julien Renaux
+
+repository: https://github.com/shprink/mercor
+
+license: MIT
+
+Copyright (c) 2012 Julien Renaux <contact@julienrenaux.fr>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+...
+*/
+@CHARSET "UTF-8";
+
+/* reset style within elements*/
+.mercor-element,.mercor-element>*,.mercor-element h1,.mercor-element h2,.mercor-element h3,.mercor-element h4,.mercor-element h5,.mercor-element h6
+	{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	vertical-align: baseline;
+}
+
+.mercor-element h1,.mercor-element h2,.mercor-element h3,.mercor-element h4,.mercor-element h5,.mercor-element h6
+	{
+	font-family: inherit;
+	font-weight: bold;
+	margin: 0;
+	text-rendering: optimizelegibility;
+}
+
+.mercor-element h1 {
+	font-size: 30px;
+	line-height: 36px;
+}
+
+.mercor-element h2 {
+	font-size: 24px;
+	line-height: 36px;
+}
+
+.mercor-element h3 {
+	font-size: 18px;
+	line-height: 27px;
+}
+
+.mercor-element h4 {
+	font-size: 14px;
+	line-height: 18px;
+}
+
+.mercor-element h5 {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.mercor-element h6 {
+	font-size: 11px;
+	line-height: 18px;
+}
+
+.mercor-element h6 {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.mercor-element {
+	
+}
+
+.mercor-element .mercor-outer,.mercor-element .mercor-inner {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.mercor-element .mercor-inner {
+	background-color: #FFF;
+}
+
+.mercor-element .mercor-outer {
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.mercor-element .mercor-header {
+	padding: 5px 10px;
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
+	background-color: #CCC;
+	background: rgb(247, 247, 247); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background:
+		url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlYWVhZWEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top, rgba(247, 247, 247, 1) 0%,
+		rgba(234, 234, 234, 1) 100% ); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(247,
+		247, 247, 1) ), color-stop(100%, rgba(234, 234, 234, 1) ) );
+	/* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(247, 247, 247, 1) 0%,
+		rgba(234, 234, 234, 1) 100% ); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(247, 247, 247, 1) 0%,
+		rgba(234, 234, 234, 1) 100% ); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(247, 247, 247, 1) 0%,
+		rgba(234, 234, 234, 1) 100% ); /* IE10+ */
+	background: linear-gradient(top, rgba(247, 247, 247, 1) 0%,
+		rgba(234, 234, 234, 1) 100% ); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient(  startColorstr='#f7f7f7',
+		endColorstr='#eaeaea', GradientType=0 ); /* IE6-8 */
+}
+
+.mercor-element .mercor-body {
+	padding: 10px;
+}
+
+.mercor-element .mercor-footer {
+	padding: 10px;
+}
+
+.mercor-element button.mercor-close {
+	background: none repeat scroll 0 0 transparent;
+	border: 0 none;
+	cursor: pointer;
+	padding: 0;
+}
+
+.mercor-element .mercor-close {
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	opacity: 0.6;
+	cursor: pointer;
+	color: #333;
+	font-size: 12px;
+	font-weight: bold;
+	text-shadow: 0 1px 0 #FFFFFF;
+	font-family: sans-serif;
+}
+
+.mercor-element .mercor-close:hover {
+	opacity: 1;
+}
+
+.mercor-arrow {
+	height: 0;
+	position: absolute;
+	width: 0;
+}
+
+.mercor-element.arrow-top .mercor-arrow {
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid #FFF;
+	bottom: -4px;
+	left: 50%;
+	margin-left: -5px;
+}
+
+.mercor-element.arrow-left .mercor-arrow {
+	border-bottom: 5px solid transparent;
+	border-left: 5px solid #FFF;
+	border-top: 5px solid transparent;
+	margin-top: -5px;
+	right: -4px;
+	top: 50%;
+}
+
+.mercor-element.arrow-bottom .mercor-arrow {
+	border-bottom: 5px solid #FFF;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	left: 50%;
+	margin-left: -5px;
+	top: -4px;
+}
+
+.mercor-element.arrow-right .mercor-arrow {
+	border-bottom: 5px solid transparent;
+	border-right: 5px solid #FFF;
+	border-top: 5px solid transparent;
+	left: -4px;
+	margin-top: -5px;
+	top: 50%;
+}

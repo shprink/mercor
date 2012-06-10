@@ -64,64 +64,16 @@ SOFTWARE.
 .mercor-alert {
 	color: #000;
 	margin-bottom: 10px;
-}display: block;
+display: block;
 	position: relative;
-
-#mercor-alert-container .mercor-title {
-	font-weight: bold;
-	font-size: 14px;
-	color: #333;
 }
-
-.mercor-alert .mercor-alert-body {
-	
+.mercor-element.mercor-alert .mercor-header{
+	background: transparent;
 }
-
-.mercor-alert .mercor-alert-close {
-	width: 16px;
-	height: 16px;
-	position: absolute;
-	top: 5px;
-	right: 5px;
-	opacity: 0.8;
-	cursor: pointer;
-	color: #333;
-    font-size: 16px;
-    font-weight: bold;
-    text-shadow: 0 1px 0 #FFFFFF;
+.mercor-element.mercor-alert .mercor-body {
+	padding: 5px 10px;
 }
-
-button.mercor-alert-close {
-    background: none repeat scroll 0 0 transparent;
-    border: 0 none;
-    cursor: pointer;
-    padding: 0;
-}
-
-.mercor-alert .mercor-alert-close:hover {
-	opacity: 1;
-}
-
-.mercor-alert .mercor-alert-outer {
-	display: block;
-	position: relative;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.mercor-alert .mercor-alert-outer,
-.mercor-alert .mercor-alert-inner {
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-}
-
-.mercor-alert .mercor-alert-inner {
-	padding: 5px;
-}
-
-.mercor-alert.mercor-alert-success .mercor-alert-inner{
+.mercor-element.mercor-alert-success .mercor-inner{
 	border: 1px solid #E8FC53;
 	background: #dbf043; /* Old browsers */
 	background: -moz-linear-gradient(top, #dbf043 0%, #c3d825 100%);
@@ -139,7 +91,7 @@ button.mercor-alert-close {
 		endColorstr='#c3d825', GradientType=0 ); /* IE6-9 */
 }
 
-.mercor-alert.mercor-alert-notice .mercor-alert-inner{
+.mercor-element.mercor-alert-notice .mercor-inner{
 	border: 1px solid #FFF98C;
 	background: #fff95b; /* Old browsers */
 	background: -moz-linear-gradient(top, #fff95b 0%, #ede100 100%);
@@ -157,7 +109,7 @@ button.mercor-alert-close {
 		endColorstr='#ede100', GradientType=0 ); /* IE6-9 */
 }
 
-.mercor-alert.mercor-alert-error .mercor-alert-inner{
+.mercor-element.mercor-alert-error .mercor-inner{
 	border: 1px solid #FF8944;
 	background: #ff8944; /* Old browsers */
 	background: -moz-linear-gradient(top, #ff8944 0%, #f25e0e 100%);

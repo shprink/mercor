@@ -20,3 +20,7 @@
 .sub-menu .nav{
 	margin-bottom: 0px;
 }
+
+code, pre {
+    font-size: 10px;
+}
