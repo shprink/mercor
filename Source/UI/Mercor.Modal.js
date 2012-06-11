@@ -207,28 +207,13 @@ Mercor.Modal = new Class({
 		this.left = (this.screen.x - this.options.node.styles.width) / 2;
 	},
 
-	_injectContainer: function(){
-		this.container = new Element('div',{
-			'id': this.options.container.id,
-			'class': this.options.container.position
-		}).inject(this.options.container.el || document.body,'bottom');
-	},
+	
 	
 	_injectOverlay: function(){
 		this.overlay = new Mask(this.options.overlay.el,{
 			id: this.options.overlay.id,
 			style: this.options.overlay.styles
 		});
-	},
-	
-	_injectNode: function(){
-		this.node = new Element('div',{
-			'id': this.options.node.id,
-			'class': this.options.node.classes,
-			'html': this.options.template,
-			'styles' : this.options.node.styles
-		});
-		this.node.inject(this.container);	
 	},
 	
 	_injectSpinner: function(){

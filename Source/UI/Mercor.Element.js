@@ -41,14 +41,23 @@ Mercor.Element = new Class({
 	Implements : [ Events, Options ],
 
 	options : {
+		container : {
+			element : 'div',
+			id : '',
+			classes : '',
+			styles : {}
+		},
 		node : {
 			element : 'div',
 			id : '',
 			classes : '',
-			template : {},
+			template : '',
 			styles : {}
 		}
 	},
+
+	// Hash Object that contains template elements'
+	template : {},
 
 	initialize : function(options) {
 		this.setOptions(options);
@@ -62,23 +71,28 @@ Mercor.Element = new Class({
 		this.template = new Hash();
 
 		// TODO return error message
-		if(this.node) return;
-		
+		if (this.node)
+			return;
+
 		// set the close button element
 		var close = this.node.getElement('.mercor-close');
-		if (typeOf(close) == 'element') this.template.set('close', close);
-		
+		if (typeOf(close) == 'element')
+			this.template.set('close', close);
+
 		// set the header element
 		var header = this.node.getElement('.mercor-header');
-		if (typeOf(header) == 'element') this.template.set('header', header);
-		
+		if (typeOf(header) == 'element')
+			this.template.set('header', header);
+
 		// set the body element
 		var body = this.node.getElement('.mercor-body');
-		if (typeOf(body) == 'element') this.template.set('body', body);
-		
+		if (typeOf(body) == 'element')
+			this.template.set('body', body);
+
 		// set the footer element
 		var footer = this.node.getElement('.mercor-footer');
-		if (typeOf(footer) == 'element') this.template.set('footer', footer);
+		if (typeOf(footer) == 'element')
+			this.template.set('footer', footer);
 	},
 
 	setNode : function() {
@@ -89,5 +103,19 @@ Mercor.Element = new Class({
 			'html' : this.options.node.template,
 			'styles' : this.options.node.styles
 		});
-	}
+	},
+
+	_injectNode : function() {
+		// if a container exist load the node inside it
+		// if not load directly the node in the document
+		this.node.inject(this.container || document.body, 'bottom');
+	},
+
+	_injectContainer : function() {
+		this.container = new Element(this.options.container.element, {
+			'id' : this.options.container.id,
+			'class' : this.options.node.classes,
+			'styles' : this.options.node.styles
+		}).inject(document.body, 'bottom');
+	},
 });
