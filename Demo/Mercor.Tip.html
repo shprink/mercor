@@ -9,11 +9,22 @@
 <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
 <link rel="stylesheet" href="../Source/CSS/Mercor.Element.css">
 <link rel="stylesheet" href="../Source/CSS/Mercor.Tip.css">
+<script type="text/javascript" src="js/mootools-core-1.4.1-full-nocompat.js"></script>
+<script type="text/javascript" src="js/mootools-more-1.4.0.1.js"></script>
 <script type="text/javascript" src="../Source/UI/Mercor.js"></script>
 <script type="text/javascript" src="../Source/UI/Mercor.Element.js"></script>
 <script type="text/javascript" src="../Source/UI/Mercor.Tip.js"></script>
 <link href="css/prettify.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/prettify.js"></script>
+<script type="text/javascript">
+window.addEvent('domready',function(){
+	var test = new Mercor.Tip($('test'),{
+		html:'test'
+	});
+	test.show();
+});
+
+</script>
 </head>
 <body onload="prettyPrint()">
 <div class="container">
@@ -25,9 +36,9 @@
 			<div class="span4">
 						<h3></h3>
 						<p></p>
-						<div class="tooltip-demo well">
+						<div id='test3' class="tooltip-demo well">
 				            <p class="muted">
-				            	Tight pants next level keffiyeh <a rel="tooltip" href="#" data-original-title="first tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a rel="tooltip" href="#" data-original-title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A <a rel="tooltip" href="#" data-original-title="Another one here too">really ironic</a> artisan whatever keytar, scenester farm-to-table banksy Austin <a rel="tooltip" href="#" data-original-title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
+				            	Tight pants next level keffiyeh <a id='test' rel="tooltip" href="#" data-original-title="first tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a rel="tooltip" href="#" data-original-title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A <a rel="tooltip" href="#" data-original-title="Another one here too">really ironic</a> artisan whatever keytar, scenester farm-to-table banksy Austin <a rel="tooltip" href="#" data-original-title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
 				            </p>
 			          	</div>
 					</div>

@@ -71,7 +71,7 @@ Mercor.Element = new Class({
 		this.template = new Hash();
 
 		// TODO return error message
-		if (this.node)
+		if (!this.node)
 			return;
 
 		// set the close button element
@@ -104,6 +104,17 @@ Mercor.Element = new Class({
 			'styles' : this.options.node.styles
 		});
 	},
+	
+	_setupNode: function(){
+		
+	},
+
+	_load : function() {
+		if (this.template.get('header'))
+			this.template.get('header').set('html', this.options.title);
+		this.template.get('body').set('html', this.options.html);
+		this.fireEvent('complete');
+	},
 
 	_injectNode : function() {
 		// if a container exist load the node inside it
@@ -118,4 +129,8 @@ Mercor.Element = new Class({
 			'styles' : this.options.node.styles
 		}).inject(document.body, 'bottom');
 	},
+	
+	close: function(){
+		this.fireEvent('close');
+	}
 });

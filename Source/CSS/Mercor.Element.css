@@ -92,7 +92,7 @@ SOFTWARE.
 }
 
 .mercor-element {
-	
+	position: relative;
 }
 
 .mercor-element .mercor-outer,.mercor-element .mercor-inner {
@@ -106,9 +106,9 @@ SOFTWARE.
 }
 
 .mercor-element .mercor-outer {
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
 
 .mercor-element .mercor-header {
@@ -178,11 +178,11 @@ SOFTWARE.
 	width: 0;
 }
 
-.mercor-element.arrow-top .mercor-arrow {
+.mercor-element.arrow-above .mercor-arrow {
 	border-left: 5px solid transparent;
 	border-right: 5px solid transparent;
 	border-top: 5px solid #FFF;
-	bottom: -4px;
+	bottom: -5px;
 	left: 50%;
 	margin-left: -5px;
 }
@@ -192,24 +192,24 @@ SOFTWARE.
 	border-left: 5px solid #FFF;
 	border-top: 5px solid transparent;
 	margin-top: -5px;
-	right: -4px;
+	right: -5px;
 	top: 50%;
 }
 
-.mercor-element.arrow-bottom .mercor-arrow {
+.mercor-element.arrow-below .mercor-arrow {
 	border-bottom: 5px solid #FFF;
 	border-left: 5px solid transparent;
 	border-right: 5px solid transparent;
 	left: 50%;
 	margin-left: -5px;
-	top: -4px;
+	top: -5px;
 }
 
 .mercor-element.arrow-right .mercor-arrow {
 	border-bottom: 5px solid transparent;
 	border-right: 5px solid #FFF;
 	border-top: 5px solid transparent;
-	left: -4px;
+	left: -5px;
 	margin-top: -5px;
 	top: 50%;
 }

@@ -47,28 +47,28 @@ Mercor.Tip = new Class({
 	Extends : Mercor.Element,
 
 	options : {
-		'location' : 'right', // left, right, above, below
-		'sticky' : false,
+		position : 'above', // left, right, above, below
+		sticky : false,
 		'html' : 'Empty',
+		offset: {x:0, y:0},
 		node : {
 			element : 'div',
 			id : 'mercor-tip-container',
 			classes : 'mercor-element mercor-tip',
-			template : '<div class="mercor-arrow"></div><div class="mercor-outer"><div class="mercor-inner"><button class="mercor-close close" type="button">×</button><div class="mercor-body"></div></div></div>',
+			template : '<div class="mercor-arrow"></div><div class="mercor-outer"><div class="mercor-inner"><button class="mercor-close close" title="Close" type="button">×</button><div class="mercor-body"></div></div></div>',
 			styles : {}
 		}
 	/* Events */
 	// onShow: function(){},
 	// onHide: function(){},
-	// onDestroy: function(){}
+	// onDestroy: function(){},
+	// onAttach: function(element){},
+	// onDetach: function(element){},
 	},
 
-	initialize : function(options) {
+	initialize : function(element, options) {
 		this.parent(options);
-	},
-
-	_injectNode : function() {
-		this.node.inject(this.container);
+		this.element = element;
 	},
 
 	_fadeIn : function() {
@@ -78,10 +78,44 @@ Mercor.Tip = new Class({
 	_fadeOut : function() {
 		this.fade.start(this.options.fade.stop);
 	},
+	
+	_setupNode: function(){
+		this.node.addClass('arrow-' + this.options.position);
+		
+	},
+	
+	_attach: function(){
 
-	show : function() {
 	},
 
-	destroy : function() {
+	_detach: function(){
+
+	},
+
+	show : function() {
+		this._setupNode();
+		this._load();
+		this._injectNode();		
+
+		// define basic position
+		this.position = new Hash();
+		this.position.set('above', {position: {x: 'center', y: 'top'}, edge: {x: 'center', y: 'bottom'}});
+		this.position.set('below', {position: {x: 'center', y: 'bottom'}, edge: {x: 'center', y: 'top'}});
+		this.position.set('left', {position: {x: 'center', y: 'left'}, edge: {x: 'center', y: 'right'}});
+		this.position.set('right', {position: {x: 'center', y: 'right'}, edge: {x: 'center', y: 'left'}});
+		
+		this.node.setStyle('width', 300);
+		// set position
+		this.node.position({
+			relativeTo: this.element,
+			position: this.position.get(this.options.position).position,
+			edge: this.position.get(this.options.position).edge,
+			offset: this.options.offset
+		}); 
+		this.fireEvent('show');
+	},
+
+	hide: function(){
+		this.fireEvent('hide');
 	}
 });

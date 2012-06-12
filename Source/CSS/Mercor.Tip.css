@@ -39,6 +39,15 @@ SOFTWARE.
 @CHARSET "UTF-8";
 
 .mercor-element.mercor-tip .mercor-body {
-	padding: 2px 5px;
+	padding: 2px 18px 2px 5px;
 	text-align: center;
+}
+
+.mercor-element.mercor-tip {
+	max-width: 300px;
+}
+
+.mercor-element.mercor-tip .mercor-close {
+	top: 1px;
+	right: 1px;
 }
