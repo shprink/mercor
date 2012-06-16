@@ -115,12 +115,21 @@ Mercor.Tip = new Class({
 			offset: (this.options.offset)? this.options.offset : this.position.get(this.options.position).offset
 		}); 
 	},
+	
+	_addEvents: function()
+	{
+		// re-set the node position
+		window.addEvent('resize',function(){
+			this._setPosition();
+		}.bind(this));
+	},
 
 	show : function() {
 		this._setupNode();
 		this._load();
 		this._injectNode();
 		this._setPosition();
+		this._addEvents();
 		this.fireEvent('show');
 	},
 
