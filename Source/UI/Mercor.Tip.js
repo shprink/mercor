@@ -50,7 +50,7 @@ Mercor.Tip = new Class({
 		position : 'above', // left, right, above, below
 		sticky : false,
 		'html' : 'Empty',
-		offset: {x:0, y:0},
+		offset: null, // {x:0, y:0}
 		node : {
 			element : 'div',
 			id : 'mercor-tip-container',
@@ -69,6 +69,13 @@ Mercor.Tip = new Class({
 	initialize : function(element, options) {
 		this.parent(options);
 		this.element = element;
+		
+		// define basic position
+		this.position = new Hash();
+		this.position.set('above', {position: {x: 'center', y: 'top'}, edge: {x: 'center', y: 'bottom'}, offset: {x:0, y:-5}});
+		this.position.set('below', {position: {x: 'center', y: 'bottom'}, edge: {x: 'center', y: 'top'}, offset: {x:0, y:5}});
+		this.position.set('left', {position: {x: 'left', y: 'center'}, edge: {x: 'right', y: 'center'}, offset: {x:-10, y:0}});
+		this.position.set('right', {position: {x: 'right', y: 'center'}, edge: {x: 'left', y: 'center'}, offset: {x:10, y:0}});
 	},
 
 	_fadeIn : function() {
@@ -78,12 +85,20 @@ Mercor.Tip = new Class({
 	_fadeOut : function() {
 		this.fade.start(this.options.fade.stop);
 	},
-	
+
 	_setupNode: function(){
+		this.node.setStyles(this.options.node.styles);
 		this.node.addClass('arrow-' + this.options.position);
-		
+		if (this.options.sticky)
+		{
+			this.node.addClass('mercor-tip-sticky');
+		}
+		else
+		{
+			this.template.get('close').destroy();
+		}
 	},
-	
+
 	_attach: function(){
 
 	},
@@ -91,27 +106,21 @@ Mercor.Tip = new Class({
 	_detach: function(){
 
 	},
-
-	show : function() {
-		this._setupNode();
-		this._load();
-		this._injectNode();		
-
-		// define basic position
-		this.position = new Hash();
-		this.position.set('above', {position: {x: 'center', y: 'top'}, edge: {x: 'center', y: 'bottom'}});
-		this.position.set('below', {position: {x: 'center', y: 'bottom'}, edge: {x: 'center', y: 'top'}});
-		this.position.set('left', {position: {x: 'center', y: 'left'}, edge: {x: 'center', y: 'right'}});
-		this.position.set('right', {position: {x: 'center', y: 'right'}, edge: {x: 'center', y: 'left'}});
-		
-		this.node.setStyle('width', 300);
-		// set position
+	
+	_setPosition: function(){
 		this.node.position({
 			relativeTo: this.element,
 			position: this.position.get(this.options.position).position,
 			edge: this.position.get(this.options.position).edge,
-			offset: this.options.offset
+			offset: (this.options.offset)? this.options.offset : this.position.get(this.options.position).offset
 		}); 
+	},
+
+	show : function() {
+		this._setupNode();
+		this._load();
+		this._injectNode();
+		this._setPosition();
 		this.fireEvent('show');
 	},
 

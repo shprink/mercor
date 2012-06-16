@@ -19,7 +19,24 @@
 <script type="text/javascript">
 window.addEvent('domready',function(){
 	var test = new Mercor.Tip($('test'),{
-		html:'test'
+		position: 'above',
+		html:'above'
+	});
+	test.show();
+	var test = new Mercor.Tip($('test2'),{
+		position: 'left',
+		html:'left'
+	});
+	test.show();
+	var test = new Mercor.Tip($('test3'),{
+		position: 'right',
+		html:'right'
+	});
+	test.show();
+	var test = new Mercor.Tip($('test4'),{
+		position: 'below',
+		html:'below',
+		sticky: true
 	});
 	test.show();
 });
@@ -36,9 +53,9 @@ window.addEvent('domready',function(){
 			<div class="span4">
 						<h3></h3>
 						<p></p>
-						<div id='test3' class="tooltip-demo well">
+						<div class="tooltip-demo well">
 				            <p class="muted">
-				            	Tight pants next level keffiyeh <a id='test' rel="tooltip" href="#" data-original-title="first tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a rel="tooltip" href="#" data-original-title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A <a rel="tooltip" href="#" data-original-title="Another one here too">really ironic</a> artisan whatever keytar, scenester farm-to-table banksy Austin <a rel="tooltip" href="#" data-original-title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
+				            	Tight pants next level keffiyeh <a id='test' rel="tooltip" href="#" data-original-title="first tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a rel="tooltip" id='test2' href="#" data-original-title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A <a rel="tooltip" id='test3' href="#" data-original-title="Another one here too">really ironic</a> artisan whatever keytar, scenester farm-to-table banksy Austin <a rel="tooltip" id='test4' href="#" data-original-title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
 				            </p>
 			          	</div>
 					</div>
