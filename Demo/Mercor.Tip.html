@@ -23,22 +23,23 @@ window.addEvent('domready',function(){
 		html:'above'
 	});
 	test.show();
+	test.destroy();
 	var test = new Mercor.Tip($('test2'),{
 		position: 'left',
 		html:'left'
 	});
-	test.show();
+//	test.show();
 	var test = new Mercor.Tip($('test3'),{
 		position: 'right',
 		html:'right'
 	});
-	test.show();
+	//test.show();
 	var test = new Mercor.Tip($('test4'),{
 		position: 'below',
 		html:'below',
 		sticky: true
 	});
-	test.show();
+	//test.show();
 });
 
 </script>

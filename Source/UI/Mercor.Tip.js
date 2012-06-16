@@ -49,6 +49,10 @@ Mercor.Tip = new Class({
 	options : {
 		position : 'above', // left, right, above, below
 		sticky : false,
+		trigger : {
+			on : 'mouseenter',
+			off : 'mouseleave'
+		},
 		'html' : 'Empty',
 		offset: null, // {x:0, y:0}
 		node : {
@@ -76,6 +80,8 @@ Mercor.Tip = new Class({
 		this.position.set('below', {position: {x: 'center', y: 'bottom'}, edge: {x: 'center', y: 'top'}, offset: {x:0, y:5}});
 		this.position.set('left', {position: {x: 'left', y: 'center'}, edge: {x: 'right', y: 'center'}, offset: {x:-10, y:0}});
 		this.position.set('right', {position: {x: 'right', y: 'center'}, edge: {x: 'left', y: 'center'}, offset: {x:10, y:0}});
+		this._addEvents();
+		this._addNodeEvents();
 	},
 
 	_fadeIn : function() {
@@ -86,25 +92,14 @@ Mercor.Tip = new Class({
 		this.fade.start(this.options.fade.stop);
 	},
 
-	_setupNode: function(){
+	_setupNode : function() {
 		this.node.setStyles(this.options.node.styles);
 		this.node.addClass('arrow-' + this.options.position);
-		if (this.options.sticky)
-		{
+		if (this.options.sticky) {
 			this.node.addClass('mercor-tip-sticky');
-		}
-		else
-		{
+		} else {
 			this.template.get('close').destroy();
 		}
-	},
-
-	_attach: function(){
-
-	},
-
-	_detach: function(){
-
 	},
 	
 	_setPosition: function(){
@@ -116,24 +111,58 @@ Mercor.Tip = new Class({
 		}); 
 	},
 	
-	_addEvents: function()
-	{
-		// re-set the node position
-		window.addEvent('resize',function(){
-			this._setPosition();
+	_load : function() {
+		if (this.template.get('body')){
+			this.template.get('body').set('html', this.element.retrieve('tip:title') || this.options.html);
+		}	
+	},
+		
+	_addEvents : function() {
+		window.addEvent('resize', function() {
+			if (this.node.isVisible()) this._setPosition();
 		}.bind(this));
+	
+		this.element.addEvent(this.options.trigger.on, function() {
+			this.show();
+		}.bind(this));
+
+		if (!this.options.sticky) {
+			this.element.addEvent(this.options.trigger.off, function() {
+				this.hide();
+			}.bind(this));
+		}
+	},
+	
+	_addNodeEvents : function() {
+		if (this.options.sticky && this.template.get('close')) {
+			this.template.get('close').addEvent('click', function() {
+				this.hide();
+			}.bind(this));
+		}
+	},
+	
+	_removeEvents: function()
+	{
+		// TODO
 	},
 
 	show : function() {
 		this._setupNode();
+		this._addNodeEvents();
 		this._load();
 		this._injectNode();
 		this._setPosition();
-		this._addEvents();
 		this.fireEvent('show');
 	},
 
 	hide: function(){
+		this.node.destroy();
 		this.fireEvent('hide');
+	},
+	
+	destroy: function(){
+		this._removeEvents();
+		this.node.destroy();
+		this.fireEvent('destroy');
 	}
 });

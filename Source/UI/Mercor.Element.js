@@ -104,15 +104,16 @@ Mercor.Element = new Class({
 			'styles' : this.options.node.styles
 		});
 	},
-	
-	_setupNode: function(){
-		
+
+	_setupNode : function() {
+
 	},
 
 	_load : function() {
 		if (this.template.get('header'))
 			this.template.get('header').set('html', this.options.title);
-		this.template.get('body').set('html', this.options.html);
+		if (this.template.get('body'))
+			this.template.get('body').set('html', this.options.html);
 		this.fireEvent('complete');
 	},
 
@@ -129,8 +130,8 @@ Mercor.Element = new Class({
 			'styles' : this.options.node.styles
 		}).inject(document.body, 'bottom');
 	},
-	
-	close: function(){
+
+	close : function() {
 		this.fireEvent('close');
 	}
 });
