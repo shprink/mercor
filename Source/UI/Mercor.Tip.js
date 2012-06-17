@@ -85,14 +85,6 @@ Mercor.Tip = new Class({
 		this._addNodeEvents();
 	},
 
-	_fadeIn : function() {
-		this.fade.start(this.options.fade.start);
-	},
-
-	_fadeOut : function() {
-		this.fade.start(this.options.fade.stop);
-	},
-
 	_setupNode : function() {
 		this.node.setStyles(this.options.node.styles);
 		this.node.addClass('arrow-' + this.options.position);
@@ -124,7 +116,7 @@ Mercor.Tip = new Class({
 		}.bind(this));
 	
 		this.element.addEvent(this.options.trigger.on, function() {
-			this.show();
+			if (!this.node.isVisible()) this.show();
 		}.bind(this));
 
 		if (!this.options.sticky) {
@@ -132,6 +124,7 @@ Mercor.Tip = new Class({
 				this.hide();
 			}.bind(this));
 		}
+		this.fireEvent('attach');
 	},
 	
 	_addNodeEvents : function() {
@@ -145,13 +138,19 @@ Mercor.Tip = new Class({
 	_removeEvents: function()
 	{
 		// TODO
+		this.element.removeEvent(this.options.trigger.on, function() {
+			this.show();
+		}.bind(this));
+		this.fireEvent('detach');
 	},
 
 	show : function() {
 		this._setupNode();
 		this._addNodeEvents();
 		this._load();
+		this.node.setStyle('opacity', 0);
 		this._injectNode();
+		this._fadeIn();
 		this._setPosition();
 		this.fireEvent('show');
 	},

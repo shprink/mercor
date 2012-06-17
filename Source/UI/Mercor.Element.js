@@ -53,7 +53,13 @@ Mercor.Element = new Class({
 			classes : '',
 			template : '',
 			styles : {}
-		}
+		},
+		fade : {
+			duration : 'short',
+			transition : 'linear',
+			start: {'opacity': [0,1]},
+			stop: {'opacity': [1,0]}
+		},
 	},
 
 	// Hash Object that contains template elements'
@@ -63,6 +69,7 @@ Mercor.Element = new Class({
 		this.setOptions(options);
 		this.setNode();
 		this.setTemplate();
+		this._setupFade();
 	},
 
 	setTemplate : function() {
@@ -107,6 +114,21 @@ Mercor.Element = new Class({
 
 	_setupNode : function() {
 
+	},
+
+	_setupFade : function() {
+		this.fade = new Fx.Morph(this.node, {
+			duration : this.options.fade.duration,
+			transition : this.options.fade.transition
+		});
+	},
+	
+	_fadeIn : function() {
+		this.fade.start(this.options.fade.start);
+	},
+
+	_fadeOut : function() {
+		this.fade.start(this.options.fade.stop);
 	},
 
 	_load : function() {
