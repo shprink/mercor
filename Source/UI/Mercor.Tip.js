@@ -11,9 +11,10 @@ authors: Julien Renaux
 
 repository: https://github.com/shprink/mercor
 
-requires: 
-- Mootools Core/Element.Event
-- Mootools More
+requires:
+- UI/Mercor
+
+provides: Mercor.Tip
 
 license: MIT
 
@@ -54,13 +55,13 @@ Mercor.Tip = new Class({
 			off : 'mouseleave'
 		},
 		'html' : 'Empty',
-		offset: null, // {x:0, y:0}
 		node : {
 			element : 'div',
 			id : 'mercor-tip-container',
 			classes : 'mercor-element mercor-tip',
 			template : '<div class="mercor-arrow"></div><div class="mercor-outer"><div class="mercor-inner"><button class="mercor-close close" title="Close" type="button">×</button><div class="mercor-body"></div></div></div>',
-			styles : {}
+			styles : {},
+			offset: null, // {x:0, y:0}
 		}
 	/* Events */
 	// onShow: function(){},
@@ -107,7 +108,7 @@ Mercor.Tip = new Class({
 			relativeTo: this.element,
 			position: this.position.get(this.options.position).position,
 			edge: this.position.get(this.options.position).edge,
-			offset: (this.options.offset)? this.options.offset : this.position.get(this.options.position).offset
+			offset: (this.options.node.offset)? this.options.node.offset : this.position.get(this.options.position).offset
 		}); 
 	},
 	

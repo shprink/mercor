@@ -11,57 +11,57 @@
 <link rel="stylesheet" href="../Source/CSS/Mercor.Tip.css">
 <script type="text/javascript" src="js/mootools-core-1.4.1-full-nocompat.js"></script>
 <script type="text/javascript" src="js/mootools-more-1.4.0.1.js"></script>
+<script type="text/javascript" src="../Source/Behaviors/Behavior.js"></script>
 <script type="text/javascript" src="../Source/UI/Mercor.js"></script>
 <script type="text/javascript" src="../Source/UI/Mercor.Element.js"></script>
 <script type="text/javascript" src="../Source/UI/Mercor.Tip.js"></script>
+<script type="text/javascript" src="../Source/Behaviors/Mercor.Tip.js"></script>
 <link href="css/prettify.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/prettify.js"></script>
 <script type="text/javascript">
-window.addEvent('domready',function(){
-	var test = new Mercor.Tip($('test'),{
-		position: 'above',
-		html:'above'
+	window.addEvent('domready', function() {
+		new Behavior().apply(document.body);
 	});
-	test.show();
-	test.destroy();
-	var test = new Mercor.Tip($('test2'),{
-		position: 'left',
-		html:'left'
-	});
-//	test.show();
-	var test = new Mercor.Tip($('test3'),{
-		position: 'right',
-		html:'right'
-	});
-	//test.show();
-	var test = new Mercor.Tip($('test4'),{
-		position: 'below',
-		html:'below',
-		sticky: true
-	});
-	//test.show();
-});
-
 </script>
 </head>
 <body onload="prettyPrint()">
-<div class="container">
+	<div class="container">
 		<section id="modal" class="first">
 		<div class="page-header">
 			<h1>Tip</h1>
 		</div>
 		<div class="row">
-			<div class="span4">
-						<h3></h3>
-						<p></p>
-						<div class="tooltip-demo well">
-				            <p class="muted">
-				            	Tight pants next level keffiyeh <a id='test' rel="tooltip" href="#" data-original-title="first tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a rel="tooltip" id='test2' href="#" data-original-title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A <a rel="tooltip" id='test3' href="#" data-original-title="Another one here too">really ironic</a> artisan whatever keytar, scenester farm-to-table banksy Austin <a rel="tooltip" id='test4' href="#" data-original-title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
-				            </p>
-			          	</div>
-					</div>
+			<div class="span6">
+			<h3></h3>
+				<p></p>
+			</div>
+			<div class="span6">
+				<h3></h3>
+				<p></p>
+				<div class="tooltip-demo well">
+					<p class="muted">
+						Tight pants next level keffiyeh <a href="#"
+							data-behavior="Mercor.Tip"
+							data-mercor-tip-options="{'position':'above', 'html':'Above'}">you
+							probably</a> haven't heard of them. Photo booth beard raw denim
+						letterpress vegan messenger bag stumptown. Farm-to-table seitan,
+						mcsweeney's fixie sustainable quinoa 8-bit american apparel <a
+							href="#" data-behavior="Mercor.Tip"
+							data-mercor-tip-options="{'position':'left', 'html':'Left side'}">have
+							a</a> terry richardson vinyl chambray. Beard stumptown, cardigans
+						banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four
+						loko mcsweeney's cleanse vegan chambray. A <a href="#"
+							data-behavior="Mercor.Tip"
+							data-mercor-tip-options="{'position':'right', 'html':'right side'}">really
+							ironic</a> artisan whatever keytar, scenester farm-to-table banksy
+						Austin <a href="#" data-behavior="Mercor.Tip"
+							data-mercor-tip-options="{'position':'below', 'sticky': true, 'html':'Sticky tip from Bellow'}">twitter
+							handle</a> freegan cred raw denim single-origin coffee viral.
+					</p>
+				</div>
+			</div>
 		</div>
 		</section>
-		</div>
+	</div>
 </body>
 </html>
