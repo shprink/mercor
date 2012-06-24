@@ -246,5 +246,44 @@ Mercor.Tip.Complexe = new Class({
 		this.fireEvent('destroy');
 	}
 });
+
+Mercor.Tip.Bootstrap = Mercor.Tip.implement({
+	options : {
+		node : {
+			element : 'div',
+			id : 'mercor-tip-container',
+			classes : 'mercor-element mercor-tip tooltip',
+			template : '<div class="tooltip-arrow"></div><button class="mercor-close" title="Close">x</button><div class="tooltip-inner mercor-body"></div>'
+		}
+	},
+
+	_setupNode : function() {
+		this.parent();
+
+		switch (this.options.position) {
+		case 'above':
+			this.options.position = 'top';
+			break;
+
+		case 'below':
+			this.options.position = 'bottom';
+			break;
+		case 'above':
+			this.options.position = 'top';
+			break;
+		case 'above':
+			this.options.position = 'top';
+			break;
+		}
+		this.node.addClass(this.options.position);
+		if (this.options.sticky) {
+			this.node.addClass('mercor-tip-sticky');
+		} else {
+			this.template.get('close').destroy();
+		}
+	}
+});
+
+
 	
 	
