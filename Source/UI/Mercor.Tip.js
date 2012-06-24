@@ -54,27 +54,31 @@ Mercor.Tip = new Class({
 			on : 'mouseenter',
 			off : 'mouseleave'
 		},
-		'html' : 'Empty',
+		title : 'Empty',
 		node : {
 			element : 'div',
 			id : 'mercor-tip-container',
 			classes : 'mercor-element mercor-tip',
 			template : '<div class="mercor-arrow"></div><div class="mercor-outer"><div class="mercor-inner"><button class="mercor-close close" title="Close" type="button">×</button><div class="mercor-body"></div></div></div>',
 			styles : {},
-			offset: null, // {x:0, y:0}
+			offset: null // {x:0, y:0}
 		}
 	/* Events */
 	// onShow: function(){},
 	// onHide: function(){},
 	// onDestroy: function(){},
 	// onAttach: function(element){},
-	// onDetach: function(element){},
+	// onDetach: function(element){}
 	},
 
 	initialize : function(element, options) {
 		this.parent(options);
 		this.element = element;
-		
+		if (this.element.getProperty('title')) {
+			this.options.title = this.element.getProperty('title');
+			this.element.removeProperty('title');
+		}
+		this.node.isVisible = false;
 		// define basic position
 		this.position = new Hash();
 		this.position.set('above', {position: {x: 'center', y: 'top'}, edge: {x: 'center', y: 'bottom'}, offset: {x:0, y:-5}});
@@ -106,17 +110,17 @@ Mercor.Tip = new Class({
 	
 	_load : function() {
 		if (this.template.get('body')){
-			this.template.get('body').set('html', this.element.retrieve('tip:title') || this.options.html);
+			this.template.get('body').set('html', this.element.retrieve('tip:title') || this.options.title);
 		}	
 	},
 		
 	_addEvents : function() {
 		window.addEvent('resize', function() {
-			if (this.node.isVisible()) this._setPosition();
+			if (this.node.isVisible) this._setPosition();
 		}.bind(this));
 	
 		this.element.addEvent(this.options.trigger.on, function() {
-			if (!this.node.isVisible()) this.show();
+			if (!this.node.isVisible) this.show();
 		}.bind(this));
 
 		if (!this.options.sticky) {
@@ -152,17 +156,83 @@ Mercor.Tip = new Class({
 		this._injectNode();
 		this._fadeIn();
 		this._setPosition();
+		this.node.isVisible = true;
 		this.fireEvent('show');
 	},
 
 	hide: function(){
 		this.node.destroy();
+		this.node.isVisible = false;
 		this.fireEvent('hide');
 	},
 	
 	destroy: function(){
 		this._removeEvents();
 		this.node.destroy();
+		this.node.isVisible = false;
 		this.fireEvent('destroy');
 	}
 });
+
+Mercor.Tip.Complexe = new Class({
+
+	Implements : [ Events, Options ],
+
+	Extends : Mercor.Tip,
+	
+	options : {
+		html : 'Empty',
+		node : {
+			element : 'div',
+			id : 'mercor-tip-container',
+			classes : 'mercor-element mercor-tip-complexe',
+			template : '<div class="mercor-arrow"></div><div class="mercor-outer"><div class="mercor-inner"><button class="mercor-close" title="Close">x</button><div class="mercor-header"></div><div class="mercor-body"></div><div class="mercor-footer"></div></div></div>',
+			buttons : []
+		}
+	},
+	
+	initialize : function(element, options) {
+		this.parent(element,options);
+	},
+	
+	_setupNode : function() {
+		this.node.setStyles(this.options.node.styles);
+		this.node.addClass('arrow-' + this.options.position);
+		if (this.options.sticky && this.template.get('close')) {
+			this.node.addClass('mercor-tip-sticky');
+			this.template.get('close').store('tip:title', this.template.get('close').getProperty('title') || 'Close');
+			this.closetip = new Mercor.Tip(this.template.get('close'),{position:'left'});
+		} else {
+			this.template.get('close').destroy();
+		}
+		if (!this.node.buttons) {
+			this.template.get('footer').destroy();
+		}
+	},
+	
+	_load : function() {
+		if (this.template.get('header')){
+			this.template.get('header').set('html', this.element.retrieve('tip:title') || this.options.title);
+		}
+		if (this.template.get('body')){
+			this.template.get('body').set('html', this.element.retrieve('tip:text') || this.options.html);
+		}	
+	},
+	
+	hide: function(){
+		if (this.closetip) this.closetip.hide();
+		this.node.destroy();
+		this.node.isVisible = false;
+		this.fireEvent('hide');
+	},
+	
+	destroy: function(){
+		if (this.closetip) this.closetip.destroy();
+		this._removeEvents();
+		this.node.destroy();
+		this.node.isVisible = false;
+		this.fireEvent('destroy');
+	}
+});
+	
+	

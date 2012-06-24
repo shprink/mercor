@@ -152,6 +152,19 @@ Mercor.Element = new Class({
 			'styles' : this.options.node.styles
 		}).inject(document.body, 'bottom');
 	},
+	
+	_injectButtons : function() {
+		Array.each(this.options.buttons, function(button, index){
+			new Element( (button.element || 'button'), {
+				'html' :  (button.html || 'button'),
+				'class' : button.classes,
+				'styles': button.styles,
+				'events':{
+					'click': button.event.bind(this)
+				}
+			}).inject(this.footer);
+		}.bind(this));
+	},
 
 	close : function() {
 		this.fireEvent('close');

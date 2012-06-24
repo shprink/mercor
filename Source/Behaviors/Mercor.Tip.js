@@ -41,24 +41,42 @@ SOFTWARE.
  */
 
 Behavior.addGlobalFilters({
-    'Mercor.Tip': function(element, api) {
-        var mercorTip = new Mercor.Tip(element,JSON.decode(api.get('options')));
-        return mercorTip;
-    }
-});
+	'Mercor.Tip' : function(element, api) {
+		var title = element.getProperty('title'), options = JSON.decode(api
+				.get('options'))
+				|| {};
 
-//Behavior.addGlobalFilters({
-//    Accordion: function(element, api) {
-//        var togglers = element.getElements(api.get('togglers'));
-//        var sections = element.getElements(api.get('target'));
-//        togglers.setStyle('background-color','red');
-//        sections.setStyle('background-color','blue');
-//        if (togglers.length == 0 || sections.length == 0) api.fail('There are no togglers or sections for this accordion.');
-//        if (togglers.length != sections.length) api.warn('There is a mismatch in the number of togglers and sections for this accordion.');
-//        var accordion = new Fx.Accordion(togglers, sections);
-//        api.onCleanup(function() {
-//            accordion.detach();
-//        });
-//        return accordion; //note that the instance is always returned!
-//    }
-//});
+		// the title parameter is kept if exist
+		if (title)
+			options = Object.merge(options, {
+				title : title
+			});
+
+		if (options.html) {
+			var mercorTip = new Mercor.Tip.Complexe(element, options);
+		} else {
+			var mercorTip = new Mercor.Tip(element, options);
+		}
+		// clean up element
+		element.removeProperty('title').removeProperty('data-behavior')
+				.removeProperty('data-mercor-tip-options');
+		return mercorTip;
+	},
+	'Mercor.Tip.Complexe' : function(element, api) {
+		var title = element.getProperty('title'), options = JSON.decode(api
+				.get('options'))
+				|| {};
+
+		// the title parameter is kept if exist
+		if (title)
+			options = Object.merge(options, {
+				title : title
+			});
+
+		var mercorTip = new Mercor.Tip.Complexe(element, options);
+		// clean up element
+		element.removeProperty('title').removeProperty('data-behavior')
+				.removeProperty('data-mercor-tip-complexe-options');
+		return mercorTip;
+	}
+});

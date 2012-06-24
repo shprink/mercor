@@ -56,3 +56,7 @@ SOFTWARE.
 	top: 1px;
 	right: 1px;
 }
+
+.mercor-element.mercor-tip-complexe {
+	max-width: 300px;
+}
