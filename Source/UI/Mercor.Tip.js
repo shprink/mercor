@@ -12,7 +12,7 @@ authors: Julien Renaux
 repository: https://github.com/shprink/mercor
 
 requires:
-- UI/Mercor
+- Mercor/Mercor.Element
 
 provides: Mercor.Tip
 
@@ -50,6 +50,7 @@ Mercor.Tip = new Class({
 	options : {
 		position : 'above', // left, right, above, below
 		sticky : false,
+		focus: false,
 		trigger : {
 			on : 'mouseenter',
 			off : 'mouseleave'
@@ -60,7 +61,9 @@ Mercor.Tip = new Class({
 			id : 'mercor-tip-container',
 			classes : 'mercor-element mercor-tip',
 			template : '<div class="mercor-arrow"></div><div class="mercor-outer"><div class="mercor-inner"><button class="mercor-close close" title="Close" type="button">×</button><div class="mercor-body"></div></div></div>',
-			styles : {},
+			styles : {
+				'z-index': 1001
+			},
 			offset: null // {x:0, y:0}
 		}
 	/* Events */
@@ -90,7 +93,7 @@ Mercor.Tip = new Class({
 	},
 
 	_setupNode : function() {
-		this.node.setStyles(this.options.node.styles);
+		this.parent();
 		this.node.addClass('arrow-' + this.options.position);
 		if (this.options.sticky) {
 			this.node.addClass('mercor-tip-sticky');
@@ -113,7 +116,7 @@ Mercor.Tip = new Class({
 			this.template.get('body').set('html', this.element.retrieve('tip:title') || this.options.title);
 		}	
 	},
-		
+
 	_addEvents : function() {
 		window.addEvent('resize', function() {
 			if (this.node.isVisible) this._setPosition();
@@ -186,8 +189,7 @@ Mercor.Tip.Complexe = new Class({
 			element : 'div',
 			id : 'mercor-tip-container',
 			classes : 'mercor-element mercor-tip-complexe',
-			template : '<div class="mercor-arrow"></div><div class="mercor-outer"><div class="mercor-inner"><button class="mercor-close" title="Close">x</button><div class="mercor-header"></div><div class="mercor-body"></div><div class="mercor-footer"></div></div></div>',
-			buttons : []
+			template : '<div class="mercor-arrow"></div><div class="mercor-outer"><div class="mercor-inner"><button class="mercor-close" title="Close">x</button><div class="mercor-header"></div><div class="mercor-body"></div><div class="mercor-footer"></div></div></div>'
 		}
 	},
 	
@@ -196,17 +198,27 @@ Mercor.Tip.Complexe = new Class({
 	},
 	
 	_setupNode : function() {
-		this.node.setStyles(this.options.node.styles);
+		this.parent();
 		this.node.addClass('arrow-' + this.options.position);
 		if (this.options.sticky && this.template.get('close')) {
 			this.node.addClass('mercor-tip-sticky');
 			this.template.get('close').store('tip:title', this.template.get('close').getProperty('title') || 'Close');
-			this.closetip = new Mercor.Tip(this.template.get('close'),{position:'left'});
+			this.closetip = new Mercor.Tip(this.template.get('close'),{position:'below'});
 		} else {
 			this.template.get('close').destroy();
 		}
-		if (!this.node.buttons) {
-			this.template.get('footer').destroy();
+	},
+	
+	_addNodeEvents : function() {
+		if (this.options.sticky && this.template.get('close')) {
+			this.template.get('close').addEvent('click', function() {
+				this.hide();
+			}.bind(this));
+		}
+		if (this.options.buttons.length > 0	&& this.template.get('footer')) {
+			this.buttons.each(function(item, index){
+				item.element.addEvent('click', item.event);
+			});
 		}
 	},
 	
@@ -216,7 +228,7 @@ Mercor.Tip.Complexe = new Class({
 		}
 		if (this.template.get('body')){
 			this.template.get('body').set('html', this.element.retrieve('tip:text') || this.options.html);
-		}	
+		}
 	},
 	
 	hide: function(){

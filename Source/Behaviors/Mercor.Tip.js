@@ -42,15 +42,7 @@ SOFTWARE.
 
 Behavior.addGlobalFilters({
 	'Mercor.Tip' : function(element, api) {
-		var title = element.getProperty('title'), options = JSON.decode(api
-				.get('options'))
-				|| {};
-
-		// the title parameter is kept if exist
-		if (title)
-			options = Object.merge(options, {
-				title : title
-			});
+		var options = JSON.decode(api.get('options'));
 
 		if (options.html) {
 			var mercorTip = new Mercor.Tip.Complexe(element, options);
@@ -63,16 +55,7 @@ Behavior.addGlobalFilters({
 		return mercorTip;
 	},
 	'Mercor.Tip.Complexe' : function(element, api) {
-		var title = element.getProperty('title'), options = JSON.decode(api
-				.get('options'))
-				|| {};
-
-		// the title parameter is kept if exist
-		if (title)
-			options = Object.merge(options, {
-				title : title
-			});
-
+		var options = JSON.decode(api.get('options'));
 		var mercorTip = new Mercor.Tip.Complexe(element, options);
 		// clean up element
 		element.removeProperty('title').removeProperty('data-behavior')
