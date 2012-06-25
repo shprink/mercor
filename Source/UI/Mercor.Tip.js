@@ -248,7 +248,7 @@ Mercor.Tip.Complexe = new Class({
 });
 
 Mercor.Tip.Bootstrap = Mercor.Tip.implement({
-	options : {
+	options : { 
 		node : {
 			element : 'div',
 			id : 'mercor-tip-container',
