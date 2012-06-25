@@ -247,7 +247,12 @@ Mercor.Tip.Complexe = new Class({
 	}
 });
 
-Mercor.Tip.Bootstrap = Mercor.Tip.implement({
+Mercor.Tip.Bootstrap = new Class({
+
+	Implements : [ Events, Options ],
+
+	Extends : Mercor.Tip,
+	
 	options : { 
 		node : {
 			element : 'div',
@@ -276,14 +281,23 @@ Mercor.Tip.Bootstrap = Mercor.Tip.implement({
 			break;
 		}
 		this.node.addClass(this.options.position);
-		if (this.options.sticky) {
-			this.node.addClass('mercor-tip-sticky');
-		} else {
-			this.template.get('close').destroy();
-		}
 	}
 });
 
+Mercor.Tip.Complexe.Bootstrap = new Class({
 
+	Implements : [ Events, Options ],
+
+	Extends : Mercor.Tip.Complexe,
+	
+	options : { 
+		node : {
+			element : 'div',
+			id : 'mercor-tip-container',
+			classes : 'mercor-element mercor-tip tooltip',
+			template : '<div class="tooltip-arrow"></div><button class="mercor-close" title="Close">x</button><div class="tooltip-inner mercor-body"></div>'
+		}
+	}
+});
 	
 	
