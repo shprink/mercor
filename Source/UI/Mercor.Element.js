@@ -105,17 +105,17 @@ Mercor.Element = new Class(
 					this.template.set('close', close);
 
 				// set the header element
-				var header = this.node.getElement('.mercor-header');
+				var header = this.node.getElement('mercor-title');
 				if (typeOf(header) == 'element')
-					this.template.set('header', header);
+					this.template.set('title', header);
 
 				// set the body element
-				var body = this.node.getElement('.mercor-body');
+				var body = this.node.getElement('mercor-body');
 				if (typeOf(body) == 'element')
 					this.template.set('body', body);
 
 				// set the footer element
-				var footer = this.node.getElement('.mercor-footer');
+				var footer = this.node.getElement('mercor-footer');
 				if (typeOf(footer) == 'element')
 					this.template.set('footer', footer);
 			},
@@ -150,8 +150,8 @@ Mercor.Element = new Class(
 			},
 
 			_load : function() {
-				if (this.template.get('header'))
-					this.template.get('header').set('html', this.options.title);
+				if (this.template.get('title'))
+					this.template.get('title').set('html', this.options.title);
 				if (this.template.get('body'))
 					this.template.get('body').set('html', this.options.html);
 				this.fireEvent('complete');

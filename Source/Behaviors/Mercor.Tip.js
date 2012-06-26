@@ -61,5 +61,26 @@ Behavior.addGlobalFilters({
 		element.removeProperty('title').removeProperty('data-behavior')
 				.removeProperty('data-mercor-tip-complexe-options');
 		return mercorTip;
+	},
+	'Mercor.Tip.Bootstrap' : function(element, api) {
+		var options = JSON.decode(api.get('options'));
+
+		if (options.html) {
+			var mercorTip = new Mercor.Tip.Complexe.Bootstrap(element, options);
+		} else {
+			var mercorTip = new Mercor.Tip.Bootstrap(element, options);
+		}
+		// clean up element
+		element.removeProperty('title').removeProperty('data-behavior')
+				.removeProperty('data-mercor-tip-bootstrap-options');
+		return mercorTip;
+	},
+	'Mercor.Tip.Complexe.Bootstrap' : function(element, api) {
+		var options = JSON.decode(api.get('options'));
+		var mercorTip = new Mercor.Tip.Complexe.Bootstrap(element, options);
+		// clean up element
+		element.removeProperty('title').removeProperty('data-behavior')
+				.removeProperty('data-mercor-tip-complexe-bootstrap-options');
+		return mercorTip;
 	}
 });

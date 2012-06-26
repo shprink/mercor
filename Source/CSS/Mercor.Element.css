@@ -38,7 +38,7 @@ SOFTWARE.
 @CHARSET "UTF-8";
 
 /* reset style within elements*/
-.mercor-element,.mercor-element>*,.mercor-element h1,.mercor-element h2,.mercor-element h3,.mercor-element h4,.mercor-element h5,.mercor-element h6
+.mercor-element,.mercor-element>*,.mercor-element h1,.mercor-element h2,.mercor-element h3,.mercor-element h4,.mercor-element h5,.mercor-element h6, mercor
 	{
 	margin: 0;
 	padding: 0;

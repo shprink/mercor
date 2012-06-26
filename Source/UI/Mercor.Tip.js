@@ -60,7 +60,7 @@ Mercor.Tip = new Class({
 			element : 'div',
 			id : 'mercor-tip-container',
 			classes : 'mercor-element mercor-tip',
-			template : '<div class="mercor-arrow"></div><div class="mercor-outer"><div class="mercor-inner"><button class="mercor-close close" title="Close" type="button">×</button><div class="mercor-body"></div></div></div>',
+			template : '<div class="mercor-arrow"></div><div class="mercor-outer"><div class="mercor-inner"><button class="mercor-close close" title="Close" type="button">×</button><div class="mercor-body"><mercor-title></mercor-title></div></div></div>',
 			styles : {
 				'z-index': 1001
 			},
@@ -112,8 +112,8 @@ Mercor.Tip = new Class({
 	},
 	
 	_load : function() {
-		if (this.template.get('body')){
-			this.template.get('body').set('html', this.element.retrieve('tip:title') || this.options.title);
+		if (this.template.get('title')){
+			this.template.get('title').set('html', this.element.retrieve('tip:title') || this.options.title);
 		}	
 	},
 
@@ -189,7 +189,7 @@ Mercor.Tip.Complexe = new Class({
 			element : 'div',
 			id : 'mercor-tip-container',
 			classes : 'mercor-element mercor-tip-complexe',
-			template : '<div class="mercor-arrow"></div><div class="mercor-outer"><div class="mercor-inner"><button class="mercor-close" title="Close">x</button><div class="mercor-header"></div><div class="mercor-body"></div><div class="mercor-footer"></div></div></div>'
+			template : '<div class="mercor-arrow"></div><div class="mercor-outer"><div class="mercor-inner"><button class="mercor-close" title="Close">x</button><div class="mercor-header"><h3><mercor-title></mercor-title></h3></div><div class="mercor-body"><mercor-body></mercor-body></div><div class="mercor-footer"><mercor-footer></mercor-footer></div></div></div>'
 		}
 	},
 	
@@ -223,8 +223,8 @@ Mercor.Tip.Complexe = new Class({
 	},
 	
 	_load : function() {
-		if (this.template.get('header')){
-			this.template.get('header').set('html', this.element.retrieve('tip:title') || this.options.title);
+		if (this.template.get('title')){
+			this.template.get('title').set('html', this.element.retrieve('tip:title') || this.options.title);
 		}
 		if (this.template.get('body')){
 			this.template.get('body').set('html', this.element.retrieve('tip:text') || this.options.html);
@@ -247,7 +247,7 @@ Mercor.Tip.Complexe = new Class({
 	}
 });
 
-Mercor.Tip.Bootstrap = new Class({
+Mercor.Tip.Bootstrap = Mercor.Tip.BS = new Class({
 
 	Implements : [ Events, Options ],
 
@@ -255,36 +255,42 @@ Mercor.Tip.Bootstrap = new Class({
 	
 	options : { 
 		node : {
-			element : 'div',
-			id : 'mercor-tip-container',
-			classes : 'mercor-element mercor-tip tooltip',
-			template : '<div class="tooltip-arrow"></div><button class="mercor-close" title="Close">x</button><div class="tooltip-inner mercor-body"></div>'
+			classes : 'mercor-bootstrap-element tooltip',
+			template : '<div class="tooltip-arrow"></div><div class="tooltip-inner"><mercor-title></mercor-title><button class="mercor-close close" title="Close">x</button></div>'
+		}
+	},
+	
+	initialize : function(element, options) {
+		this.parent(element,options);
+		
+	},
+	
+	_setupNode : function() {
+		this.node.setStyles(this.options.node.styles);
+		var position ='';
+		switch (this.options.position) {
+		case 'above':
+			position = 'top';
+			break;
+		
+		case 'below':
+			position = 'bottom';
+			break;
+
+		default:
+			position = this.options.position;
+		}
+		this.node.addClass(position);
+		if (this.options.sticky) {
+			this.node.addClass('mercor-tip-sticky');
+		} else {
+			this.template.get('close').destroy();
 		}
 	},
 
-	_setupNode : function() {
-		this.parent();
-
-		switch (this.options.position) {
-		case 'above':
-			this.options.position = 'top';
-			break;
-
-		case 'below':
-			this.options.position = 'bottom';
-			break;
-		case 'above':
-			this.options.position = 'top';
-			break;
-		case 'above':
-			this.options.position = 'top';
-			break;
-		}
-		this.node.addClass(this.options.position);
-	}
 });
 
-Mercor.Tip.Complexe.Bootstrap = new Class({
+Mercor.Tip.Complexe.Bootstrap = Mercor.Tip.Complexe.BS = new Class({
 
 	Implements : [ Events, Options ],
 
@@ -292,10 +298,37 @@ Mercor.Tip.Complexe.Bootstrap = new Class({
 	
 	options : { 
 		node : {
-			element : 'div',
-			id : 'mercor-tip-container',
-			classes : 'mercor-element mercor-tip tooltip',
-			template : '<div class="tooltip-arrow"></div><button class="mercor-close" title="Close">x</button><div class="tooltip-inner mercor-body"></div>'
+			classes : 'mercor-bootstrap-element popover in',
+			template : '<div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"><mercor-title></mercor-title><button class="mercor-close close" title="Close">x</button></h3><div class="popover-content"><mercor-body></mercor-body><br/><mercor-footer></mercor-footer></div></div>'
+		}
+	},
+	
+	initialize : function(element, options) {
+		this.parent(element,options);
+	},
+	
+	_setupNode : function() {
+		this.node.setStyles(this.options.node.styles);
+		var position ='';
+		switch (this.options.position) {
+		case 'above':
+			position = 'top';
+			break;
+		
+		case 'below':
+			position = 'bottom';
+			break;
+
+		default:
+			position = this.options.position;
+		}
+		this.node.addClass(position);
+		if (this.options.sticky && this.template.get('close')) {
+			this.node.addClass('mercor-tip-sticky');
+			this.template.get('close').store('tip:title', this.template.get('close').getProperty('title') || 'Close');
+			this.closetip = new Mercor.Tip(this.template.get('close'),{position:'below'});
+		} else {
+			this.template.get('close').destroy();
 		}
 	}
 });

@@ -60,3 +60,34 @@ SOFTWARE.
 .mercor-element.mercor-tip-complexe {
 	max-width: 300px;
 }
+
+.mercor-bootstrap-element.popover{
+	display: block;
+}
+
+.mercor-bootstrap-element.tooltip mercor-title {
+	padding: 0px 8px;
+	text-align: center;
+}
+
+.mercor-bootstrap-element.tooltip button.mercor-close {
+	background: none repeat scroll 0 0 transparent;
+	border: 0 none;
+	cursor: pointer;
+	padding: 0;
+}
+
+.mercor-bootstrap-element.tooltip .mercor-close {
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	opacity: 0.6;
+	cursor: pointer;
+	color: #FFF;
+	font-size: 12px;
+	font-weight: bold;
+	text-shadow: 0 1px 0 #FFFFFF;
+	font-family: sans-serif;
+}

@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"
 	media="screen">
 <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="css/more.css">
 <link rel="stylesheet" href="../Source/CSS/Mercor.Element.css">
 <link rel="stylesheet" href="../Source/CSS/Mercor.Tip.css">
 <script type="text/javascript"
@@ -22,7 +23,6 @@
 <script type="text/javascript">
 	window.addEvent('domready', function() {
 		new Behavior().apply(document.body);
-		new Mercor.Tip.Bootstrap($('test'));
 	});
 </script>
 </head>
@@ -35,37 +35,65 @@
 		<div class="row">
 			<div class="span6">
 				<h3></h3>
-				<p id="test">teets</p>
+				<p>Creating a tip is as simple as that!</p>
+				<pre class="prettyprint linenums"><code>&lt;a href=&quot;#&quot; title=&quot;Above&quot; data-behavior=&quot;Mercor.Tip&quot;&gt;adipiscing&lt;/a&gt;</code></pre>
+				<h2>
+					Bootstrap fan? <small><a
+						href="http://twitter.github.com/bootstrap" target="_blank">Bootstrap</a>,
+						from Twitter</small>
+				</h2>
+				<p>As Mercor is template based you can use any style you want to
+					create simple or complexe tips!</p>
+				<h3>
+					Demo<small> basic little tips</small></small>
+					<button href="#" title="Bootstrap Style!"
+						data-behavior="Mercor.Tip.Bootstrap">Demo</button>
+				</h3>
+				<pre class="prettyprint linenums"><code>&lt;button href=&quot;#&quot; title=&quot;Bootstrap Style!&quot; data-behavior=&quot;Mercor.Tip.Bootstrap&quot;&gt;Demo&lt;/button&gt;</code></pre>
+				<h3>
+					Demo<small> Complexe tips</small>
+					<button href="#"
+							data-behavior="Mercor.Tip.Bootstrap"
+							data-mercor-tip-bootstrap-options="{'position':'above', 'title':'Consectetur adipiscing', 'html': 'Etiam eu turpis ac dolor porttitor fringilla eget non quam. Pellentesque at justo est, quis malesuada nulla. Maecenas nec nulla eu felis suscipit rhoncus non sit amet neque. Nullam eget mauris facilisis ligula euismod hendrerit. Etiam congue, diam sit amet cursus hendrerit, dui eros vehicula ante, non lobortis sapien purus eget risus. Duis interdum consequat enim, in bibendum felis ultrices eu. Suspendisse at metus non quam dictum tincidunt id eu lectus. Pellentesque et dui orci.'}">Demo</button>
+				</h3>
+				<pre class="prettyprint linenums"><code>&lt;button href=&quot;#&quot; data-behavior=&quot;Mercor.Tip.Bootstrap&quot; data-mercor-tip-bootstrap-options=&quot;{&#039;title&#039;:&#039;Consectetur adipiscing&#039;, &#039;html&#039;: &#039;your text&#039;}&quot;&gt;Demo&lt;/button&gt;</code></pre>
 			</div>
 			<div class="span6">
-				<h3></h3>
+				<h3>
+					Demo<small> basic little tips</small></small>
+				</h3>
 				<p></p>
 				<div class="tooltip-demo well">
 					<p class="muted">
-						Tight pants next level keffiyeh <a href="#" title="Above"
+						Lorem ipsum dolor sit amet, consectetur <a href="#" title="Above"
+							data-behavior="Mercor.Tip">adipiscing</a> elit. Sed quis dui eget
+						dui ullamcorper porta. Cras eleifend urna eu erat dictum
+						fringilla. Suspendisse id justo orci, quis ornare quam. Aenean
+						vitae orci tellus. Mauris auctor nibh eget leo semper fermentum.
+						Donec placerat suscipit nunc eget feugiat. Donec tincidunt, elit
+						id ultrices <a href="#" data-behavior="Mercor.Tip"
+							data-mercor-tip-options="{'position':'left', 'title':'Left side'}">hendrerit</a>,
+						orci dolor tempor massa, facilisis blandit dolor nulla et felis.
+						Fusce quis eros justo, vitae pulvinar nibh. Cras pellentesque
+						tincidunt porttitor. Morbi laoreet ultricies augue in <a href="#"
 							data-behavior="Mercor.Tip"
-							data-mercor-tip-options="{'position':'above', 'title':'Above'}">you
-							probably</a> haven't heard of them. Photo booth beard raw denim
-						letterpress vegan messenger bag stumptown. Farm-to-table seitan,
-						mcsweeney's fixie sustainable quinoa 8-bit american apparel <a
-							href="#" data-behavior="Mercor.Tip"
-							data-mercor-tip-options="{'position':'left', 'title':'Left side'}">have
-							a</a> terry richardson vinyl chambray. Beard stumptown, cardigans
-						banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four
-						loko mcsweeney's cleanse vegan chambray. A <a href="#"
+							data-mercor-tip-options="{'position':'right', 'title':'right side'}">lobortis</a>.
+						Integer commodo tortor a augue pharetra placerat. Morbi at nulla
+						tortor, id feugiat lorem. Donec in dui risus. Praesent dictum
+						hendrerit ornare. Integer vulputate <a href="#"
 							data-behavior="Mercor.Tip"
-							data-mercor-tip-options="{'position':'right', 'title':'right side'}">really
-							ironic</a> artisan whatever keytar, scenester farm-to-table banksy
-						Austin <a href="#" data-behavior="Mercor.Tip"
-							data-mercor-tip-options="{'position':'below', 'sticky': true, 'title':'Sticky tip from Bellow'}">twitter
-							handle</a> freegan cred raw denim single-origin coffee viral.
+							data-mercor-tip-options="{'position':'below', 'sticky': true, 'title':'Sticky tip from Bellow'}">viverra</a>
+						risus eu fermentum. Suspendisse feugiat justo lorem, eget
+						fermentum ipsum.
 					</p>
 				</div>
-
+				<h3>
+					Demo<small> Complexe tips</small></small>
+				</h3>
 				<div class="tooltip-demo well">
 					<p class="muted">
 						Lorem ipsum dolor sit amet, <a href="#" data-behavior="Mercor.Tip"
-							data-mercor-tip-options="{'position':'above', 'title':'<h3>Consectetur adipiscing</h3>', 'html': '<p>Etiam eu turpis ac dolor porttitor fringilla eget non quam. Pellentesque at justo est, quis malesuada nulla. Maecenas nec nulla eu felis suscipit rhoncus non sit amet neque. Nullam eget mauris facilisis ligula euismod hendrerit. Etiam congue, diam sit amet cursus hendrerit, dui eros vehicula ante, non lobortis sapien purus eget risus. Duis interdum consequat enim, in bibendum felis ultrices eu. Suspendisse at metus non quam dictum tincidunt id eu lectus. Pellentesque et dui orci.</p>'}">consectetur
+							data-mercor-tip-options="{'position':'above', 'title':'Consectetur adipiscing', 'html': '<p>Etiam eu turpis ac dolor porttitor fringilla eget non quam. Pellentesque at justo est, quis malesuada nulla. Maecenas nec nulla eu felis suscipit rhoncus non sit amet neque. Nullam eget mauris facilisis ligula euismod hendrerit. Etiam congue, diam sit amet cursus hendrerit, dui eros vehicula ante, non lobortis sapien purus eget risus. Duis interdum consequat enim, in bibendum felis ultrices eu. Suspendisse at metus non quam dictum tincidunt id eu lectus. Pellentesque et dui orci.</p>'}">consectetur
 							adipiscing</a> elit. Sed quis dui eget dui ullamcorper porta. Cras
 						eleifend urna eu erat dictum fringilla. Suspendisse id justo orci,
 						quis ornare quam. Aenean vitae orci tellus. Mauris auctor nibh
@@ -74,7 +102,7 @@
 						tempor massa, facilisis blandit dolor nulla et felis. Fusce quis
 						eros justo, vitae pulvinar nibh. <a href="#"
 							data-behavior="Mercor.Tip"
-							data-mercor-tip-options="{'position':'left',  'sticky': true, 'title':'<h3>Cras pellentesque</h3>', 'html': '<p>Etiam eu turpis ac dolor porttitor fringilla eget non quam. Pellentesque at justo est, quis malesuada nulla. Maecenas nec nulla eu felis suscipit rhoncus non sit amet neque. Nullam eget mauris facilisis ligula euismod hendrerit. Etiam congue, diam sit amet cursus hendrerit, dui eros vehicula ante, non lobortis sapien purus eget risus. Duis interdum consequat enim, in bibendum felis ultrices eu. Suspendisse at metus non quam dictum tincidunt id eu lectus. Pellentesque et dui orci.</p>', 'buttons':[{ 'html': 'Close', 'styles': {},'event': 'function() { this.hide(); }'}]}">Cras
+							data-mercor-tip-options="{'position':'left',  'sticky': true, 'title':'Cras pellentesque', 'html': '<p>Etiam eu turpis ac dolor porttitor fringilla eget non quam. Pellentesque at justo est, quis malesuada nulla. Maecenas nec nulla eu felis suscipit rhoncus non sit amet neque. Nullam eget mauris facilisis ligula euismod hendrerit. Etiam congue, diam sit amet cursus hendrerit, dui eros vehicula ante, non lobortis sapien purus eget risus. Duis interdum consequat enim, in bibendum felis ultrices eu. Suspendisse at metus non quam dictum tincidunt id eu lectus. Pellentesque et dui orci.</p>', 'buttons':[{ 'html': 'Close', 'styles': {},'event': 'function() { this.hide(); }'}]}">Cras
 							pellentesque</a> tincidunt porttitor. Morbi laoreet ultricies augue
 						in lobortis. Integer commodo tortor a augue pharetra placerat.
 						Morbi at nulla tortor, id feugiat lorem. Donec in dui risus.
