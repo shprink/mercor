@@ -7,6 +7,7 @@
 	media="screen">
 <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
 <link rel="stylesheet" href="css/docs.css">
+<link href="css/prettify.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/prettify.js"></script>
 <script src="js/mercor-1.0.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -15,7 +16,7 @@
 	});
 </script>
 </head>
-<body>
+<body onload="prettyPrint()">
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
@@ -33,39 +34,258 @@
 		</div>
 	</div>
 	<div class="container">
-		<div class="row-fluid">
-			<div class="span4">...</div>
-			<div class="span8">
-			
-			<div data-behavior="Mercor.Accordion" class="accordion">
-		<div class="accordion-group">
-			<div class="accordion-heading">
-				<a class="accordion-toggle toggle"> Section 1 </a>
-			</div>
-			<div class="accordion-body in collapse section">
-				<div class="accordion-inner">I'm in Section A.</div>
-			</div>
-		</div>
-		<div class="accordion-group">
-			<div class="accordion-heading">
-				<a class="accordion-toggle toggle"> Section 2 </a>
-			</div>
-			<div class="accordion-body collapse section">
-				<div class="accordion-inner">Howdy, I'm in Section B.</div>
-			</div>
-		</div>
-		<div class="accordion-group">
-			<div class="accordion-heading">
-				<a class="accordion-toggle toggle"> Section 3 </a>
-			</div>
-			<div class="accordion-body collapse section">
-				<div class="accordion-inner">What up girl, this is Section C.</div>
+		<div class="tabbable">
+			<ul class="nav nav-tabs" data-behavior="Mercor.Tabs">
+				<li class="active"><a>Modal</a></li>
+				<li><a>Tips</a></li>
+				<li><a>Alerts</a></li>
+				<li><a>Accordion</a></li>
+				<li><a>Tabs</a></li>
+			</ul>
+			<div class="tab-content">
+				<div class="active">
+					<div class="row-fluid">
+						<div class="span4">...</div>
+						<div class="span8">
+							<div data-behavior="Mercor.Accordion" class="accordion">
+								<div class="accordion-group">
+									<div class="accordion-heading">
+										<a class="accordion-toggle toggle"> Section 1 </a>
+									</div>
+									<div class="accordion-body in collapse section">
+										<div class="accordion-inner">I'm in Section A.</div>
+									</div>
+								</div>
+								<div class="accordion-group">
+									<div class="accordion-heading">
+										<a class="accordion-toggle toggle"> Section 2 </a>
+									</div>
+									<div class="accordion-body collapse section">
+										<div class="accordion-inner">Howdy, I'm in Section B.</div>
+									</div>
+								</div>
+								<div class="accordion-group">
+									<div class="accordion-heading">
+										<a class="accordion-toggle toggle"> Section 3 </a>
+									</div>
+									<div class="accordion-body collapse section">
+										<div class="accordion-inner">What up girl, this is
+											Section C.</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="row-fluid">
+						<div class="span4">...</div>
+						<div class="span8"></div>
+					</div>
+				</div>
+				<div>
+					<div class="row-fluid">
+						<div class="span4">...</div>
+						<div class="span8"></div>
+					</div>
+				</div>
+				<div>
+					<div class="row-fluid">
+						<div class="span4">...</div>
+						<div class="span8">
+							<div data-behavior="Mercor.Accordion" class="accordion">
+								<div class="accordion-group">
+									<div class="accordion-heading">
+										<a class="accordion-toggle toggle">Accordion</a>
+									</div>
+									<div class="accordion-body in collapse section">
+										<div class="accordion-inner">I'm in Section A.</div>
+									</div>
+								</div>
+								<div class="accordion-group">
+									<div class="accordion-heading"
+										style="background-color: #0088CC;">
+										<a class="accordion-toggle toggle" style="color: #FFF;">Bootstrap
+											Support</a>
+									</div>
+									<div class="accordion-body collapse section">
+										<div class="accordion-inner">
+											<p>Mercor Tabs support Bootstrap</p>
+											<pre class="prettyprint linenums">
+												<code class="language-js">&lt;div data-behavior=&quot;Mercor.Accordion&quot; class=&quot;accordion&quot;&gt;
+	&lt;div class=&quot;accordion-group&quot;&gt;
+		&lt;div class=&quot;accordion-heading&quot;&gt;
+			&lt;a class=&quot;accordion-toggle toggle&quot;&gt; Section 1 &lt;/a&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;accordion-body collapse section&quot;&gt;
+			&lt;div class=&quot;accordion-inner&quot;&gt;Section A.&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;accordion-group&quot;&gt;
+		&lt;div class=&quot;accordion-heading&quot;&gt;
+			&lt;a class=&quot;accordion-toggle toggle&quot;&gt; Section 2 &lt;/a&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;accordion-body in collapse section&quot;&gt;
+			&lt;div class=&quot;accordion-inner&quot;&gt;Section B.&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+											</pre>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="row-fluid">
+						<div class="span4">...</div>
+						<div class="span8">
+							<div data-behavior="Mercor.Accordion" class="accordion">
+								<div class="accordion-group">
+									<div class="accordion-heading">
+										<a class="accordion-toggle toggle">Tabs</a>
+									</div>
+									<div class="accordion-body in collapse section">
+										<div class="accordion-inner">I'm in Section A.</div>
+									</div>
+								</div>
+								<div class="accordion-group">
+									<div class="accordion-heading"
+										style="background-color: #0088CC;">
+										<a class="accordion-toggle toggle" style="color: #FFF;">Bootstrap
+											Support</a>
+									</div>
+									<div class="accordion-body collapse section">
+										<div class="accordion-inner">
+											<div class="tabbable">
+												<ul class="nav nav-tabs" data-behavior="Mercor.Tabs">
+													<li class="active"><a>Section 1</a></li>
+													<li><a>Section 2</a></li>
+													<li><a>Section 3</a></li>
+												</ul>
+												<div class="tab-content">
+													<div class="active">
+														<p>I'm in Section A.</p>
+													</div>
+													<div>
+														<p>Howdy, I'm in Section B.</p>
+													</div>
+													<div>
+														<p>What up girl, this is Section C.</p>
+													</div>
+												</div>
+											</div>
+											<pre class="prettyprint linenums">
+								<code class="language-js">&lt;div class=&quot;tabbable&quot;&gt;
+	&lt;ul class=&quot;nav nav-tabs&quot; data-behavior=&quot;Mercor.Tabs&quot;&gt;
+		&lt;li class=&quot;active&quot;&gt;&lt;a&gt;Section 1&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a&gt;Section 2&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a&gt;Section 3&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;div class=&quot;tab-content&quot;&gt;
+		&lt;div class=&quot;active&quot;&gt;
+			&lt;p&gt;I'm in Section A.&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;p&gt;Howdy, I'm in Section B.&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;p&gt;What up girl, this is Section C.&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+							</pre>
+											<hr />
+											<div class="tabbable tabs-left">
+												<ul class="nav nav-tabs" data-behavior="Mercor.Tabs">
+													<li class="active"><a>Section 1</a></li>
+													<li><a>Section 2</a></li>
+													<li><a>Section 3</a></li>
+												</ul>
+												<div class="tab-content">
+													<div class="active">
+														<p>I'm in Section A.</p>
+													</div>
+													<div>
+														<p>Howdy, I'm in Section B.</p>
+													</div>
+													<div>
+														<p>What up girl, this is Section C.</p>
+													</div>
+												</div>
+											</div>
+											<pre class="prettyprint linenums">
+								<code class="language-js">&lt;div class=&quot;tabbable tabs-left&quot;&gt;
+	&lt;ul class=&quot;nav nav-tabs&quot; data-behavior=&quot;Mercor.Tabs&quot;&gt;
+		&lt;li class=&quot;active&quot;&gt;&lt;a&gt;Section 1&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a&gt;Section 2&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a&gt;Section 3&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;div class=&quot;tab-content&quot;&gt;
+		&lt;div class=&quot;active&quot;&gt;
+			&lt;p&gt;I'm in Section A.&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;p&gt;Howdy, I'm in Section B.&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;p&gt;What up girl, this is Section C.&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+							</pre>
+											<hr />
+											<div class="tabbable tabs-right">
+												<ul class="nav nav-tabs" data-behavior="Mercor.Tabs">
+													<li class="active"><a>Section 1</a></li>
+													<li><a>Section 2</a></li>
+													<li><a>Section 3</a></li>
+												</ul>
+												<div class="tab-content">
+													<div class="active">
+														<p>I'm in Section A.</p>
+													</div>
+													<div>
+														<p>Howdy, I'm in Section B.</p>
+													</div>
+													<div>
+														<p>What up girl, this is Section C.</p>
+													</div>
+												</div>
+											</div>
+											<pre class="prettyprint linenums">
+								<code class="language-js">&lt;div class=&quot;tabbable tabs-right&quot;&gt;
+	&lt;ul class=&quot;nav nav-tabs&quot; data-behavior=&quot;Mercor.Tabs&quot;&gt;
+		&lt;li class=&quot;active&quot;&gt;&lt;a&gt;Section 1&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a&gt;Section 2&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a&gt;Section 3&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;div class=&quot;tab-content&quot;&gt;
+		&lt;div class=&quot;active&quot;&gt;
+			&lt;p&gt;I'm in Section A.&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;p&gt;Howdy, I'm in Section B.&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;p&gt;What up girl, this is Section C.&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+							</pre>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-			</div>
-		</div>
-	</div>
-	
+
 </body>
 </html>

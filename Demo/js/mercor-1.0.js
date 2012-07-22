@@ -6810,202 +6810,193 @@ Behavior.addGlobalFilters({
 /*
 ---
 
-name: Element.Delegation
+name: Fx.Tween
 
-description: Extends the Element native object to include the delegate method for more efficient event management.
+description: Formerly Fx.Style, effect to transition any CSS property for an element.
 
 license: MIT-style license.
 
-requires: [Element.Event]
+requires: Fx.CSS
 
-provides: [Element.Delegation]
+provides: [Fx.Tween, Element.fade, Element.highlight]
 
 ...
 */
 
-(function(){
+Fx.Tween = new Class({
 
-var eventListenerSupport = !!window.addEventListener;
+	Extends: Fx.CSS,
 
-Element.NativeEvents.focusin = Element.NativeEvents.focusout = 2;
-
-var bubbleUp = function(self, match, fn, event, target){
-	while (target && target != self){
-		if (match(target, event)) return fn.call(target, event, target);
-		target = document.id(target.parentNode);
-	}
-};
-
-var map = {
-	mouseenter: {
-		base: 'mouseover'
+	initialize: function(element, options){
+		this.element = this.subject = document.id(element);
+		this.parent(options);
 	},
-	mouseleave: {
-		base: 'mouseout'
-	},
-	focus: {
-		base: 'focus' + (eventListenerSupport ? '' : 'in'),
-		capture: true
-	},
-	blur: {
-		base: eventListenerSupport ? 'blur' : 'focusout',
-		capture: true
-	}
-};
 
-/*<ltIE9>*/
-var _key = '$delegation:';
-var formObserver = function(type){
-
-	return {
-
-		base: 'focusin',
-
-		remove: function(self, uid){
-			var list = self.retrieve(_key + type + 'listeners', {})[uid];
-			if (list && list.forms) for (var i = list.forms.length; i--;){
-				list.forms[i].removeEvent(type, list.fns[i]);
-			}
-		},
-
-		listen: function(self, match, fn, event, target, uid){
-			var form = (target.get('tag') == 'form') ? target : event.target.getParent('form');
-			if (!form) return;
-
-			var listeners = self.retrieve(_key + type + 'listeners', {}),
-				listener = listeners[uid] || {forms: [], fns: []},
-				forms = listener.forms, fns = listener.fns;
-
-			if (forms.indexOf(form) != -1) return;
-			forms.push(form);
-
-			var _fn = function(event){
-				bubbleUp(self, match, fn, event, target);
-			};
-			form.addEvent(type, _fn);
-			fns.push(_fn);
-
-			listeners[uid] = listener;
-			self.store(_key + type + 'listeners', listeners);
+	set: function(property, now){
+		if (arguments.length == 1){
+			now = property;
+			property = this.property || this.options.property;
 		}
-	};
-};
+		this.render(this.element, property, now, this.options.unit);
+		return this;
+	},
 
-var inputObserver = function(type){
-	return {
-		base: 'focusin',
-		listen: function(self, match, fn, event, target){
-			var events = {blur: function(){
-				this.removeEvents(events);
-			}};
-			events[type] = function(event){
-				bubbleUp(self, match, fn, event, target);
-			};
-			event.target.addEvents(events);
-		}
-	};
-};
+	start: function(property, from, to){
+		if (!this.check(property, from, to)) return this;
+		var args = Array.flatten(arguments);
+		this.property = this.options.property || args.shift();
+		var parsed = this.prepare(this.element, this.property, args);
+		return this.parent(parsed.from, parsed.to);
+	}
 
-if (!eventListenerSupport) Object.append(map, {
-	submit: formObserver('submit'),
-	reset: formObserver('reset'),
-	change: inputObserver('change'),
-	select: inputObserver('select')
 });
-/*</ltIE9>*/
 
-var proto = Element.prototype,
-	addEvent = proto.addEvent,
-	removeEvent = proto.removeEvent;
+Element.Properties.tween = {
 
-var relay = function(old, method){
-	return function(type, fn, useCapture){
-		if (type.indexOf(':relay') == -1) return old.call(this, type, fn, useCapture);
-		var parsed = Slick.parse(type).expressions[0][0];
-		if (parsed.pseudos[0].key != 'relay') return old.call(this, type, fn, useCapture);
-		var newType = parsed.tag;
-		parsed.pseudos.slice(1).each(function(pseudo){
-			newType += ':' + pseudo.key + (pseudo.value ? '(' + pseudo.value + ')' : '');
-		});
-		old.call(this, type, fn);
-		return method.call(this, newType, parsed.pseudos[0].value, fn);
-	};
-};
-
-var delegation = {
-
-	addEvent: function(type, match, fn){
-		var storage = this.retrieve('$delegates', {}), stored = storage[type];
-		if (stored) for (var _uid in stored){
-			if (stored[_uid].fn == fn && stored[_uid].match == match) return this;
-		}
-
-		var _type = type, _match = match, _fn = fn, _map = map[type] || {};
-		type = _map.base || _type;
-
-		match = function(target){
-			return Slick.match(target, _match);
-		};
-
-		var elementEvent = Element.Events[_type];
-		if (elementEvent && elementEvent.condition){
-			var __match = match, condition = elementEvent.condition;
-			match = function(target, event){
-				return __match(target, event) && condition.call(target, event, type);
-			};
-		}
-
-		var self = this, uid = String.uniqueID();
-		var delegator = _map.listen ? function(event, target){
-			if (!target && event && event.target) target = event.target;
-			if (target) _map.listen(self, match, fn, event, target, uid);
-		} : function(event, target){
-			if (!target && event && event.target) target = event.target;
-			if (target) bubbleUp(self, match, fn, event, target);
-		};
-
-		if (!stored) stored = {};
-		stored[uid] = {
-			match: _match,
-			fn: _fn,
-			delegator: delegator
-		};
-		storage[_type] = stored;
-		return addEvent.call(this, type, delegator, _map.capture);
+	set: function(options){
+		this.get('tween').cancel().setOptions(options);
+		return this;
 	},
 
-	removeEvent: function(type, match, fn, _uid){
-		var storage = this.retrieve('$delegates', {}), stored = storage[type];
-		if (!stored) return this;
-
-		if (_uid){
-			var _type = type, delegator = stored[_uid].delegator, _map = map[type] || {};
-			type = _map.base || _type;
-			if (_map.remove) _map.remove(this, _uid);
-			delete stored[_uid];
-			storage[_type] = stored;
-			return removeEvent.call(this, type, delegator);
+	get: function(){
+		var tween = this.retrieve('tween');
+		if (!tween){
+			tween = new Fx.Tween(this, {link: 'cancel'});
+			this.store('tween', tween);
 		}
+		return tween;
+	}
 
-		var __uid, s;
-		if (fn) for (__uid in stored){
-			s = stored[__uid];
-			if (s.match == match && s.fn == fn) return delegation.removeEvent.call(this, type, match, fn, __uid);
-		} else for (__uid in stored){
-			s = stored[__uid];
-			if (s.match == match) delegation.removeEvent.call(this, type, match, s.fn, __uid);
+};
+
+Element.implement({
+
+	tween: function(property, from, to){
+		this.get('tween').start(property, from, to);
+		return this;
+	},
+
+	fade: function(how){
+		var fade = this.get('tween'), method, args = ['opacity'].append(arguments), toggle;
+		if (args[1] == null) args[1] = 'toggle';
+		switch (args[1]){
+			case 'in': method = 'start'; args[1] = 1; break;
+			case 'out': method = 'start'; args[1] = 0; break;
+			case 'show': method = 'set'; args[1] = 1; break;
+			case 'hide': method = 'set'; args[1] = 0; break;
+			case 'toggle':
+				var flag = this.retrieve('fade:flag', this.getStyle('opacity') == 1);
+				method = 'start';
+				args[1] = flag ? 0 : 1;
+				this.store('fade:flag', !flag);
+				toggle = true;
+			break;
+			default: method = 'start';
 		}
+		if (!toggle) this.eliminate('fade:flag');
+		fade[method].apply(fade, args);
+		var to = args[args.length - 1];
+		if (method == 'set' || to != 0) this.setStyle('visibility', to == 0 ? 'hidden' : 'visible');
+		else fade.chain(function(){
+			this.element.setStyle('visibility', 'hidden');
+			this.callChain();
+		});
+		return this;
+	},
+
+	highlight: function(start, end){
+		if (!end){
+			end = this.retrieve('highlight:original', this.getStyle('background-color'));
+			end = (end == 'transparent') ? '#fff' : end;
+		}
+		var tween = this.get('tween');
+		tween.start('background-color', start || '#ffff88', end).chain(function(){
+			this.setStyle('background-color', this.retrieve('highlight:original'));
+			tween.callChain();
+		}.bind(this));
 		return this;
 	}
 
-};
-
-[Element, Window, Document].invoke('implement', {
-	addEvent: relay(addEvent, delegation.addEvent),
-	removeEvent: relay(removeEvent, delegation.removeEvent)
 });
 
-})();
+
+/*
+---
+
+name: Fx.Morph
+
+description: Formerly Fx.Styles, effect to transition any number of CSS properties for an element using an object of rules, or CSS based selector rules.
+
+license: MIT-style license.
+
+requires: Fx.CSS
+
+provides: Fx.Morph
+
+...
+*/
+
+Fx.Morph = new Class({
+
+	Extends: Fx.CSS,
+
+	initialize: function(element, options){
+		this.element = this.subject = document.id(element);
+		this.parent(options);
+	},
+
+	set: function(now){
+		if (typeof now == 'string') now = this.search(now);
+		for (var p in now) this.render(this.element, p, now[p], this.options.unit);
+		return this;
+	},
+
+	compute: function(from, to, delta){
+		var now = {};
+		for (var p in from) now[p] = this.parent(from[p], to[p], delta);
+		return now;
+	},
+
+	start: function(properties){
+		if (!this.check(properties)) return this;
+		if (typeof properties == 'string') properties = this.search(properties);
+		var from = {}, to = {};
+		for (var p in properties){
+			var parsed = this.prepare(this.element, p, properties[p]);
+			from[p] = parsed.from;
+			to[p] = parsed.to;
+		}
+		return this.parent(from, to);
+	}
+
+});
+
+Element.Properties.morph = {
+
+	set: function(options){
+		this.get('morph').cancel().setOptions(options);
+		return this;
+	},
+
+	get: function(){
+		var morph = this.retrieve('morph');
+		if (!morph){
+			morph = new Fx.Morph(this, {link: 'cancel'});
+			this.store('morph', morph);
+		}
+		return morph;
+	}
+
+};
+
+Element.implement({
+
+	morph: function(props){
+		this.get('morph').start(props);
+		return this;
+	}
+
+});
 
 
 /*
@@ -7295,111 +7286,76 @@ Element.alias({position: 'setPosition'}); //compatability
 /*
 ---
 
-name: Fx.Tween
+script: Element.Shortcuts.js
 
-description: Formerly Fx.Style, effect to transition any CSS property for an element.
+name: Element.Shortcuts
 
-license: MIT-style license.
+description: Extends the Element native object to include some shortcut methods.
 
-requires: Fx.CSS
+license: MIT-style license
 
-provides: [Fx.Tween, Element.fade, Element.highlight]
+authors:
+  - Aaron Newton
+
+requires:
+  - Core/Element.Style
+  - /MooTools.More
+
+provides: [Element.Shortcuts]
 
 ...
 */
 
-Fx.Tween = new Class({
+Element.implement({
 
-	Extends: Fx.CSS,
-
-	initialize: function(element, options){
-		this.element = this.subject = document.id(element);
-		this.parent(options);
+	isDisplayed: function(){
+		return this.getStyle('display') != 'none';
 	},
 
-	set: function(property, now){
-		if (arguments.length == 1){
-			now = property;
-			property = this.property || this.options.property;
-		}
-		this.render(this.element, property, now, this.options.unit);
-		return this;
+	isVisible: function(){
+		var w = this.offsetWidth,
+			h = this.offsetHeight;
+		return (w == 0 && h == 0) ? false : (w > 0 && h > 0) ? true : this.style.display != 'none';
 	},
 
-	start: function(property, from, to){
-		if (!this.check(property, from, to)) return this;
-		var args = Array.flatten(arguments);
-		this.property = this.options.property || args.shift();
-		var parsed = this.prepare(this.element, this.property, args);
-		return this.parent(parsed.from, parsed.to);
+	toggle: function(){
+		return this[this.isDisplayed() ? 'hide' : 'show']();
+	},
+
+	hide: function(){
+		var d;
+		try {
+			//IE fails here if the element is not in the dom
+			d = this.getStyle('display');
+		} catch(e){}
+		if (d == 'none') return this;
+		return this.store('element:_originalDisplay', d || '').setStyle('display', 'none');
+	},
+
+	show: function(display){
+		if (!display && this.isDisplayed()) return this;
+		display = display || this.retrieve('element:_originalDisplay') || 'block';
+		return this.setStyle('display', (display == 'none') ? 'block' : display);
+	},
+
+	swapClass: function(remove, add){
+		return this.removeClass(remove).addClass(add);
 	}
 
 });
 
-Element.Properties.tween = {
+Document.implement({
 
-	set: function(options){
-		this.get('tween').cancel().setOptions(options);
-		return this;
-	},
-
-	get: function(){
-		var tween = this.retrieve('tween');
-		if (!tween){
-			tween = new Fx.Tween(this, {link: 'cancel'});
-			this.store('tween', tween);
+	clearSelection: function(){
+		if (window.getSelection){
+			var selection = window.getSelection();
+			if (selection && selection.removeAllRanges) selection.removeAllRanges();
+		} else if (document.selection && document.selection.empty){
+			try {
+				//IE fails here if selected element is not in dom
+				document.selection.empty();
+			} catch(e){}
 		}
-		return tween;
-	}
-
-};
-
-Element.implement({
-
-	tween: function(property, from, to){
-		this.get('tween').start(property, from, to);
-		return this;
-	},
-
-	fade: function(how){
-		var fade = this.get('tween'), method, args = ['opacity'].append(arguments), toggle;
-		if (args[1] == null) args[1] = 'toggle';
-		switch (args[1]){
-			case 'in': method = 'start'; args[1] = 1; break;
-			case 'out': method = 'start'; args[1] = 0; break;
-			case 'show': method = 'set'; args[1] = 1; break;
-			case 'hide': method = 'set'; args[1] = 0; break;
-			case 'toggle':
-				var flag = this.retrieve('fade:flag', this.getStyle('opacity') == 1);
-				method = 'start';
-				args[1] = flag ? 0 : 1;
-				this.store('fade:flag', !flag);
-				toggle = true;
-			break;
-			default: method = 'start';
-		}
-		if (!toggle) this.eliminate('fade:flag');
-		fade[method].apply(fade, args);
-		var to = args[args.length - 1];
-		if (method == 'set' || to != 0) this.setStyle('visibility', to == 0 ? 'hidden' : 'visible');
-		else fade.chain(function(){
-			this.element.setStyle('visibility', 'hidden');
-			this.callChain();
-		});
-		return this;
-	},
-
-	highlight: function(start, end){
-		if (!end){
-			end = this.retrieve('highlight:original', this.getStyle('background-color'));
-			end = (end == 'transparent') ? '#fff' : end;
-		}
-		var tween = this.get('tween');
-		tween.start('background-color', start || '#ffff88', end).chain(function(){
-			this.setStyle('background-color', this.retrieve('highlight:original'));
-			tween.callChain();
-		}.bind(this));
-		return this;
 	}
 
 });
@@ -7408,80 +7364,833 @@ Element.implement({
 /*
 ---
 
-name: Fx.Morph
+script: Element.Measure.js
 
-description: Formerly Fx.Styles, effect to transition any number of CSS properties for an element using an object of rules, or CSS based selector rules.
+name: Element.Measure
 
-license: MIT-style license.
+description: Extends the Element native object to include methods useful in measuring dimensions.
 
-requires: Fx.CSS
+credits: "Element.measure / .expose methods by Daniel Steigerwald License: MIT-style license. Copyright: Copyright (c) 2008 Daniel Steigerwald, daniel.steigerwald.cz"
 
-provides: Fx.Morph
+license: MIT-style license
+
+authors:
+  - Aaron Newton
+
+requires:
+  - Core/Element.Style
+  - Core/Element.Dimensions
+  - /MooTools.More
+
+provides: [Element.Measure]
 
 ...
 */
 
-Fx.Morph = new Class({
+(function(){
 
-	Extends: Fx.CSS,
+var getStylesList = function(styles, planes){
+	var list = [];
+	Object.each(planes, function(directions){
+		Object.each(directions, function(edge){
+			styles.each(function(style){
+				list.push(style + '-' + edge + (style == 'border' ? '-width' : ''));
+			});
+		});
+	});
+	return list;
+};
 
-	initialize: function(element, options){
-		this.element = this.subject = document.id(element);
-		this.parent(options);
-	},
+var calculateEdgeSize = function(edge, styles){
+	var total = 0;
+	Object.each(styles, function(value, style){
+		if (style.test(edge)) total = total + value.toInt();
+	});
+	return total;
+};
 
-	set: function(now){
-		if (typeof now == 'string') now = this.search(now);
-		for (var p in now) this.render(this.element, p, now[p], this.options.unit);
-		return this;
-	},
+var isVisible = function(el){
+	return !!(!el || el.offsetHeight || el.offsetWidth);
+};
 
-	compute: function(from, to, delta){
-		var now = {};
-		for (var p in from) now[p] = this.parent(from[p], to[p], delta);
-		return now;
-	},
 
-	start: function(properties){
-		if (!this.check(properties)) return this;
-		if (typeof properties == 'string') properties = this.search(properties);
-		var from = {}, to = {};
-		for (var p in properties){
-			var parsed = this.prepare(this.element, p, properties[p]);
-			from[p] = parsed.from;
-			to[p] = parsed.to;
+Element.implement({
+
+	measure: function(fn){
+		if (isVisible(this)) return fn.call(this);
+		var parent = this.getParent(),
+			toMeasure = [];
+		while (!isVisible(parent) && parent != document.body){
+			toMeasure.push(parent.expose());
+			parent = parent.getParent();
 		}
-		return this.parent(from, to);
+		var restore = this.expose(),
+			result = fn.call(this);
+		restore();
+		toMeasure.each(function(restore){
+			restore();
+		});
+		return result;
+	},
+
+	expose: function(){
+		if (this.getStyle('display') != 'none') return function(){};
+		var before = this.style.cssText;
+		this.setStyles({
+			display: 'block',
+			position: 'absolute',
+			visibility: 'hidden'
+		});
+		return function(){
+			this.style.cssText = before;
+		}.bind(this);
+	},
+
+	getDimensions: function(options){
+		options = Object.merge({computeSize: false}, options);
+		var dim = {x: 0, y: 0};
+
+		var getSize = function(el, options){
+			return (options.computeSize) ? el.getComputedSize(options) : el.getSize();
+		};
+
+		var parent = this.getParent('body');
+
+		if (parent && this.getStyle('display') == 'none'){
+			dim = this.measure(function(){
+				return getSize(this, options);
+			});
+		} else if (parent){
+			try { //safari sometimes crashes here, so catch it
+				dim = getSize(this, options);
+			}catch(e){}
+		}
+
+		return Object.append(dim, (dim.x || dim.x === 0) ? {
+				width: dim.x,
+				height: dim.y
+			} : {
+				x: dim.width,
+				y: dim.height
+			}
+		);
+	},
+
+	getComputedSize: function(options){
+		//<1.2compat>
+		//legacy support for my stupid spelling error
+		if (options && options.plains) options.planes = options.plains;
+		//</1.2compat>
+
+		options = Object.merge({
+			styles: ['padding','border'],
+			planes: {
+				height: ['top','bottom'],
+				width: ['left','right']
+			},
+			mode: 'both'
+		}, options);
+
+		var styles = {},
+			size = {width: 0, height: 0},
+			dimensions;
+
+		if (options.mode == 'vertical'){
+			delete size.width;
+			delete options.planes.width;
+		} else if (options.mode == 'horizontal'){
+			delete size.height;
+			delete options.planes.height;
+		}
+
+		getStylesList(options.styles, options.planes).each(function(style){
+			styles[style] = this.getStyle(style).toInt();
+		}, this);
+
+		Object.each(options.planes, function(edges, plane){
+
+			var capitalized = plane.capitalize(),
+				style = this.getStyle(plane);
+
+			if (style == 'auto' && !dimensions) dimensions = this.getDimensions();
+
+			style = styles[plane] = (style == 'auto') ? dimensions[plane] : style.toInt();
+			size['total' + capitalized] = style;
+
+			edges.each(function(edge){
+				var edgesize = calculateEdgeSize(edge, styles);
+				size['computed' + edge.capitalize()] = edgesize;
+				size['total' + capitalized] += edgesize;
+			});
+
+		}, this);
+
+		return Object.append(size, styles);
 	}
 
 });
 
-Element.Properties.morph = {
+})();
 
-	set: function(options){
-		this.get('morph').cancel().setOptions(options);
+
+/*
+---
+
+name: TabSwapper
+
+description: Handles the scripting for a common UI layout; the tabbed box.
+
+license: MIT-Style License
+
+requires: [Core/Element.Event, Core/Fx.Tween, Core/Fx.Morph, Core/Element.Dimensions, More/Element.Shortcuts, More/Element.Measure]
+
+provides: TabSwapper
+
+...
+*/
+var TabSwapper = new Class({
+	Implements: [Options, Events],
+	options: {
+		// initPanel: null,
+		// smooth: false,
+		// smoothSize: false,
+		// maxSize: null,
+		// onActive: function(){},
+		// onActiveAfterFx: function(){},
+		// onBackground: function(){}
+		// cookieName: null,
+		preventDefault: true,
+		selectedClass: 'tabSelected',
+		mouseoverClass: 'tabOver',
+		deselectedClass: '',
+		rearrangeDOM: true,
+		effectOptions: {
+			duration: 500
+		},
+		cookieDays: 999
+	},
+	tabs: [],
+	sections: [],
+	clickers: [],
+	sectionFx: [],
+	initialize: function(options){
+		this.setOptions(options);
+		var prev = this.setup();
+		if (prev) return prev;
+		if (this.options.initPanel != null) this.show(this.options.initPanel);
+		else if (this.options.cookieName && this.recall()) this.show(this.recall().toInt());
+		else this.show(0);
+
+	},
+	setup: function(){
+		var opt = this.options,
+		    sections = $$(opt.sections),
+		    tabs = $$(opt.tabs);
+		if (tabs[0] && tabs[0].retrieve('tabSwapper')) return tabs[0].retrieve('tabSwapper');
+		var clickers = $$(opt.clickers);
+		tabs.each(function(tab, index){
+			this.addTab(tab, sections[index], clickers[index], index);
+		}, this);
+	},
+	addTab: function(tab, section, clicker, index){
+		tab = document.id(tab); clicker = document.id(clicker); section = document.id(section);
+		//if the tab is already in the interface, just move it
+		if (this.tabs.indexOf(tab) >= 0 && tab.retrieve('tabbered')
+			 && this.tabs.indexOf(tab) != index && this.options.rearrangeDOM) {
+			this.moveTab(this.tabs.indexOf(tab), index);
+			return this;
+		}
+		//if the index isn't specified, put the tab at the end
+		if (index == null) index = this.tabs.length;
+		//if this isn't the first item, and there's a tab
+		//already in the interface at the index 1 less than this
+		//insert this after that one
+		if (index > 0 && this.tabs[index-1] && this.options.rearrangeDOM) {
+			tab.inject(this.tabs[index-1], 'after');
+			section.inject(this.tabs[index-1].retrieve('section'), 'after');
+		}
+		this.tabs.splice(index, 0, tab);
+		clicker = clicker || tab;
+
+		tab.addEvents({
+			mouseout: function(){
+				tab.removeClass(this.options.mouseoverClass);
+			}.bind(this),
+			mouseover: function(){
+				tab.addClass(this.options.mouseoverClass);
+			}.bind(this)
+		});
+
+		clicker.addEvent('click', function(e){
+			if (this.options.preventDefault) e.preventDefault();
+			this.show(index);
+		}.bind(this));
+
+		tab.store('tabbered', true);
+		tab.store('section', section);
+		tab.store('clicker', clicker);
+		this.hideSection(index);
 		return this;
 	},
-
-	get: function(){
-		var morph = this.retrieve('morph');
-		if (!morph){
-			morph = new Fx.Morph(this, {link: 'cancel'});
-			this.store('morph', morph);
+	removeTab: function(index){
+		var now = this.tabs[this.now];
+		if (this.now == index){
+			if (index > 0) this.show(index - 1);
+			else if (index < this.tabs.length) this.show(index + 1);
 		}
-		return morph;
+		this.now = this.tabs.indexOf(now);
+		return this;
+	},
+	moveTab: function(from, to){
+		var tab = this.tabs[from];
+		var clicker = tab.retrieve('clicker');
+		var section = tab.retrieve('section');
+
+		var toTab = this.tabs[to];
+		var toClicker = toTab.retrieve('clicker');
+		var toSection = toTab.retrieve('section');
+
+		this.tabs.erase(tab).splice(to, 0, tab);
+
+		tab.inject(toTab, 'before');
+		clicker.inject(toClicker, 'before');
+		section.inject(toSection, 'before');
+		return this;
+	},
+	show: function(i){
+		if (this.now == null) {
+			this.tabs.each(function(tab, idx){
+				if (i != idx)
+					this.hideSection(idx);
+			}, this);
+		}
+		this.showSection(i).save(i);
+		return this;
+	},
+	save: function(index){
+		if (this.options.cookieName)
+			Cookie.write(this.options.cookieName, index, {duration:this.options.cookieDays});
+		return this;
+	},
+	recall: function(){
+		return (this.options.cookieName) ? Cookie.read(this.options.cookieName) : false;
+	},
+	hideSection: function(idx) {
+		var tab = this.tabs[idx];
+		if (!tab) return this;
+		var sect = tab.retrieve('section');
+		if (!sect) return this;
+		if (sect.getStyle('display') != 'none') {
+			this.lastHeight = sect.getSize().y;
+			sect.setStyle('display', 'none');
+			tab.swapClass(this.options.selectedClass, this.options.deselectedClass);
+			this.fireEvent('onBackground', [idx, sect, tab]);
+		}
+		return this;
+	},
+	showSection: function(idx) {
+		var tab = this.tabs[idx];
+		if (!tab) return this;
+		var sect = tab.retrieve('section');
+		if (!sect) return this;
+		var smoothOk = this.options.smooth && !Browser.ie;
+		if (this.now != idx) {
+			if (!tab.retrieve('tabFx'))
+				tab.store('tabFx', new Fx.Morph(sect, this.options.effectOptions));
+			var overflow = sect.getStyle('overflow');
+			var start = {
+				display:'block',
+				overflow: 'hidden'
+			};
+			if (smoothOk) start.opacity = 0;
+			var effect = false;
+			if (smoothOk) {
+				effect = {opacity: 1};
+			} else if (sect.getStyle('opacity').toInt() < 1) {
+				sect.setStyle('opacity', 1);
+				if (!this.options.smoothSize) this.fireEvent('onActiveAfterFx', [idx, sect, tab]);
+			}
+			if (this.options.smoothSize) {
+				var size = sect.getDimensions().height;
+				if (this.options.maxSize != null && this.options.maxSize < size)
+					size = this.options.maxSize;
+				if (!effect) effect = {};
+				effect.height = size;
+			}
+			if (this.now != null) this.hideSection(this.now);
+			if (this.options.smoothSize && this.lastHeight) start.height = this.lastHeight;
+			sect.setStyles(start);
+			var finish = function(){
+				this.fireEvent('onActiveAfterFx', [idx, sect, tab]);
+				sect.setStyles({
+					height: this.options.maxSize == effect.height ? this.options.maxSize : "auto",
+					overflow: overflow
+				});
+				sect.getElements('input, textarea').setStyle('opacity', 1);
+			}.bind(this);
+			if (effect) {
+				tab.retrieve('tabFx').start(effect).chain(finish);
+			} else {
+				finish();
+			}
+			this.now = idx;
+			this.fireEvent('onActive', [idx, sect, tab]);
+		}
+		tab.swapClass(this.options.deselectedClass, this.options.selectedClass);
+		return this;
+	}
+});
+
+
+/*
+---
+
+script: String.QueryString.js
+
+name: String.QueryString
+
+description: Methods for dealing with URI query strings.
+
+license: MIT-style license
+
+authors:
+  - Sebastian Markbåge
+  - Aaron Newton
+  - Lennart Pilon
+  - Valerio Proietti
+
+requires:
+  - Core/Array
+  - Core/String
+  - /MooTools.More
+
+provides: [String.QueryString]
+
+...
+*/
+
+String.implement({
+
+	parseQueryString: function(decodeKeys, decodeValues){
+		if (decodeKeys == null) decodeKeys = true;
+		if (decodeValues == null) decodeValues = true;
+
+		var vars = this.split(/[&;]/),
+			object = {};
+		if (!vars.length) return object;
+
+		vars.each(function(val){
+			var index = val.indexOf('=') + 1,
+				value = index ? val.substr(index) : '',
+				keys = index ? val.substr(0, index - 1).match(/([^\]\[]+|(\B)(?=\]))/g) : [val],
+				obj = object;
+			if (!keys) return;
+			if (decodeValues) value = decodeURIComponent(value);
+			keys.each(function(key, i){
+				if (decodeKeys) key = decodeURIComponent(key);
+				var current = obj[key];
+
+				if (i < keys.length - 1) obj = obj[key] = current || {};
+				else if (typeOf(current) == 'array') current.push(value);
+				else obj[key] = current != null ? [current, value] : value;
+			});
+		});
+
+		return object;
+	},
+
+	cleanQueryString: function(method){
+		return this.split('&').filter(function(val){
+			var index = val.indexOf('='),
+				key = index < 0 ? '' : val.substr(0, index),
+				value = val.substr(index + 1);
+
+			return method ? method.call(null, key, value) : (value || value === 0);
+		}).join('&');
+	}
+
+});
+
+
+/*
+---
+
+script: Object.Extras.js
+
+name: Object.Extras
+
+description: Extra Object generics, like getFromPath which allows a path notation to child elements.
+
+license: MIT-style license
+
+authors:
+  - Aaron Newton
+
+requires:
+  - Core/Object
+  - /MooTools.More
+
+provides: [Object.Extras]
+
+...
+*/
+
+(function(){
+
+var defined = function(value){
+	return value != null;
+};
+
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+
+Object.extend({
+
+	getFromPath: function(source, parts){
+		if (typeof parts == 'string') parts = parts.split('.');
+		for (var i = 0, l = parts.length; i < l; i++){
+			if (hasOwnProperty.call(source, parts[i])) source = source[parts[i]];
+			else return null;
+		}
+		return source;
+	},
+
+	cleanValues: function(object, method){
+		method = method || defined;
+		for (var key in object) if (!method(object[key])){
+			delete object[key];
+		}
+		return object;
+	},
+
+	erase: function(object, key){
+		if (hasOwnProperty.call(object, key)) delete object[key];
+		return object;
+	},
+
+	run: function(object){
+		var args = Array.slice(arguments, 1);
+		for (var key in object) if (object[key].apply){
+			object[key].apply(object, args);
+		}
+		return object;
+	}
+
+});
+
+})();
+
+
+/*
+---
+name: Behavior.Tabs
+description: Adds a tab interface (TabSwapper instance) for elements with .css-tab_ui. Matched with tab elements that are .tabs and sections that are .tab_sections.
+provides: [Behavior.Tabs]
+requires: [Behavior/Behavior, /TabSwapper, More/String.QueryString, More/Object.Extras]
+script: Behavior.Tabs.js
+
+...
+*/
+
+Behavior.addGlobalFilters({
+
+	Tabs: {
+		defaults: {
+			'tabs-selector': '.tabs>li',
+			'sections-selector': '.tab_sections>li',
+			smooth: true,
+			smoothSize: true,
+			rearrangeDOM: false,
+			preventDefault: true
+		},
+		setup: function(element, api) {
+			var tabs = element.getElements(api.get('tabs-selector'));
+			var sections = element.getElements(api.get('sections-selector'));
+			if (tabs.length != sections.length || tabs.length == 0) {
+				api.fail('warning; sections and sections are not of equal number. tabs: ' + tabs.length + ', sections: ' + sections.length);
+			}
+			var getHash = function(){
+				return window.location.hash.substring(1, window.location.hash.length).parseQueryString();
+			};
+
+			var ts = new TabSwapper(
+				Object.merge(
+					{
+						tabs: tabs,
+						sections: sections,
+						initPanel: api.get('hash') ? getHash()[api.get('hash')] : null
+					},
+					Object.cleanValues(
+						api.getAs({
+							smooth: Boolean,
+							smoothSize: Boolean,
+							rearrangeDOM: Boolean,
+							selectedClass: String,
+							initPanel: Number,
+							preventDefault: Boolean
+						})
+					)
+				)
+			);
+			ts.addEvent('active', function(index){
+				if (api.get('hash')) {
+					var hash = getHash();
+					hash[api.get('hash')] = index;
+					window.location.hash = Object.cleanValues(Object.toQueryString(hash));
+				}
+				api.fireEvent('layout:display', sections[0].getParent());
+			});
+			element.store('TabSwapper', ts);
+			return ts;
+		}
+	}
+});
+
+
+/*
+---
+
+name: Behavior.Mercor.Tabs
+
+description: Instantiates Bootstrap.Tabs based on HTML markup.
+
+license: MIT-style license.
+
+authors: [Aaron Newton]
+
+requires:
+ - Behavior/Behavior
+ - Clientcide/Behavior.Tabs
+
+provides: [Behavior.Mercor.Tabs]
+
+...
+*/
+(function(){
+
+	var tabs = Object.clone(Behavior.getFilter('Tabs'));
+
+	Behavior.addGlobalFilters({
+		'Mercor.Tabs': tabs.config
+	});
+
+	Behavior.setFilterDefaults('Mercor.Tabs', {
+		'tabs-selector': 'a:not(.dropdown-toggle)',
+		'sections-selector': '+.tab-content >',
+		'selectedClass': 'active',
+		smooth: false,
+		smoothSize: false
+	});
+
+	Behavior.addGlobalPlugin('Mercor.Tabs', 'Mercor.Tabs.CSS', function(el, api, instance){
+		instance.addEvent('active', function(index, section, tab){
+			el.getElements('.active').removeClass('active');
+			tab.getParent('li').addClass('active');
+			var dropdown = tab.getParent('.dropdown');
+			if (dropdown) dropdown.addClass('active');
+		});
+	});
+
+})();
+
+/*
+---
+
+name: Element.Delegation
+
+description: Extends the Element native object to include the delegate method for more efficient event management.
+
+license: MIT-style license.
+
+requires: [Element.Event]
+
+provides: [Element.Delegation]
+
+...
+*/
+
+(function(){
+
+var eventListenerSupport = !!window.addEventListener;
+
+Element.NativeEvents.focusin = Element.NativeEvents.focusout = 2;
+
+var bubbleUp = function(self, match, fn, event, target){
+	while (target && target != self){
+		if (match(target, event)) return fn.call(target, event, target);
+		target = document.id(target.parentNode);
+	}
+};
+
+var map = {
+	mouseenter: {
+		base: 'mouseover'
+	},
+	mouseleave: {
+		base: 'mouseout'
+	},
+	focus: {
+		base: 'focus' + (eventListenerSupport ? '' : 'in'),
+		capture: true
+	},
+	blur: {
+		base: eventListenerSupport ? 'blur' : 'focusout',
+		capture: true
+	}
+};
+
+/*<ltIE9>*/
+var _key = '$delegation:';
+var formObserver = function(type){
+
+	return {
+
+		base: 'focusin',
+
+		remove: function(self, uid){
+			var list = self.retrieve(_key + type + 'listeners', {})[uid];
+			if (list && list.forms) for (var i = list.forms.length; i--;){
+				list.forms[i].removeEvent(type, list.fns[i]);
+			}
+		},
+
+		listen: function(self, match, fn, event, target, uid){
+			var form = (target.get('tag') == 'form') ? target : event.target.getParent('form');
+			if (!form) return;
+
+			var listeners = self.retrieve(_key + type + 'listeners', {}),
+				listener = listeners[uid] || {forms: [], fns: []},
+				forms = listener.forms, fns = listener.fns;
+
+			if (forms.indexOf(form) != -1) return;
+			forms.push(form);
+
+			var _fn = function(event){
+				bubbleUp(self, match, fn, event, target);
+			};
+			form.addEvent(type, _fn);
+			fns.push(_fn);
+
+			listeners[uid] = listener;
+			self.store(_key + type + 'listeners', listeners);
+		}
+	};
+};
+
+var inputObserver = function(type){
+	return {
+		base: 'focusin',
+		listen: function(self, match, fn, event, target){
+			var events = {blur: function(){
+				this.removeEvents(events);
+			}};
+			events[type] = function(event){
+				bubbleUp(self, match, fn, event, target);
+			};
+			event.target.addEvents(events);
+		}
+	};
+};
+
+if (!eventListenerSupport) Object.append(map, {
+	submit: formObserver('submit'),
+	reset: formObserver('reset'),
+	change: inputObserver('change'),
+	select: inputObserver('select')
+});
+/*</ltIE9>*/
+
+var proto = Element.prototype,
+	addEvent = proto.addEvent,
+	removeEvent = proto.removeEvent;
+
+var relay = function(old, method){
+	return function(type, fn, useCapture){
+		if (type.indexOf(':relay') == -1) return old.call(this, type, fn, useCapture);
+		var parsed = Slick.parse(type).expressions[0][0];
+		if (parsed.pseudos[0].key != 'relay') return old.call(this, type, fn, useCapture);
+		var newType = parsed.tag;
+		parsed.pseudos.slice(1).each(function(pseudo){
+			newType += ':' + pseudo.key + (pseudo.value ? '(' + pseudo.value + ')' : '');
+		});
+		old.call(this, type, fn);
+		return method.call(this, newType, parsed.pseudos[0].value, fn);
+	};
+};
+
+var delegation = {
+
+	addEvent: function(type, match, fn){
+		var storage = this.retrieve('$delegates', {}), stored = storage[type];
+		if (stored) for (var _uid in stored){
+			if (stored[_uid].fn == fn && stored[_uid].match == match) return this;
+		}
+
+		var _type = type, _match = match, _fn = fn, _map = map[type] || {};
+		type = _map.base || _type;
+
+		match = function(target){
+			return Slick.match(target, _match);
+		};
+
+		var elementEvent = Element.Events[_type];
+		if (elementEvent && elementEvent.condition){
+			var __match = match, condition = elementEvent.condition;
+			match = function(target, event){
+				return __match(target, event) && condition.call(target, event, type);
+			};
+		}
+
+		var self = this, uid = String.uniqueID();
+		var delegator = _map.listen ? function(event, target){
+			if (!target && event && event.target) target = event.target;
+			if (target) _map.listen(self, match, fn, event, target, uid);
+		} : function(event, target){
+			if (!target && event && event.target) target = event.target;
+			if (target) bubbleUp(self, match, fn, event, target);
+		};
+
+		if (!stored) stored = {};
+		stored[uid] = {
+			match: _match,
+			fn: _fn,
+			delegator: delegator
+		};
+		storage[_type] = stored;
+		return addEvent.call(this, type, delegator, _map.capture);
+	},
+
+	removeEvent: function(type, match, fn, _uid){
+		var storage = this.retrieve('$delegates', {}), stored = storage[type];
+		if (!stored) return this;
+
+		if (_uid){
+			var _type = type, delegator = stored[_uid].delegator, _map = map[type] || {};
+			type = _map.base || _type;
+			if (_map.remove) _map.remove(this, _uid);
+			delete stored[_uid];
+			storage[_type] = stored;
+			return removeEvent.call(this, type, delegator);
+		}
+
+		var __uid, s;
+		if (fn) for (__uid in stored){
+			s = stored[__uid];
+			if (s.match == match && s.fn == fn) return delegation.removeEvent.call(this, type, match, fn, __uid);
+		} else for (__uid in stored){
+			s = stored[__uid];
+			if (s.match == match) delegation.removeEvent.call(this, type, match, s.fn, __uid);
+		}
+		return this;
 	}
 
 };
 
-Element.implement({
-
-	morph: function(props){
-		this.get('morph').start(props);
-		return this;
-	}
-
+[Element, Window, Document].invoke('implement', {
+	addEvent: relay(addEvent, delegation.addEvent),
+	removeEvent: relay(removeEvent, delegation.removeEvent)
 });
+
+})();
 
 
 /*
@@ -8331,84 +9040,6 @@ provides: [Bootstrap]
 ...
 */
 var Bootstrap = {};
-
-/*
----
-
-script: Element.Shortcuts.js
-
-name: Element.Shortcuts
-
-description: Extends the Element native object to include some shortcut methods.
-
-license: MIT-style license
-
-authors:
-  - Aaron Newton
-
-requires:
-  - Core/Element.Style
-  - /MooTools.More
-
-provides: [Element.Shortcuts]
-
-...
-*/
-
-Element.implement({
-
-	isDisplayed: function(){
-		return this.getStyle('display') != 'none';
-	},
-
-	isVisible: function(){
-		var w = this.offsetWidth,
-			h = this.offsetHeight;
-		return (w == 0 && h == 0) ? false : (w > 0 && h > 0) ? true : this.style.display != 'none';
-	},
-
-	toggle: function(){
-		return this[this.isDisplayed() ? 'hide' : 'show']();
-	},
-
-	hide: function(){
-		var d;
-		try {
-			//IE fails here if the element is not in the dom
-			d = this.getStyle('display');
-		} catch(e){}
-		if (d == 'none') return this;
-		return this.store('element:_originalDisplay', d || '').setStyle('display', 'none');
-	},
-
-	show: function(display){
-		if (!display && this.isDisplayed()) return this;
-		display = display || this.retrieve('element:_originalDisplay') || 'block';
-		return this.setStyle('display', (display == 'none') ? 'block' : display);
-	},
-
-	swapClass: function(remove, add){
-		return this.removeClass(remove).addClass(add);
-	}
-
-});
-
-Document.implement({
-
-	clearSelection: function(){
-		if (window.getSelection){
-			var selection = window.getSelection();
-			if (selection && selection.removeAllRanges) selection.removeAllRanges();
-		} else if (document.selection && document.selection.empty){
-			try {
-				//IE fails here if selected element is not in dom
-				document.selection.empty();
-			} catch(e){}
-		}
-	}
-
-});
-
 
 /*
 ---

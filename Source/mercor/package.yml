@@ -7,8 +7,9 @@ authors: "Julien Renaux <contact@julienrenaux.fr>"
 version: "1.0"
 
 sources:
-  - "Source/UI/Mercor.js"
-  - "Source/UI/Mercor.Element.js"
-  - "Source/UI/Mercor.Tip.js"
-  - "Source/Behaviors/Behavior.Mercor.Tip.js"
-  - "Source/Behaviors/Behavior.Mercor.Accordion.js"
+  - Source/UI/Mercor.js
+  - Source/UI/Mercor.Element.js
+  - Source/UI/Mercor.Tip.js
+  - Source/Behaviors/Behavior.Mercor.Tip.js
+  - Source/Behaviors/Behavior.Mercor.Accordion.js
+  - Source/Behaviors/Behavior.Mercor.Tabs.js
