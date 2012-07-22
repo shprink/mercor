@@ -3,13 +3,9 @@
 
 name: Mercor
 
-version: 1.0
-
-description: A lightweight UI Library for Mootools
-
 authors: Julien Renaux
 
-repository: https://github.com/shprink/mercor
+provides: [Mercor]
 
 license: MIT
 
@@ -34,7 +30,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ...
-*/
+ */
 
 var Mercor = {
 	'version': '1.0'
