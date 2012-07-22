@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mercor Library - Open Source library based on Mootools</title>
+<!-- Include Bootstrap css -->
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen">
+<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="css/more.css">
+<link rel="stylesheet" href="css/mercor.css" type="text/css" media="screen">
+<link href="css/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/prettify.js"></script>
+<script src="js/mercor-1.0.js" type="text/javascript"></script>
+<script src="js/demo.js" type="text/javascript"></script>
+</head>
+<body onload="prettyPrint()">
+<div id="fb-root"></div>
+<div class="navbar">
+    <div class="navbar-inner">
+      <div class="container">
+        <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a href="http://julienrenaux.fr" class="brand" target="_blank">Julien Renaux</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+          	<li><a href="http://julienrenaux.fr" target="_blank">Blog</a></li>           
+            <li class="active"><a href="http://mercor.julienrenaux.fr/library.html">Mercor Library</a></li>
+          </ul>  
+        </div><!-- /.nav-collapse -->
+      </div>
+    </div><!-- /navbar-inner -->
+  </div>
+	<div class="container">
+		<header id="overview" class="jumbotron subhead">
+		<h1>
+			<span>Mercor Library</span>
+			<a class="btn btn-info btn-small" href="https://github.com/shprink/mercor/zipball/master">Download</a>
+		</h1>
+		<p class="lead">Mercor GUI library is a suite of Javascript Classes	that can help you create elements the way you want.</p>
+		<div class="subnav">
+			<ul id="tabs-nav" class="nav nav-tabs">
+				<li class="active"><a href="#modal">Modal</a></li>
+				<li class=""><a href="#tips">Tips</a></li>
+				<li class=""><a href="#alert">Alert</a></li>
+				<li class=""><a href="#toBeContinued">To Be Continued!</a></li>
+			</ul>
+		</div>
+		</header>
+		<section id="modal" class="first">
+			<div class="row sub-menu">
+				<h2 class="span6">Modal <small>Interact with your users!</small>
+					<a class="btn btn-info btn-mini" href="https://github.com/shprink/mercor-modal/zipball/master">Download</a>
+				</h2>
+				<ul class="nav nav-pills sub-section-nav pull-right">
+			    	<li><a href="#">Description</a></li>
+			    	<li class="active"><a href="#">Demo</a></li>
+			    	<li><a href="#">Documentation</a></li>
+		   		</ul>
+			</div>
+			<hr/>
+			<section class="second description" style="display:none;">
+				<div class="row">
+					<div class="span4">
+						<h3>Description</h3>
+						<p>Modal is a <a href="http://mootools.net/" target="_blank">Mootools</a> based Class that allows you to interactwith your users.</p>
+						<p>This Class is highly customizable.</p>
+						<p>
+							<a class="btn btn-primary btn-large" href="https://github.com/shprink/mercor-modal" target="_blank">Fork me on GitHub</a>
+							<a class="btn btn-large btn-info" href="https://github.com/shprink/mercor-modal/zipball/master">Download</a>
+						</p>
+						
+					</div>
+					<div class="span4">
+						<h3>Features</h3>
+						<div class="list-inline">
+							<ul>
+								<li><img class="thumbnail" src="img/icon_drag.png"/></li>
+								<li><img class="thumbnail" src="img/icon_expand.png"/></li>
+								<li><img class="thumbnail" src="img/icon_keyboard.png"/></li>
+								<li><img class="thumbnail" src="img/icon_customizable.png"/></li>
+								<li><img class="thumbnail" src="img/icon_confirm.png"/></li>
+								<li><img class="thumbnail" src="img/icon_iframe.png"/></li>
+								<li><img class="thumbnail" src="img/icon_ajax.png"/></li>
+							</ul>
+						</div>
+						<h3>Browser Compatibility <a class="btn btn-danger btn-mini" target="_blank" href="https://github.com/shprink/mercor-modal/issues">Found a bug?</a></h3>
+						<div class="list-inline">
+							<ul>
+								<li><img class="thumbnail" src="img/opera.png" title="Tested with Opera" /></li>
+								<li><img class="thumbnail" src="img/firefox.png" title="Tested with Firefox" /></li>
+								<li><img class="thumbnail" src="img/ie.png" title="Tested with IE 9" /></li>
+								<li><img class="thumbnail" src="img/chrome.png" title="Tested with Chrome"/></li>
+								<li><img class="thumbnail" src="img/safari.png" title="Tested with Safari" /></li>
+							</ul>
+						</div>
+					</div>
+					<div class="span4">
+						<div class="well">
+							<h3>Bootstrap compatible!</h3>
+							<p>Mercor Library supports the fabulous <a href="http://twitter.github.com/bootstrap" target="_blank">Bootstrap</a> framework.</p>
+							<button id="modal-bootstrap" href="#" class="btn">Demo</button>
+							<hr/>
+							<pre class="prettyprint linenums"><code class="language-js">$('modal-bootstrap').addEvent('click',function(e){
+var modal = new MercorModal.Iframe({
+'id': 'mercor-modal-custom',
+'title': '&lt;h3&gt;Bootstrap Modal&lt;/h3&gt;',
+'classes': 'modal',
+'template':&#039;&lt;div class=&quot;close mercor-close&quot; title=&quot;Close&quot;&gt;&lt;/div&gt;&#039;
+	+&#039;&lt;div class=&quot;modal-header mercor-header&quot;&gt;&lt;/div&gt;&#039;
+	+&#039;&lt;div class=&quot;modal-body mercor-body&quot;&gt;&lt;/div&gt;&#039;
+	+&#039;&lt;div class=&quot;modal-footer mercor-footer&quot;&gt;&lt;/div&gt;&#039;,
+'styles': {
+	'margin' : 0
+},
+'iframe':{
+	'link':'http://google.com'
+},
+'footer': {
+	'height': 62
+},
+'header': {
+	'height': 46
+},
+'buttons':[{ html: 'Close', styles: {}, classes: 'btn btn-primary', event: function() { this.close(); }}]
+});
+modal.open();
+e.stop();
+});</code></pre>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="second demo">
+				<div class="row">
+					<div class="span4">
+						<h3><span class="label label-success">Beginner</span> No need to know JavaScript!</h3>
+						<p>Define your option in the 'mercor-modal' parameter to create your Modal.</p>
+						<p>Worried about the way your source code look? No worries the 'mercor-modal' parameter is destroy after use.</p>
+						<button mercor-modal="{'node':{'styles': {'width' : 200,'height' : 200}}}" href="#" class="btn">Demo</button>
+						<button mercor-modal="{'bootstrap': {'active': true},'node':{'styles': {'width' : 200,'height' : 200}}}" href="#" class="btn btn-primary">Bootstrap compatible</button>
+						<hr/>
+<pre class="prettyprint linenums"><code>&lt;button mercor-modal=&quot;{&#039;node&#039;:{&#039;styles&#039;: {&#039;width&#039; : 200,&#039;height&#039; : 200}}}&quot; href=&quot;#&quot; class=&quot;btn&quot;&gt;Demo&lt;/button&gt;
+</code></pre>
+					</div>
+					<div class="span4">
+						<h3><span class="label label-warning">Intermediate</span> Open a Confirm Box</h3>
+						<p>You might want to ask users permission before to do nasty stuff!</p>
+						<button id="modal-confirm" href="#" class="btn">Demo</button>
+						<button id="modal-confirm-bootstrap" href="#" class="btn btn-primary">Bootstrap compatible</button>
+						<hr/>
+<pre class="prettyprint linenums"><code class="language-js">$('modal-confirm').addEvent('click',function(e){
+var button = this;
+var modal = new MercorModal.Confirm({
+	'title': 'Confirm',
+	'html': 'Do you want [...] button size?',
+	'confirm':{
+		'callback': function(){
+			button.setStyle('width',300);
+		}
+	}
+});
+modal.open();
+e.stop();
+});</code></pre>
+					</div>
+					<div class="span4">
+						<h3><span class="label label-warning">Intermediate</span> Add a button</h3>
+						<p>Adding buttons as never been that easy! </p>
+						<button id="modal-footer" href="#" class="btn">Demo</button>
+						<button id="modal-footer-bootstrap" href="#" class="btn btn-primary">Bootstrap compatible</button>
+						<hr/>
+<pre class="prettyprint linenums"><code class="language-js">$('modal-footer').addEvent('click',function(e){
+var modal = new MercorModal({
+	'styles': {
+		'width' : 400,
+		'height' : 200
+	},
+	'title': 'My Modal with footer',
+	'html': '&lt;p&gt;My HTML content&lt;/p&gt;',
+	'buttons':[{ html: 'Close', styles: {}, 
+	event: function() { this.close(); }}]
+});
+modal.open();
+e.stop();
+});</code>
+			</pre>
+					</div>
+				</div>
+				<div class="row">
+					<div class="span4">
+						<h3><span class="label label-warning">Intermediate</span> Open an Iframe</h3>
+						<p>Success messages are great to let users know about a form successfully sent.</p>
+						<button id="modal-iframe" href="#" class="btn">Demo</button>
+						<button id="modal-iframe-bootstrap" href="#" class="btn btn-primary">Bootstrap compatible</button>
+						<hr/>
+<pre class="prettyprint linenums"><code class="language-js">$('modal-iframe').addEvent('click',function(e){
+var modal = new MercorModal.Iframe({
+	'iframe':{
+		'link':'http://google.com'
+	}
+});
+modal.open();
+e.stop();
+});</code></pre>
+					</div>
+					<div class="span8">
+						<h3><span class="label label-warning">Intermediate</span> Create a UNIQUE Modal !</h3>
+						<p>Bored of cummun designs? Want to create a unique Modal? It is as easy as the below code. You can easily load an Iframe within a Fullscreen modal with a red Overlay and some buttons.</p>
+						<button id="modal-custom" href="#" class="btn">Demo</button>
+						<button id="modal-custom-bootstrap" href="#" class="btn btn-primary">Bootstrap compatible</button>
+						<hr/>
+<pre class="prettyprint linenums"><code class="language-js">$('modal-custom').addEvent('click',function(e){
+var modal = new MercorModal.Iframe({
+	'fullScreen': {
+		'active': true
+	},
+	'iframe':{
+		'link':'http://google.com'
+	},
+	'overlay': {
+		'styles': {
+			'background': 'red'
+		}
+	},
+	'buttons':[{ html: 'Close', styles: {}, event: function() { this.close(); }},
+	           { html: 'Do not click me', styles: {}, event: function() { alert('I told you not to!'); }}]
+});
+modal.open();
+e.stop();
+});</code></pre>
+					</div>
+				</div>
+				<div class="row">
+					<div class="span4">
+						<h3><span class="label label-important">Advanced</span> Ajax HTML Request</h3>
+						<p>Get and display the content of an HTML page.</p>
+						<a target="_blank" href="demo/data.html">Open the data source used for this exemple</a>
+						<br/>
+						<button id="modal-request-html" href="#" class="btn">Demo</button>
+						<hr/>
+<pre class="prettyprint linenums"><code class="language-js">$('modal-request-html').addEvent('click',function(e){
+var button = this;
+var modal = new MercorModal.Request({
+	'title': 'HTML Request',
+	'request':{
+		'type': 'html',
+		'url': 'demo/data.html'
+	}
+});
+modal.open();
+e.stop();
+});</code></pre>
+					</div>
+					<div class="span8">
+						<h3><span class="label label-important">Advanced</span> Ajax Requests</h3>
+						<p>Get a Json string from an external source and do whatever you want with it!</p>
+						<a target="_blank" href="demo/data.json">Open the data source used for this exemple</a>
+						<br/>
+						<button id="modal-request" href="#" class="btn">Demo</button>
+						<hr/>
+<pre class="prettyprint linenums"><code class="language-js">$('modal-request').addEvent('click',function(e){
+var button = this;
+var modal = new MercorModal.Request({
+	'title': 'Request',
+	'request':{
+		'url': 'demo/data.json',
+		'success': function(responseText){
+			var  items = JSON.decode(responseText), ol = new Element('ol');
+			Array.each(items, function(item, offset) {
+				var li = new Element('li',{
+					html: '&lt;h1&gt;' + item.title 
+					+ '&lt;/h1&gt;&lt;br/&gt;&lt;span&gt;' 
+					+ item.desc + '&lt;/span&gt;'
+				});
+				li.inject(ol);
+			}.bind(this));
+			return ol;
+		}
+	}
+});
+modal.open();
+e.stop();
+});</code></pre>
+					</div>
+				</div>
+			</section>
+			<section class="second documentation" style="display:none;">
+				doc
+			</section>
+		</section>
+		<section id="tips" class="first" style="display:none;">
+			<div class="row sub-menu">
+				<h2 class="span6">Tip <small>Load simple or complexe data.</small>
+					<a class="btn btn-info btn-mini" href="https://github.com/shprink/mercor-tips/zipball/master">Download</a>
+				</h2>
+				<ul class="nav nav-pills sub-section-nav pull-right">
+			    	<li><a href="#">Description</a></li>
+			    	<li class="active"><a href="#">Demo</a></li>
+			    	<li><a href="#">Documentation</a></li>
+		   		</ul>
+			</div>
+			<hr/>
+			<section class="second description" style="display:none;">
+				desc
+			</section>
+			<section class="second demo">
+				<div class="row">
+					<div class="span4">
+						<h3>Create a Success message</h3>
+						<p>Success messages are great to let users know about a form successfully sent.</p>
+						<div class="tooltip-demo well">
+				            <p class="muted">
+				            	Tight pants next level keffiyeh <a rel="tooltip" href="#" data-original-title="first tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a rel="tooltip" href="#" data-original-title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A <a rel="tooltip" href="#" data-original-title="Another one here too">really ironic</a> artisan whatever keytar, scenester farm-to-table banksy Austin <a rel="tooltip" href="#" data-original-title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
+				            </p>
+			          	</div>
+			          	<hr/>
+<pre class="prettyprint linenums"><code>&lt;button mercor-modal=&quot;{&#039;styles&#039;: {&#039;width&#039; : 200,&#039;height&#039; : 200}}&quot; href=&quot;#&quot; class=&quot;btn&quot;&gt;Demo&lt;/button&gt;
+</code></pre>
+					</div>
+					<div class="span4">
+						<h3>Create a Notice message</h3>
+						<p>Success messages are great to let users know about a form successfully sent.</p>
+						<div class="tooltip-demo well">
+				            <p class="muted">
+				            	Tight pants next level keffiyeh <a rel="tooltip" href="#" data-original-title="first tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a rel="tooltip" href="#" data-original-title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A <a rel="tooltip" href="#" data-original-title="Another one here too">really ironic</a> artisan whatever keytar, scenester farm-to-table banksy Austin <a rel="tooltip" href="#" data-original-title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
+				            </p>
+			          	</div>
+			          	<hr/>
+<pre class="prettyprint linenums"><code>&lt;button mercor-modal=&quot;{&#039;styles&#039;: {&#039;width&#039; : 200,&#039;height&#039; : 200}}&quot; href=&quot;#&quot; class=&quot;btn&quot;&gt;Demo&lt;/button&gt;
+</code></pre>
+					</div>
+					<div class="span4">
+						<h3>Load Anything</h3>
+						<p></p>
+						<div class="tooltip-demo well">
+				            <p class="muted">
+				            	Tight pants next level keffiyeh <a rel="tooltip" href="#" data-original-title="first tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a rel="tooltip" href="#" data-original-title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A <a rel="tooltip" href="#" data-original-title="Another one here too">really ironic</a> artisan whatever keytar, scenester farm-to-table banksy Austin <a rel="tooltip" href="#" data-original-title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
+				            </p>
+			          	</div>
+			          	<hr/>
+<pre class="prettyprint linenums"><code>&lt;button mercor-modal=&quot;{&#039;styles&#039;: {&#039;width&#039; : 200,&#039;height&#039; : 200}}&quot; href=&quot;#&quot; class=&quot;btn&quot;&gt;Demo&lt;/button&gt;
+</code></pre>
+					</div>
+				</div>
+			</section>
+			<section class="second documentation" style="display:none;">
+				doc
+			</section>
+		</section>
+		<section id="alert" class="first" style="display:none;">
+			<div class="row sub-menu">
+				<h2 class="span6">Alert <small>Provides hints to users!</small>
+					<a class="btn btn-info btn-mini" href="https://github.com/shprink/mercor-alert/zipball/master">Download</a>
+				</h2>
+				<ul class="nav nav-pills sub-section-nav pull-right">
+			    	<li><a href="#">Description</a></li>
+			    	<li class="active"><a href="#">Demo</a></li>
+			    	<li><a href="#">Documentation</a></li>
+		   		</ul>
+			</div>
+			<hr/>
+			<section class="second description" style="display:none;">
+				<div class="row">
+					<div class="span4">
+						<h3>Description</h3>
+						<p>Alert is a <a href="http://mootools.net/" target="_blank">Mootools</a> based Class that allows you to display different type of alerts to users.</p>
+						<p>This Class is highly customizable. Change, the size, the position, the style and even the template of you alerts.</p>
+						<p>
+							<a class="btn btn-primary btn-large" href="https://github.com/shprink/mercor-alert" target="_blank">Fork me on GitHub</a>
+							<a class="btn btn-large btn-info" href="https://github.com/shprink/mercor-alert/zipball/master">Download</a>
+						</p>
+						
+					</div>
+					<div class="span4">
+						<h3>Features</h3>
+						<div class="list-inline">
+							<ul>
+								<li><img class="thumbnail"  src="img/icon_drag.png"/></li>
+								<li><img class="thumbnail"  src="img/icon_reload.png"/></li>
+								<li><img class="thumbnail"  src="img/icon_expand.png"/></li>
+								<li><img class="thumbnail"  src="img/icon_customizable.png"/></li>
+							</ul>
+						</div>
+						
+						
+					</div>
+					<div class="span4">
+						<h3>Browser Compatibility <a class="btn btn-danger btn-mini" target="_blank" href="https://github.com/shprink/mercor-alert/issues">Found a bug?</a></h3>
+						<div class="list-inline">
+							<ul>
+								<li><img class="thumbnail"  src="img/opera.png" title="Tested with Opera" /></li>
+								<li><img class="thumbnail"  src="img/firefox.png" title="Tested with Firefox" /></li>
+								<li><img class="thumbnail"  src="img/ie.png" title="Tested with IE 9" /></li>
+								<li><img class="thumbnail"  src="img/chrome.png" title="Tested with Chrome"/></li>
+								<li><img class="thumbnail"  src="img/safari.png" title="Tested with Safari" /></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="second demo">
+				<div class="row">
+					<div class="span4">
+						<h3>Create a Success message</h3>
+						<p>Success messages are great to let users know about a form successfully sent.</p>
+						<button href="#" class="btn alertSuccess">Demo</button>
+						<hr/>
+<pre class="prettyprint linenums"><code class="language-js">$$('.alertSuccess').addEvent('click',function(e){
+	var alert = new MercorAlert;
+	alert.open({
+		'title': 'Praesent bibendum',
+		'text': 'Lorem ipsum dolor sit amet, consectetur elit...',
+		'type': 'success' // notice, error, success
+	});
+	e.stop();
+});</code></pre>
+					</div>
+					<div class="span4">
+						<h3>Create a Notice message</h3>
+						<p>Success messages are great to let users know about a form successfully sent.</p>
+						<button href="#" class="btn alertNotice">Demo</button>
+						<hr/>
+<pre class="prettyprint linenums"><code class="language-js">$$('.alertNotice').addEvent('click',function(e){
+	var alert = new MercorAlert;
+	alert.open({
+		'title': 'Praesent bibendum',
+		'text': 'Lorem ipsum dolor sit amet, consectetur elit...',
+		'type': 'notice' // notice, error, success
+	});
+	e.stop();
+});</code></pre>
+					</div>
+					<div class="span4">
+						<h3>Create a Error message</h3>
+						<p>Success messages are great to let users know about a form successfully sent.</p>
+						<button href="#" class="btn alertError">Demo</button>
+						<hr/>
+<pre class="prettyprint linenums"><code class="language-js">$$('.alertError').addEvent('click',function(e){
+	var alert = new MercorAlert;
+	alert.open({
+		'title': 'Praesent bibendum',
+		'text': 'Lorem ipsum dolor sit amet, consectetur elit...',
+		'type': 'error' // notice, error, success
+	});
+	e.stop();
+});</code></pre>
+					</div>
+				</div>
+			</section>
+			<section class="second documentation" style="display:none;">
+				<div class="row">
+					<div class="span4">
+						<h3>Documentation</h3>
+						<p></p>
+					</div>
+					<div class="span8">
+						<h3>Method: Constructor <code>var alert = new MercorAlert([options]);</code></h3>
+						<h4 class="expand-link"><i class="icon-plus"></i>Options</h4>
+						<table class="table table-bordered table-striped expand-content">
+							<thead>
+								<tr>
+									<th>Name 	</th>
+									<th>type</th>
+									<th>default</th>
+									<th>description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>container.id</td>
+									<td>String</td>
+									<td>mercor-alert-container</td>
+									<td>The container id</td>
+								</tr>
+								<tr>
+									<td>container.el</td>
+									<td>Object</td>
+									<td>document.body</td>
+									<td>The element Object in which to inject the Alert container.</td>
+								</tr>
+								<tr>
+									<td>container.position</td>
+									<td>String</td>
+									<td>top-right</td>
+									<td>Container position. Can be 'top-right', top-left', 'bottom-right', 'bottom-left'</td>
+								</tr>
+								<tr>
+									<td>node.id</td>
+									<td>String</td>
+									<td>mercor-alert</td>
+									<td>The node id</td>
+								</tr>
+								<tr>
+									<td>node.delay</td>
+									<td>Number</td>
+									<td>5000</td>
+									<td>The duration of the node in ms.</td>
+								</tr>
+								<tr>
+									<td>node.width</td>
+									<td>Number</td>
+									<td>300</td>
+									<td>The node width.</td>
+								</tr>
+								<tr>
+									<td>node.opacity</td>
+									<td>Decimal [0,1]</td>
+									<td>0.9</td>
+									<td>The node maximum opacity.</td>
+								</tr>
+								<tr>
+									<td>node.template</td>
+									<td>String</td>
+									<td colspan="2">
+<pre class="prettyprint linenums">&lt;div class=&quot;mercor-inner&quot;&gt;
+&lt;div class=&quot;mercor-close&quot; title=&quot;Close&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;mercor-title&quot;&gt;{TITLE}&lt;/div&gt;
+&lt;div class=&quot;mercor-text&quot;&gt;{TEXT}&lt;/div&gt;
+&lt;/div&gt;</pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<h3>Method: open <code>alert.open([options]);</code></h3>
+						<h4 class="expand-link"><i class="icon-plus"></i>Options</h4>
+						<table class="table table-bordered table-striped expand-content">
+							<thead>
+								<tr>
+									<th>Name 	</th>
+									<th>type</th>
+									<th>default</th>
+									<th>description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>text</td>
+									<td>String (optional)</td>
+									<td></td>
+									<td>The node Title</td>
+								</tr>
+								<tr>
+									<td>title</td>
+									<td>String (optional)</td>
+									<td></td>
+									<td>The node Text</td>
+								</tr>
+								<tr>
+									<td>type</td>
+									<td>String</td>
+									<td>success</td>
+									<td>Define the node style. Can be 'success', 'notice', 'error'</td>
+								</tr>
+							</tbody>
+						</table>
+						<h3>Method: Close <code>alert.close();</code></h3>
+					</div>
+				</div>
+			</section>
+		</section>
+		<section id="toBeContinued" class="first" style="display:none;">
+			<div class="row">
+				<table class="span6 table table-striped table-bordered table-condensed">
+				    <thead>
+					    <tr>
+						    <th>Download</th>
+						    <th>Compression</th>
+						    <th>Size</th>
+					    </tr>
+				    </thead>
+				    <tbody>
+					    <tr>
+						    <td>Modal</td>
+						    <td></td>
+						    <td></td>
+					    </tr>
+					    <tr>
+						    <td>Tips</td>
+						    <td></td>
+						    <td></td>
+					    </tr>
+					    <tr>
+						    <td>Alert</td>
+						    <td></td>
+						    <td></td>
+					    </tr>
+				    </tbody>
+				    <tfooter>
+					    <tr>
+						    <td>Mercor Library</td>
+						    <td></td>
+						    <td></td>
+					    </tr>
+				    </tfooter>
+			    </table>	
+			</div>
+			<div class="row">
+				<div class="span12">
+					<div class="hero-unit">
+						<h1>Get involved!</h1>
+						<p>This Library is evolving really fast but needs people to drive it. If you want to be part of a project that aim to change the way we use Mootools, please contact me or check back again soon for more awesome GUI.</p>
+						<p>
+							<a class="btn btn-primary btn-large" href="https://github.com/shprink/repositories" target="_blank">Check out my repositories</a>
+							<a class="btn btn-success btn-large" href="https://github.com/shprink" target="_blank">Contact me</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<hr/>
+		<footer class="footer">
+	        <p class="pull-right"><a href="#">Back to top</a></p>
+	        <p>Created by <a target="_blank" href="http://twitter.com/julienrenaux">@julienrenaux</a></p>
+	        <p>Code licensed under <a target="_blank" href="http://www.opensource.org/licenses/mit-license.php">MIT License</a></p>
+	    </footer>
+	</div>
+</body>
+</html>
