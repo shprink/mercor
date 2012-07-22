@@ -1,0 +1,14 @@
+name: "Mercor"
+
+copyright: "&copy; 2012 Julien Renaux"
+
+authors: "Julien Renaux <contact@julienrenaux.fr>"
+
+version: "1.0"
+
+sources:
+  - "Source/UI/Mercor.js"
+  - "Source/UI/Mercor.Element.js"
+  - "Source/UI/Mercor.Tip.js"
+  - "Source/Behaviors/Behavior.Mercor.Tip.js"
+  - "Source/Behaviors/Behavior.Mercor.Accordion.js"
