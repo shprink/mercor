@@ -7,80 +7,93 @@
 <link rel="stylesheet" href="../Source/CSS/Mercor.Alert.css">
 <link rel="stylesheet" href="../Source/CSS/Mercor.Tip.css">
 <link rel="stylesheet" href="../Source/CSS/Mercor.Modal.css">
+<link rel="stylesheet" href="../Source/CSS/Mercor.Tab.css">
 <link rel="stylesheet" href="../Source/CSS/Mercor.Slideshow.css">
 <link rel="stylesheet" href="../Source/CSS/Mercor.Accordion.css">
 <link href="css/prettify.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/prettify.js"></script>
 <style type="text/css">
 .well {
-    background-color: #F5F5F5;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 4px 4px 4px 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
-    margin-bottom: 20px;
-    min-height: 20px;
-    padding: 19px;
+	background-color: #F5F5F5;
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	border-radius: 4px 4px 4px 4px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+	margin-bottom: 20px;
+	min-height: 20px;
+	padding: 19px;
 }
+
 .row {
-    margin-left: -30px;
+	margin-left: -30px;
 }
-.row:before, .row:after {
-    content: "";
-    display: table;
+
+.row:before,.row:after {
+	content: "";
+	display: table;
 }
+
 .row:after {
-    clear: both;
+	clear: both;
 }
+
 .span6 {
-    width: 570px;
+	width: 570px;
 }
-[class*="span"] {
-    float: left;
-    margin-left: 30px;
+
+[class *="span"] {
+	float: left;
+	margin-left: 30px;
 }
-.container{
-    width: 1170px;
-}
+
 .container {
-    margin-left: auto;
-    margin-right: auto;
+	width: 1170px;
 }
+
+.container {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 hr {
-    -moz-border-bottom-colors: none;
-    -moz-border-image: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    border-color: #EEEEEE -moz-use-text-color #FFFFFF;
-    border-left: 0 none;
-    border-right: 0 none;
-    border-style: solid none;
-    border-width: 1px 0;
-    margin: 18px 0;
+	-moz-border-bottom-colors: none;
+	-moz-border-image: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	border-color: #EEEEEE -moz-use-text-color #FFFFFF;
+	border-left: 0 none;
+	border-right: 0 none;
+	border-style: solid none;
+	border-width: 1px 0;
+	margin: 18px 0;
 }
+
 pre {
-    background-color: #F5F5F5;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 4px 4px 4px 4px;
-    display: block;
-    font-size: 12.025px;
-    line-height: 18px;
-    margin: 0 0 9px;
-    padding: 8.5px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+	background-color: #F5F5F5;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px 4px 4px 4px;
+	display: block;
+	font-size: 12.025px;
+	line-height: 18px;
+	margin: 0 0 9px;
+	padding: 8.5px;
+	white-space: pre-wrap;
+	word-wrap: break-word;
 }
+
 pre.prettyprint {
-    margin-bottom: 18px;
+	margin-bottom: 18px;
 }
+
 pre code {
-    background-color: transparent;
-    border: 0 none;
-    color: inherit;
-    padding: 0;
+	background-color: transparent;
+	border: 0 none;
+	color: inherit;
+	padding: 0;
 }
-code, pre {
-    font-size: 10px;
+
+code,pre {
+	font-size: 10px;
 }
 </style>
 </head>
@@ -102,10 +115,22 @@ code, pre {
 							<div class="mercor-inner">
 								<button class="mercor-close" title="Close">x</button>
 								<div class="mercor-header">
-									<h3 class="mercor-header-title">{HEADER}</h3>
+									<h3 class="mercor-header-title">Lorem ipsum dolor sit amet</h3>
 								</div>
-								<div class="mercor-body">{BODY}</div>
-								<div class="mercor-footer">{FOOTER}</div>
+								<div class="mercor-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit, sed do eiusmod tempor incididunt ut labore et dolore
+										magna aliqua. Ut enim ad minim veniam, quis nostrud
+										exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate
+										velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+										sint occaecat cupidatat non proident, sunt in culpa qui
+										officia deserunt mollit anim id est laborum.</p>
+								</div>
+								<div class="mercor-footer">
+									<button>Save</button>
+									<button>Cancel</button>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -114,8 +139,7 @@ code, pre {
 				</div>
 			</div>
 			<div class="span6">
-				<pre class="prettyprint linenums">
-<code>&lt;div class=&quot;mercor-element mercor-modal&quot;&gt;
+				<pre class="prettyprint linenums">&lt;div class=&quot;mercor-element mercor-modal&quot;&gt;
 	&lt;div class=&quot;mercor-outer&quot;&gt;
 		&lt;div class=&quot;mercor-inner&quot;&gt;
 			&lt;button class=&quot;mercor-close&quot; title=&quot;Close&quot;&gt;x&lt;/button&gt;
@@ -126,8 +150,7 @@ code, pre {
 			&lt;div class=&quot;mercor-footer&quot;&gt;{FOOTER}&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;</code>
-				</pre>
+&lt;/div&gt;</pre>
 			</div>
 		</div>
 		</section>
@@ -139,12 +162,16 @@ code, pre {
 				<div style="background-color: #888; border: none;" class="well">
 					<!-- Tip -->
 					<div class="mercor-element mercor-tip arrow-above"
-						style="position: relative; max-width: none;">
+						style="position: relative;">
 						<div class="mercor-arrow"></div>
 						<div class="mercor-outer">
 							<div class="mercor-inner">
 								<button class="mercor-close close" type="button">×</button>
-								<div class="mercor-body">{BODY}</div>
+								<div class="mercor-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit, sed do eiusmod tempor incididunt ut labore et dolore
+										magna aliqua.</p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -153,12 +180,16 @@ code, pre {
 				<div style="border: none;" class="well">
 					<!-- Tip -->
 					<div class="mercor-element mercor-tip arrow-above"
-						style="position: relative; max-width: none;">
+						style="position: relative;">
 						<div class="mercor-arrow"></div>
 						<div class="mercor-outer">
 							<div class="mercor-inner">
 								<button class="mercor-close close" type="button">×</button>
-								<div class="mercor-body">{BODY}</div>
+								<div class="mercor-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit, sed do eiusmod tempor incididunt ut labore et dolore
+										magna aliqua.</p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -166,8 +197,7 @@ code, pre {
 				</div>
 			</div>
 			<div class="span6">
-				<pre class="prettyprint linenums">
-<code>&lt;div class=&quot;mercor-element mercor-tip&quot;&gt;
+				<pre class="prettyprint linenums">&lt;div class=&quot;mercor-element mercor-tip&quot;&gt;
 	&lt;div class=&quot;mercor-arrow&quot;&gt;&lt;/div&gt;
 	&lt;div class=&quot;mercor-outer&quot;&gt;
 		&lt;div class=&quot;mercor-inner&quot;&gt;
@@ -177,8 +207,7 @@ code, pre {
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;</code>
-				</pre>
+&lt;/div&gt;</pre>
 			</div>
 		</div>
 		<h3>Tip Complexe</h3>
@@ -187,15 +216,24 @@ code, pre {
 				<div style="background-color: #888; border: none;" class="well">
 					<!-- Tip Complexe -->
 					<div class="mercor-element mercor-tip-complexe arrow-above"
-						style="position: relative;  max-width: none;">
+						style="position: relative;">
 						<div class="mercor-arrow"></div>
 						<div class="mercor-outer">
 							<div class="mercor-inner">
 								<button class="mercor-close" title="Close">x</button>
 								<div class="mercor-header">
-									<h3>{HEADER}</h3>
+									<h3 class="mercor-header-title">Lorem ipsum dolor sit amet</h3>
 								</div>
-								<div class="mercor-body">{BODY}</div>
+								<div class="mercor-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit, sed do eiusmod tempor incididunt ut labore et dolore
+										magna aliqua. Ut enim ad minim veniam, quis nostrud
+										exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate
+										velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+										sint occaecat cupidatat non proident, sunt in culpa qui
+										officia deserunt mollit anim id est laborum.</p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -204,15 +242,24 @@ code, pre {
 				<div style="border: none;" class="well">
 					<!-- Tip Complexe -->
 					<div class="mercor-element mercor-tip-complexe arrow-above"
-						style="position: relative;  max-width: none;">
+						style="position: relative;">
 						<div class="mercor-arrow"></div>
 						<div class="mercor-outer">
 							<div class="mercor-inner">
 								<button class="mercor-close" title="Close">x</button>
 								<div class="mercor-header">
-									<h3>{HEADER}</h3>
+									<h3 class="mercor-header-title">Lorem ipsum dolor sit amet</h3>
 								</div>
-								<div class="mercor-body">{BODY}</div>
+								<div class="mercor-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit, sed do eiusmod tempor incididunt ut labore et dolore
+										magna aliqua. Ut enim ad minim veniam, quis nostrud
+										exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate
+										velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+										sint occaecat cupidatat non proident, sunt in culpa qui
+										officia deserunt mollit anim id est laborum.</p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -220,8 +267,7 @@ code, pre {
 				</div>
 			</div>
 			<div class="span6">
-				<pre class="prettyprint linenums">
-<code>&lt;div class=&quot;mercor-element mercor-tip-complexe&quot;&gt;
+				<pre class="prettyprint linenums">&lt;div class=&quot;mercor-element mercor-tip-complexe&quot;&gt;
 	&lt;div class=&quot;mercor-arrow&quot;&gt;&lt;/div&gt;
 	&lt;div class=&quot;mercor-outer&quot;&gt;
 		&lt;div class=&quot;mercor-inner&quot;&gt;
@@ -232,14 +278,13 @@ code, pre {
 			&lt;div class=&quot;mercor-body&quot;&gt;{BODY}&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;</code>
-				</pre>
+&lt;/div&gt;</pre>
 			</div>
 		</div>
 		</section>
 		<hr />
 		<section id="alert">
-		<h3>Success</h3>
+		<h3>Alert : Success</h3>
 		<div class="row">
 			<div class="span6">
 				<div style="background-color: #888; border: none;" class="well">
@@ -250,9 +295,18 @@ code, pre {
 							<div class="mercor-inner">
 								<button class="mercor-close" title="Close">x</button>
 								<div class="mercor-header">
-									<h3>{HEADER}</h3>
+									<h3 class="mercor-header-title">Lorem ipsum dolor sit amet</h3>
 								</div>
-								<div class="mercor-body">{BODY}</div>
+								<div class="mercor-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit, sed do eiusmod tempor incididunt ut labore et dolore
+										magna aliqua. Ut enim ad minim veniam, quis nostrud
+										exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate
+										velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+										sint occaecat cupidatat non proident, sunt in culpa qui
+										officia deserunt mollit anim id est laborum.</p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -266,9 +320,18 @@ code, pre {
 							<div class="mercor-inner">
 								<button class="mercor-close" title="Close">x</button>
 								<div class="mercor-header">
-									<h3>{HEADER}</h3>
+									<h3 class="mercor-header-title">Lorem ipsum dolor sit amet</h3>
 								</div>
-								<div class="mercor-body">{BODY}</div>
+								<div class="mercor-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit, sed do eiusmod tempor incididunt ut labore et dolore
+										magna aliqua. Ut enim ad minim veniam, quis nostrud
+										exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate
+										velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+										sint occaecat cupidatat non proident, sunt in culpa qui
+										officia deserunt mollit anim id est laborum.</p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -276,12 +339,20 @@ code, pre {
 				</div>
 			</div>
 			<div class="span6">
-				<pre class="prettyprint linenums">
-					<code></code>
-				</pre>
+				<pre class="prettyprint linenums">&lt;div class=&quot;mercor-alert mercor-alert-success&quot;&gt;
+	&lt;div class=&quot;mercor-alert-outer&quot;&gt;
+		&lt;div class=&quot;mercor-alert-inner&quot;&gt;
+			&lt;button class=&quot;mercor-alert-close&quot; title=&quot;Close&quot;&gt;x&lt;/button&gt;
+			&lt;div class=&quot;mercor-alert-header&quot;&gt;
+				&lt;h3&gt;Title&lt;/h3&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;mercor-alert-body&quot;&gt;Body&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
 			</div>
 		</div>
-		<h3>Notice</h3>
+		<h3>Alert : Notice</h3>
 		<div class="row">
 			<div class="span6">
 				<div style="background-color: #888; border: none;" class="well">
@@ -292,9 +363,18 @@ code, pre {
 							<div class="mercor-inner">
 								<button class="mercor-close" title="Close">x</button>
 								<div class="mercor-header">
-									<h3>Title</h3>
+									<h3 class="mercor-header-title">Lorem ipsum dolor sit amet</h3>
 								</div>
-								<div class="mercor-body">Body</div>
+								<div class="mercor-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit, sed do eiusmod tempor incididunt ut labore et dolore
+										magna aliqua. Ut enim ad minim veniam, quis nostrud
+										exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate
+										velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+										sint occaecat cupidatat non proident, sunt in culpa qui
+										officia deserunt mollit anim id est laborum.</p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -308,9 +388,18 @@ code, pre {
 							<div class="mercor-inner">
 								<button class="mercor-close" title="Close">x</button>
 								<div class="mercor-header">
-									<h3>Title</h3>
+									<h3 class="mercor-header-title">Lorem ipsum dolor sit amet</h3>
 								</div>
-								<div class="mercor-body">Body</div>
+								<div class="mercor-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit, sed do eiusmod tempor incididunt ut labore et dolore
+										magna aliqua. Ut enim ad minim veniam, quis nostrud
+										exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate
+										velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+										sint occaecat cupidatat non proident, sunt in culpa qui
+										officia deserunt mollit anim id est laborum.</p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -318,8 +407,7 @@ code, pre {
 				</div>
 			</div>
 			<div class="span6">
-				<pre class="prettyprint linenums">
-					<code>&lt;div class=&quot;mercor-alert mercor-alert-notice&quot;&gt;
+				<pre class="prettyprint linenums">&lt;div class=&quot;mercor-alert mercor-alert-notice&quot;&gt;
 	&lt;div class=&quot;mercor-alert-outer&quot;&gt;
 		&lt;div class=&quot;mercor-alert-inner&quot;&gt;
 			&lt;button class=&quot;mercor-alert-close&quot; title=&quot;Close&quot;&gt;x&lt;/button&gt;
@@ -329,11 +417,10 @@ code, pre {
 			&lt;div class=&quot;mercor-alert-body&quot;&gt;Body&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;</code>
-				</pre>
+&lt;/div&gt;</pre>
 			</div>
 		</div>
-		<h3>Error</h3>
+		<h3>Alert : Error</h3>
 		<div class="row">
 			<div class="span6">
 				<div style="background-color: #888; border: none;" class="well">
@@ -344,9 +431,18 @@ code, pre {
 							<div class="mercor-inner">
 								<button class="mercor-close" title="Close">x</button>
 								<div class="mercor-header">
-									<h3>Title</h3>
+									<h3 class="mercor-header-title">Lorem ipsum dolor sit amet</h3>
 								</div>
-								<div class="mercor-body">Body</div>
+								<div class="mercor-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit, sed do eiusmod tempor incididunt ut labore et dolore
+										magna aliqua. Ut enim ad minim veniam, quis nostrud
+										exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate
+										velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+										sint occaecat cupidatat non proident, sunt in culpa qui
+										officia deserunt mollit anim id est laborum.</p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -360,9 +456,18 @@ code, pre {
 							<div class="mercor-inner">
 								<button class="mercor-close" title="Close">x</button>
 								<div class="mercor-header">
-									<h3>Title</h3>
+									<h3 class="mercor-header-title">Lorem ipsum dolor sit amet</h3>
 								</div>
-								<div class="mercor-body">Body</div>
+								<div class="mercor-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit, sed do eiusmod tempor incididunt ut labore et dolore
+										magna aliqua. Ut enim ad minim veniam, quis nostrud
+										exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate
+										velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+										sint occaecat cupidatat non proident, sunt in culpa qui
+										officia deserunt mollit anim id est laborum.</p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -370,8 +475,7 @@ code, pre {
 				</div>
 			</div>
 			<div class="span6">
-				<pre class="prettyprint linenums">
-					<code>&lt;div class=&quot;mercor-alert mercor-alert-error&quot;&gt;
+				<pre class="prettyprint linenums">&lt;div class=&quot;mercor-alert mercor-alert-error&quot;&gt;
 	&lt;div class=&quot;mercor-alert-outer&quot;&gt;
 		&lt;div class=&quot;mercor-alert-inner&quot;&gt;
 			&lt;button class=&quot;mercor-alert-close&quot; title=&quot;Close&quot;&gt;x&lt;/button&gt;
@@ -381,8 +485,7 @@ code, pre {
 			&lt;div class=&quot;mercor-alert-body&quot;&gt;Body&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;</code>
-				</pre>
+&lt;/div&gt;</pre>
 			</div>
 		</div>
 		</section>
@@ -392,28 +495,24 @@ code, pre {
 		<div class="row">
 			<div class="span6">
 				<!-- Slideshow -->
-					<div class="mercor-element mercor-slideshow"
-						style="position: relative;">
-						<div class="mercor-outer">
-							<div class="mercor-inner">
-								<button class="mercor-previous" title="Previous"><</button>
-								<button class="mercor-next" title="Next">></button>
-								<div class="mercor-header">
-									<h3>Title</h3>
-								</div>
-								<div class="mercor-body">Body</div>
-								<div class="mercor-footer">Footer</div>
+				<div class="mercor-element mercor-slideshow"
+					style="position: relative;">
+					<div class="mercor-outer">
+						<div class="mercor-inner">
+							<button class="mercor-previous" title="Previous"><</button>
+							<button class="mercor-next" title="Next">></button>
+							<div class="mercor-header">
+								<h3>Title</h3>
 							</div>
+							<div class="mercor-body">Body</div>
+							<div class="mercor-footer">Footer</div>
 						</div>
 					</div>
-					<!-- Slideshow -->
+				</div>
+				<!-- Slideshow -->
 			</div>
 			<div class="span6">
-				<pre class="prettyprint linenums">
-					<code>
-
-</code>
-				</pre>
+				<pre class="prettyprint linenums"></pre>
 			</div>
 		</div>
 		</section>
@@ -422,31 +521,177 @@ code, pre {
 		<h3>Accordion</h3>
 		<div class="row">
 			<div class="span6">
-				<div class="mercor-element mercor-accordion">
-					<div class="mercor-outer">
-						<div class="mercor-inner">
-							<div class="mercor-accordion-node">
-								<div class="mercor-header">
-									<h3 class="mercor-header-title">{HEADER}</h3>
+				<div style="background-color: #888; border: none;" class="well">
+					<div class="mercor-element mercor-accordion">
+						<div class="mercor-outer">
+							<div class="mercor-inner">
+								<div class="mercor-accordion-node active">
+									<div class="mercor-header">
+										<a class="mercor-header-title">Lorem ipsum dolor sit amet</a>
+									</div>
+									<div class="mercor-body">
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+											elit, sed do eiusmod tempor incididunt ut labore et dolore
+											magna aliqua. Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea commodo
+											consequat. Duis aute irure dolor in reprehenderit in
+											voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+											Excepteur sint occaecat cupidatat non proident, sunt in culpa
+											qui officia deserunt mollit anim id est laborum.</p>
+									</div>
 								</div>
-								<div class="mercor-body">{BODY}</div>
-							</div>
-							<div class="mercor-accordion-node">
-								<div class="mercor-header">
-									<h3 class="mercor-header-title">{HEADER}</h3>
+								<div class="mercor-accordion-node">
+									<div class="mercor-header">
+										<a class="mercor-header-title">Excepteur sint</a>
+									</div>
+									<div class="mercor-body" style="display: none;">{BODY}</div>
 								</div>
-								<div class="mercor-body" style="display: none;">{BODY}</div>
-							</div>
-							<div class="mercor-accordion-node">
-								<div class="mercor-header">
-									<h3 class="mercor-header-title">{HEADER}</h3>
+								<div class="mercor-accordion-node">
+									<div class="mercor-header">
+										<a class="mercor-header-title">Sunt in culpa</a>
+									</div>
+									<div class="mercor-body" style="display: none;">{BODY}</div>
 								</div>
-								<div class="mercor-body" style="display: none;">{BODY}</div>
-							</div>
 
+							</div>
 						</div>
 					</div>
 				</div>
+				<div style="border: none;" class="well">
+					<div class="mercor-element mercor-accordion">
+						<div class="mercor-outer">
+							<div class="mercor-inner">
+								<div class="mercor-accordion-node active">
+									<div class="mercor-header">
+										<a class="mercor-header-title">Lorem ipsum dolor sit amet</a>
+									</div>
+									<div class="mercor-body">
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+											elit, sed do eiusmod tempor incididunt ut labore et dolore
+											magna aliqua. Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea commodo
+											consequat. Duis aute irure dolor in reprehenderit in
+											voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+											Excepteur sint occaecat cupidatat non proident, sunt in culpa
+											qui officia deserunt mollit anim id est laborum.</p>
+									</div>
+								</div>
+								<div class="mercor-accordion-node">
+									<div class="mercor-header">
+										<a class="mercor-header-title">Excepteur sint</a>
+									</div>
+									<div class="mercor-body" style="display: none;">{BODY}</div>
+								</div>
+								<div class="mercor-accordion-node">
+									<div class="mercor-header">
+										<a class="mercor-header-title">Sunt in culpa</a>
+									</div>
+									<div class="mercor-body" style="display: none;">{BODY}</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="span6">
+				<pre class="prettyprint linenums">&lt;div class=&quot;mercor-element mercor-accordion&quot;&gt;
+	&lt;div class=&quot;mercor-outer&quot;&gt;
+		&lt;div class=&quot;mercor-inner&quot;&gt;
+			&lt;div class=&quot;mercor-accordion-node active&quot;&gt;
+				&lt;div class=&quot;mercor-header&quot;&gt;
+					&lt;a class=&quot;mercor-header-title&quot;&gt;{TITLE}&lt;/a&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;mercor-body&quot;&gt;{BODY}&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;mercor-accordion-node&quot;&gt;
+				&lt;div class=&quot;mercor-header&quot;&gt;
+					&lt;a class=&quot;mercor-header-title&quot;&gt;{TITLE}&lt;/a&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;mercor-body&quot;&gt;{BODY}&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;mercor-accordion-node&quot;&gt;
+				&lt;div class=&quot;mercor-header&quot;&gt;
+					&lt;a class=&quot;mercor-header-title&quot;&gt;{TITLE}&lt;/a&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;mercor-body&quot;&gt;{BODY}&lt;/div&gt;
+			&lt;/div&gt;
+
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+			</div>
+		</div>
+		</section>
+		<section id="tabs">
+		<h3>Tabs</h3>
+		<div class="row">
+			<div class="span6">
+				<div style="background-color: #888; border: none;" class="well">
+					<div class="mercor-element mercor-tab">
+						<div class="mercor-outer">
+							<div class="mercor-inner">
+								<ul class="mercor-header">
+									<li><a>Section 1</a></li>
+									<li class="active"><a>Section 2</a></li>
+									<li><a>Section 3</a></li>
+								</ul>
+								<div class="mercor-body tab-content">
+									<div class="active">
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+											elit, sed do eiusmod tempor incididunt ut labore et dolore
+											magna aliqua. Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea commodo
+											consequat. Duis aute irure dolor in reprehenderit in
+											voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+											Excepteur sint occaecat cupidatat non proident, sunt in culpa
+											qui officia deserunt mollit anim id est laborum.</p>
+									</div>
+									<div class="mercor-body" style="display: none;">
+										<p>{BODY}</p>
+									</div>
+									<div class="mercor-body" style="display: none;">
+										<p>{BODY}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div style="border: none;" class="well">
+					<div class="mercor-element mercor-tab">
+						<div class="mercor-outer">
+							<div class="mercor-inner">
+								<ul class="mercor-header">
+									<li><a>Section 1</a></li>
+									<li class="active"><a>Section 2</a></li>
+									<li><a>Section 3</a></li>
+								</ul>
+								<div class="mercor-body tab-content">
+									<div class="active">
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+											elit, sed do eiusmod tempor incididunt ut labore et dolore
+											magna aliqua. Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea commodo
+											consequat. Duis aute irure dolor in reprehenderit in
+											voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+											Excepteur sint occaecat cupidatat non proident, sunt in culpa
+											qui officia deserunt mollit anim id est laborum.</p>
+									</div>
+									<div class="mercor-body" style="display: none;">
+										<p>{BODY}</p>
+									</div>
+									<div class="mercor-body" style="display: none;">
+										<p>{BODY}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="span6">
+				<pre class="prettyprint linenums"></pre>
 			</div>
 		</div>
 		</section>

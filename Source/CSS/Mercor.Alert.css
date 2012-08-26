@@ -75,6 +75,10 @@ display: block;
 }
 .mercor-element.mercor-alert-success .mercor-inner{
 	border: 1px solid #E8FC53;
+	background: #dbf043;
+}
+
+.mercor-element.mercor-alert-success .mercor-header{
 	background: #dbf043; /* Old browsers */
 	background: -moz-linear-gradient(top, #dbf043 0%, #c3d825 100%);
 	/* FF3.6+ */
@@ -93,6 +97,10 @@ display: block;
 
 .mercor-element.mercor-alert-notice .mercor-inner{
 	border: 1px solid #FFF98C;
+	background: #fff95b;
+}
+
+.mercor-element.mercor-alert-notice .mercor-header{
 	background: #fff95b; /* Old browsers */
 	background: -moz-linear-gradient(top, #fff95b 0%, #ede100 100%);
 	/* FF3.6+ */
@@ -111,6 +119,10 @@ display: block;
 
 .mercor-element.mercor-alert-error .mercor-inner{
 	border: 1px solid #FF8944;
+	background: #ff8944;
+}
+
+.mercor-element.mercor-alert-error .mercor-header{
 	background: #ff8944; /* Old browsers */
 	background: -moz-linear-gradient(top, #ff8944 0%, #f25e0e 100%);
 	/* FF3.6+ */

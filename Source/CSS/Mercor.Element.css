@@ -38,22 +38,24 @@ SOFTWARE.
 @CHARSET "UTF-8";
 
 /* reset style within elements*/
-.mercor-element,.mercor-element>*,.mercor-element h1,.mercor-element h2,.mercor-element h3,.mercor-element h4,.mercor-element h5,.mercor-element h6, mercor
-	{
+.mercor-element,.mercor-element>*,.mercor-element h1,.mercor-element h2,.mercor-element h3,.mercor-element h4,.mercor-element h5,.mercor-element h6,mercor{
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	font-size: 13px;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	vertical-align: baseline;
 }
 
-.mercor-element h1,.mercor-element h2,.mercor-element h3,.mercor-element h4,.mercor-element h5,.mercor-element h6
-	{
+.mercor-element h1,.mercor-element h2,.mercor-element h3,.mercor-element h4,.mercor-element h5,.mercor-element h6{
 	font-family: inherit;
 	font-weight: bold;
 	margin: 0;
 	text-rendering: optimizelegibility;
+}
+
+.mercor-element p {
+    margin: 0 0 10px;
 }
 
 .mercor-element h1 {
@@ -103,6 +105,7 @@ SOFTWARE.
 
 .mercor-element .mercor-inner {
 	background-color: #FFF;
+	border: 1px solid #FFF;
 }
 
 .mercor-element .mercor-outer {
@@ -128,13 +131,13 @@ SOFTWARE.
 	/* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top, rgba(247, 247, 247, 1) 0%,
 		rgba(234, 234, 234, 1) 100% ); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(247, 247, 247, 1) 0%,
-		rgba(234, 234, 234, 1) 100% ); /* Opera 11.10+ */
+	background: -o-linear-gradient(top, r.mercor-headergba ( 247, 247, 247, 1)
+		0%, rgba(234, 234, 234, 1) 100% ); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top, rgba(247, 247, 247, 1) 0%,
 		rgba(234, 234, 234, 1) 100% ); /* IE10+ */
 	background: linear-gradient(top, rgba(247, 247, 247, 1) 0%,
 		rgba(234, 234, 234, 1) 100% ); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient(  startColorstr='#f7f7f7',
+	filter: progid:DXImageTransform.Microsoft.gradient(   startColorstr='#f7f7f7',
 		endColorstr='#eaeaea', GradientType=0 ); /* IE6-8 */
 }
 
@@ -143,7 +146,7 @@ SOFTWARE.
 }
 
 .mercor-element .mercor-footer {
-	padding: 10px;
+	padding: 0px 10px 10px 10px;
 }
 
 .mercor-element button.mercor-close {

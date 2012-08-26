@@ -15,8 +15,16 @@ provides: [Behavior.Mercor.Accordion]
 Behavior.addGlobalFilters({
     'Mercor.Accordion' : function(element, api) {
     	var options = JSON.decode(api.get('options'));
-        if (!options.onActive) options.onActive = function(toggler, element){toggler.addClass('active');};
-        if (!options.onBackground) options.onBackground = function(toggler, element){toggler.removeClass('active');};
+        if (!options.onActive) options.onActive = function(toggler, element)
+        {
+        	var node = toggler.getParent('.mercor-accordion-node');
+        	if (node) node.addClass('active');
+        };
+        if (!options.onBackground) options.onBackground = function(toggler, element)
+        {
+        	var node = toggler.getParent('.mercor-accordion-node');
+        	if (node) node.removeClass('active');
+        };
         var togglers = (api.get('togglers'))? element.getElements(api.get('togglers')) : element.getElements('.toggle');
         var sections = (api.get('togglers'))? element.getElements(api.get('sections')) : element.getElements('.section');
         if (togglers.length == 0 || sections.length == 0) api.fail('There are no togglers or sections for this accordion.');
