@@ -107,7 +107,7 @@ SOFTWARE.
 	border-radius: 5px;
 }
 
-.mercor-element > .mercor-inner {
+.mercor-element > .mercor-outer > .mercor-inner {
 	background-color: #FFF;
 	border: 1px solid #FFF;
 }
@@ -118,7 +118,7 @@ SOFTWARE.
 	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
 
-.mercor-element-noborder > .mercor-inner{
+.mercor-element-noborder > .mercor-outer > .mercor-inner{
 	border: none;
 }
 
