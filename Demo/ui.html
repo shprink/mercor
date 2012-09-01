@@ -8,11 +8,7 @@
 <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
 <link rel="stylesheet" href="css/docs.css">
 <link href="css/prettify.css" type="text/css" rel="stylesheet" />
-
-<link rel="stylesheet" href="../Source/CSS/Mercor.Element.css">
-<link rel="stylesheet" href="../Source/CSS/Mercor.Tip.css">
-<link rel="stylesheet" href="../Source/CSS/Mercor.Tab.css">
-<link rel="stylesheet" href="../Source/CSS/Mercor.Accordion.css">
+<link rel="stylesheet" href="css/mercor-1.0.css">
 <script type="text/javascript" src="js/prettify.js"></script>
 <script src="js/mercor-1.0.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -41,291 +37,345 @@
 	<div class="container">
 		<header id="overview" class="">
 		<h1>User Interfaces</h1>
-		<p class="lead">Mercor provides cool user interfaces!</p>
+		<p class="lead">The best of Mootools UI easier to use!</p>
 		</header>
-		<div class="tabbable">
-			<ul class="nav nav-tabs" data-behavior="Mercor.Tabs">
-				<li class="active"><a>Modal</a></li>
-				<li><a>Slideshow</a></li>
-				<li><a>Tips</a></li>
-				<li><a>Alerts</a></li>
-				<li><a>Accordion</a></li>
-				<li><a>Tabs</a></li>
-			</ul>
-			<div class="tab-content">
-				<div class="active">
-					<div class="row-fluid">
-						<div class="span4">
-							<h2>Modal</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							<hr />
-							<h3>Documentation</h3>
-							<div class="mercor-element mercor-accordion" data-behavior="Mercor.Accordion" class="accordion" data-mercor-accordion-options="{'display': -1, 'alwaysHide' : 'true'}">
-								<div class="mercor-outer">
-									<div class="mercor-inner">
-										<div class="mercor-accordion-node">
-											<div class="mercor-header toggle">
-												<a class="mercor-header-title">Modal Method: constructor</a>
-											</div>
-											<div class="mercor-body section">
-												<div class="mercor-body-content">
-													<h5>Syntax</h5>
-													<pre class="prettyprint linenums"><code class="language-js">var modal = new Mercor.Modal();</code></pre>
-													<h5>Arguments</h5>
-													<ol><li>test</li><li>test</li></ol>
-													<h5>Options</h5>
-													<ol><li>test</li><li>test</li></ol>
+		<div class="mercor-element mercor-tab mercor-tab-noborder">
+			<div class="mercor-outer">
+				<div class="mercor-inner">
+					<ul class="mercor-header" data-behavior="Mercor.Tabs">
+						<li class="active"><a>Modal</a></li>
+						<li><a>Slideshow</a></li>
+						<li><a>Tips</a></li>
+						<li><a>Alerts</a></li>
+						<li><a>Accordion</a></li>
+						<li><a>Tabs</a></li>
+					</ul>
+					<div class="mercor-body tab-content">
+						<div class="active">
+							<div class="row-fluid">
+								<div class="span4">
+									<h2>Modal</h2>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit, sed do eiusmod tempor incididunt ut labore et dolore
+										magna aliqua. Ut enim ad minim veniam, quis nostrud
+										exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate
+										velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+										sint occaecat cupidatat non proident, sunt in culpa qui
+										officia deserunt mollit anim id est laborum.</p>
+									<hr />
+									<h3>Documentation</h3>
+									<div class="mercor-element mercor-accordion"
+										data-behavior="Mercor.Accordion" class="accordion"
+										data-mercor-accordion-options="{'display': -1, 'alwaysHide' : 'true'}">
+										<div class="mercor-outer">
+											<div class="mercor-inner">
+												<div class="mercor-accordion-node">
+													<div class="mercor-header toggle">
+														<span class="mercor-icon-br"></span> <a
+															class="mercor-header-title">Modal Method: constructor</a>
+													</div>
+													<div class="mercor-body section">
+														<div class="mercor-body-content">
+															<h5>Syntax</h5>
+															<pre class="prettyprint linenums">var modal = new Mercor.Modal();</pre>
+															<h5>Arguments</h5>
+															<ol>
+																<li>test</li>
+																<li>test</li>
+															</ol>
+															<h5>Options</h5>
+															<ol>
+																<li>test</li>
+																<li>test</li>
+															</ol>
+														</div>
+													</div>
+												</div>
+												<div class="mercor-accordion-node">
+													<div class="mercor-header toggle">
+														<span class="mercor-icon-br"></span> <a
+															class="mercor-header-title">Section 2</a>
+													</div>
+													<div class="mercor-body section">
+														<div class="mercor-body-content">Howdy, I'm in
+															Section B.</div>
+													</div>
+												</div>
+												<div class="mercor-accordion-node">
+													<div class="mercor-header toggle">
+														<span class="mercor-icon-br"></span> <a
+															class="mercor-header-title">Section 3</a>
+													</div>
+													<div class="mercor-body section">
+														<div class="mercor-body-content">
+															<p>What up girl, this is Section C.</p>
+														</div>
+													</div>
 												</div>
 											</div>
 										</div>
-										<div class="mercor-accordion-node">
-											<div class="mercor-header toggle">
-												<a class="mercor-header-title">Section 2</a>
-											</div>
-											<div class="mercor-body section">
-												<div class="mercor-body-content">Howdy, I'm in Section B.</div>
-											</div>
-										</div>
-										<div class="mercor-accordion-node">
-											<div class="mercor-header toggle">
-												<a class="mercor-header-title">Section 3</a>
-											</div>
-											<div class="mercor-body section">
-												<div class="mercor-body-content"><p>What up girl, this is Section C.</p></div>
-											</div>
-										</div>
-					
 									</div>
 								</div>
-							</div>
-						</div>
-						<div class="span8">
-							<h3>Demo</h3>
-							<div data-behavior="Mercor.Accordion" data-mercor-accordion-options="{'alwaysHide' : 'true'}" class="accordion">
-								<div class="accordion-group">
-									<div class="accordion-heading">
-										<a class="accordion-toggle toggle"> Section 1 </a>
-									</div>
-									<div class="accordion-body in collapse section">
-										<div class="accordion-inner">I'm in Section A.</div>
-									</div>
-								</div>
-								<div class="accordion-group">
-									<div class="accordion-heading">
-										<a class="accordion-toggle toggle"> Section 2 </a>
-									</div>
-									<div class="accordion-body collapse section">
-										<div class="accordion-inner">Howdy, I'm in Section B.</div>
-									</div>
-								</div>
-								<div class="accordion-group">
-									<div class="accordion-heading"
-										style="background-color: #0088CC;">
-										<a class="accordion-toggle toggle" style="color: #FFF;">Bootstrap
-											Support</a>
-									</div>
-									<div class="accordion-body collapse section">
-										<div class="accordion-inner">What up girl, this is
-											Section C.</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div>
-					<div class="row-fluid">
-						<div class="span4">
-							<h2>Description</h2>
-						</div>
-						<div class="span8">
-							<h2>Demo</h2>
-							<div data-behavior="Mercor.Accordion" data-mercor-accordion-options="{'alwaysHide' : 'true'}" class="accordion">
-								<div class="accordion-group">
-									<div class="accordion-heading">
-										<a class="accordion-toggle toggle"> Section 1 </a>
-									</div>
-									<div class="accordion-body in collapse section">
-										<div class="accordion-inner">I'm in Section A.</div>
-									</div>
-								</div>
-								<div class="accordion-group">
-									<div class="accordion-heading">
-										<a class="accordion-toggle toggle"> Section 2 </a>
-									</div>
-									<div class="accordion-body collapse section">
-										<div class="accordion-inner">Howdy, I'm in Section B.</div>
-									</div>
-								</div>
-								<div class="accordion-group">
-									<div class="accordion-heading"
-										style="background-color: #0088CC;">
-										<a class="accordion-toggle toggle" style="color: #FFF;">Bootstrap
-											Support</a>
-									</div>
-									<div class="accordion-body collapse section">
-										<div class="accordion-inner">What up girl, this is
-											Section C.</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div>
-					<div class="row-fluid">
-						<div class="span4">
-							<h2>Description</h2>
-						</div>
-						<div class="span8">
-							<h2>Demo</h2>
-							<div data-behavior="Mercor.Accordion" data-mercor-accordion-options="{'alwaysHide' : 'true'}" class="accordion">
-								<div class="accordion-group">
-									<div class="accordion-heading">
-										<a class="accordion-toggle toggle">Tip</a>
-									</div>
-									<div class="accordion-body in collapse section">
-										<div class="accordion-inner">
-											<div class="tooltip-demo well">
-												<p class="muted">
-													Lorem ipsum dolor sit amet, consectetur <a href="#"
-														title="Above" data-behavior="Mercor.Tip">adipiscing</a>
-													elit. Sed quis dui eget dui ullamcorper porta. Cras
-													eleifend urna eu erat dictum fringilla. Suspendisse id
-													justo orci, quis ornare quam. Aenean vitae orci tellus.
-													Mauris auctor nibh eget leo semper fermentum. Donec
-													placerat suscipit nunc eget feugiat. Donec tincidunt, elit
-													id ultrices <a href="#" data-behavior="Mercor.Tip"
-														data-mercor-tip-options="{'position':'left', 'title':'Left side'}">hendrerit</a>,
-													orci dolor tempor massa, facilisis blandit dolor nulla et
-													felis. Fusce quis eros justo, vitae pulvinar nibh. Cras
-													pellentesque tincidunt porttitor. Morbi laoreet ultricies
-													augue in <a href="#" data-behavior="Mercor.Tip"
-														data-mercor-tip-options="{'position':'right', 'title':'right side'}">lobortis</a>.
-													Integer commodo tortor a augue pharetra placerat. Morbi at
-													nulla tortor, id feugiat lorem. Donec in dui risus.
-													Praesent dictum hendrerit ornare. Integer vulputate <a
-														href="#" data-behavior="Mercor.Tip"
-														data-mercor-tip-options="{'position':'below', 'sticky': true, 'title':'Sticky tip from Bellow'}">viverra</a>
-													risus eu fermentum. Suspendisse feugiat justo lorem, eget
-													fermentum ipsum.
-												</p>
+								<div class="span8">
+									<h3>Demo</h3>
+									<div class="mercor-element mercor-accordion"
+										data-behavior="Mercor.Accordion" class="accordion"
+										data-mercor-accordion-options="{'alwaysHide' : 'true'}"
+										class="accordion">
+										<div class="mercor-outer">
+											<div class="mercor-inner">
+												<div class="mercor-accordion-node">
+													<div class="mercor-header toggle">
+														<span class="mercor-icon-br"></span> <a
+															class="mercor-header-title">Section 2</a>
+													</div>
+													<div class="mercor-body section">
+														<div class="mercor-body-content">Howdy, I'm in
+															Section B.</div>
+													</div>
+												</div>
+												<div class="mercor-accordion-node">
+													<div class="mercor-header toggle">
+														<span class="mercor-icon-br"></span> <a
+															class="mercor-header-title">Section 3</a>
+													</div>
+													<div class="mercor-body section">
+														<div class="mercor-body-content">
+															<p>What up girl, this is Section C.</p>
+														</div>
+													</div>
+												</div>
+												<div class="mercor-accordion-node">
+													<div class="mercor-header toggle">
+														<span class="mercor-icon-br"></span> <a
+															class="mercor-header-title">Section 2</a>
+													</div>
+													<div class="mercor-body section">
+														<div class="mercor-body-content">Howdy, I'm in
+															Section B.</div>
+													</div>
+												</div>
+												<div class="mercor-accordion-node">
+													<div class="mercor-header toggle">
+														<span class="mercor-icon-br"></span> <a
+															class="mercor-header-title">Section 3</a>
+													</div>
+													<div class="mercor-body section">
+														<div class="mercor-body-content">
+															<p>What up girl, this is Section C.</p>
+														</div>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="accordion-group">
-									<div class="accordion-heading">
-										<a class="accordion-toggle toggle">Tip Complexe</a>
+							</div>
+						</div>
+						<div>
+							<div class="row-fluid">
+								<div class="span4">
+									<h2>Description</h2>
+								</div>
+								<div class="span8">
+									<h2>Demo</h2>
+									<div data-behavior="Mercor.Accordion"
+										data-mercor-accordion-options="{'alwaysHide' : 'true'}"
+										class="accordion">
+										<div class="accordion-group">
+											<div class="accordion-heading">
+												<a class="accordion-toggle toggle"> Section 1 </a>
+											</div>
+											<div class="accordion-body in collapse section">
+												<div class="accordion-inner">I'm in Section A.</div>
+											</div>
+										</div>
+										<div class="accordion-group">
+											<div class="accordion-heading">
+												<a class="accordion-toggle toggle"> Section 2 </a>
+											</div>
+											<div class="accordion-body collapse section">
+												<div class="accordion-inner">Howdy, I'm in Section B.</div>
+											</div>
+										</div>
+										<div class="accordion-group">
+											<div class="accordion-heading"
+												style="background-color: #0088CC;">
+												<a class="accordion-toggle toggle" style="color: #FFF;">Bootstrap
+													Support</a>
+											</div>
+											<div class="accordion-body collapse section">
+												<div class="accordion-inner">What up girl, this is
+													Section C.</div>
+											</div>
+										</div>
 									</div>
-									<div class="accordion-body collapse section">
-										<div class="accordion-inner">
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="row-fluid">
+								<div class="span4">
+									<h2>Description</h2>
+								</div>
+								<div class="span8">
+									<h2>Demo</h2>
+									<div data-behavior="Mercor.Accordion"
+										data-mercor-accordion-options="{'alwaysHide' : 'true'}"
+										class="accordion">
+										<div class="accordion-group">
+											<div class="accordion-heading">
+												<a class="accordion-toggle toggle">Tip</a>
+											</div>
+											<div class="accordion-body in collapse section">
+												<div class="accordion-inner">
+													<div class="tooltip-demo well">
+														<p class="muted">
+															Lorem ipsum dolor sit amet, consectetur <a href="#"
+																title="Above" data-behavior="Mercor.Tip">adipiscing</a>
+															elit. Sed quis dui eget dui ullamcorper porta. Cras
+															eleifend urna eu erat dictum fringilla. Suspendisse id
+															justo orci, quis ornare quam. Aenean vitae orci tellus.
+															Mauris auctor nibh eget leo semper fermentum. Donec
+															placerat suscipit nunc eget feugiat. Donec tincidunt,
+															elit id ultrices <a href="#" data-behavior="Mercor.Tip"
+																data-mercor-tip-options="{'position':'left', 'title':'Left side'}">hendrerit</a>,
+															orci dolor tempor massa, facilisis blandit dolor nulla et
+															felis. Fusce quis eros justo, vitae pulvinar nibh. Cras
+															pellentesque tincidunt porttitor. Morbi laoreet ultricies
+															augue in <a href="#" data-behavior="Mercor.Tip"
+																data-mercor-tip-options="{'position':'right', 'title':'right side'}">lobortis</a>.
+															Integer commodo tortor a augue pharetra placerat. Morbi
+															at nulla tortor, id feugiat lorem. Donec in dui risus.
+															Praesent dictum hendrerit ornare. Integer vulputate <a
+																href="#" data-behavior="Mercor.Tip"
+																data-mercor-tip-options="{'position':'below', 'sticky': true, 'title':'Sticky tip from Bellow'}">viverra</a>
+															risus eu fermentum. Suspendisse feugiat justo lorem, eget
+															fermentum ipsum.
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="accordion-group">
+											<div class="accordion-heading">
+												<a class="accordion-toggle toggle">Tip Complexe</a>
+											</div>
+											<div class="accordion-body collapse section">
+												<div class="accordion-inner">
 
-											<div class="tooltip-demo well">
-												<p class="muted">
-													Lorem ipsum dolor sit amet, <a href="#"
-														data-behavior="Mercor.Tip"
-														data-mercor-tip-options="{'position':'above', 'title':'Consectetur adipiscing', 'html': '<p>Etiam eu turpis ac dolor porttitor fringilla eget non quam. Pellentesque at justo est, quis malesuada nulla. Maecenas nec nulla eu felis suscipit rhoncus non sit amet neque. Nullam eget mauris facilisis ligula euismod hendrerit. Etiam congue, diam sit amet cursus hendrerit, dui eros vehicula ante, non lobortis sapien purus eget risus. Duis interdum consequat enim, in bibendum felis ultrices eu. Suspendisse at metus non quam dictum tincidunt id eu lectus. Pellentesque et dui orci.</p>'}">consectetur
-														adipiscing</a> elit. Sed quis dui eget dui ullamcorper porta.
-													Cras eleifend urna eu erat dictum fringilla. Suspendisse id
-													justo orci, quis ornare quam. Aenean vitae orci tellus.
-													Mauris auctor nibh eget leo semper fermentum. Donec
-													placerat suscipit nunc eget feugiat. Donec tincidunt, elit
-													id ultrices hendrerit, orci dolor tempor massa, facilisis
-													blandit dolor nulla et felis. Fusce quis eros justo, vitae
-													pulvinar nibh. <a href="#" data-behavior="Mercor.Tip"
-														data-mercor-tip-options="{'position':'left',  'sticky': true, 'title':'Cras pellentesque', 'html': '<p>Etiam eu turpis ac dolor porttitor fringilla eget non quam. Pellentesque at justo est, quis malesuada nulla. Maecenas nec nulla eu felis suscipit rhoncus non sit amet neque. Nullam eget mauris facilisis ligula euismod hendrerit. Etiam congue, diam sit amet cursus hendrerit, dui eros vehicula ante, non lobortis sapien purus eget risus. Duis interdum consequat enim, in bibendum felis ultrices eu. Suspendisse at metus non quam dictum tincidunt id eu lectus. Pellentesque et dui orci.</p>', 'buttons':[{ 'html': 'Close', 'styles': {},'event': 'function() { this.hide(); }'}]}">Cras
-														pellentesque</a> tincidunt porttitor. Morbi laoreet ultricies
-													augue in lobortis. Integer commodo tortor a augue pharetra
-													placerat. Morbi at nulla tortor, id feugiat lorem. Donec in
-													dui risus. Praesent dictum hendrerit ornare. Integer
-													vulputate viverra risus eu fermentum. Suspendisse feugiat
-													justo lorem, eget fermentum ipsum.
-												</p>
+													<div class="tooltip-demo well">
+														<p class="muted">
+															Lorem ipsum dolor sit amet, <a href="#"
+																data-behavior="Mercor.Tip"
+																data-mercor-tip-options="{'position':'above', 'title':'Consectetur adipiscing', 'html': '<p>Etiam eu turpis ac dolor porttitor fringilla eget non quam. Pellentesque at justo est, quis malesuada nulla. Maecenas nec nulla eu felis suscipit rhoncus non sit amet neque. Nullam eget mauris facilisis ligula euismod hendrerit. Etiam congue, diam sit amet cursus hendrerit, dui eros vehicula ante, non lobortis sapien purus eget risus. Duis interdum consequat enim, in bibendum felis ultrices eu. Suspendisse at metus non quam dictum tincidunt id eu lectus. Pellentesque et dui orci.</p>'}">consectetur
+																adipiscing</a> elit. Sed quis dui eget dui ullamcorper
+															porta. Cras eleifend urna eu erat dictum fringilla.
+															Suspendisse id justo orci, quis ornare quam. Aenean vitae
+															orci tellus. Mauris auctor nibh eget leo semper
+															fermentum. Donec placerat suscipit nunc eget feugiat.
+															Donec tincidunt, elit id ultrices hendrerit, orci dolor
+															tempor massa, facilisis blandit dolor nulla et felis.
+															Fusce quis eros justo, vitae pulvinar nibh. <a href="#"
+																data-behavior="Mercor.Tip"
+																data-mercor-tip-options="{'position':'left',  'sticky': true, 'title':'Cras pellentesque', 'html': '<p>Etiam eu turpis ac dolor porttitor fringilla eget non quam. Pellentesque at justo est, quis malesuada nulla. Maecenas nec nulla eu felis suscipit rhoncus non sit amet neque. Nullam eget mauris facilisis ligula euismod hendrerit. Etiam congue, diam sit amet cursus hendrerit, dui eros vehicula ante, non lobortis sapien purus eget risus. Duis interdum consequat enim, in bibendum felis ultrices eu. Suspendisse at metus non quam dictum tincidunt id eu lectus. Pellentesque et dui orci.</p>', 'buttons':[{ 'html': 'Close', 'styles': {},'event': 'function() { this.hide(); }'}]}">Cras
+																pellentesque</a> tincidunt porttitor. Morbi laoreet
+															ultricies augue in lobortis. Integer commodo tortor a
+															augue pharetra placerat. Morbi at nulla tortor, id
+															feugiat lorem. Donec in dui risus. Praesent dictum
+															hendrerit ornare. Integer vulputate viverra risus eu
+															fermentum. Suspendisse feugiat justo lorem, eget
+															fermentum ipsum.
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="accordion-group">
+											<div class="accordion-heading"
+												style="background-color: #0088CC;">
+												<a class="accordion-toggle toggle" style="color: #FFF;">Bootstrap
+													Support</a>
+											</div>
+											<div class="accordion-body collapse section">
+												<div class="accordion-inner">What up girl, this is
+													Section C.</div>
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="accordion-group">
-									<div class="accordion-heading"
-										style="background-color: #0088CC;">
-										<a class="accordion-toggle toggle" style="color: #FFF;">Bootstrap
-											Support</a>
-									</div>
-									<div class="accordion-body collapse section">
-										<div class="accordion-inner">What up girl, this is
-											Section C.</div>
+							</div>
+						</div>
+						<div>
+							<div class="row-fluid">
+								<div class="span4">
+									<h2>Description</h2>
+								</div>
+								<div class="span8">
+									<h2>Demo</h2>
+									<div data-behavior="Mercor.Accordion"
+										data-mercor-accordion-options="{'alwaysHide' : 'true'}"
+										class="accordion">
+										<div class="accordion-group">
+											<div class="accordion-heading">
+												<a class="accordion-toggle toggle"> Section 1 </a>
+											</div>
+											<div class="accordion-body in collapse section">
+												<div class="accordion-inner">I'm in Section A.</div>
+											</div>
+										</div>
+										<div class="accordion-group">
+											<div class="accordion-heading">
+												<a class="accordion-toggle toggle"> Section 2 </a>
+											</div>
+											<div class="accordion-body collapse section">
+												<div class="accordion-inner">Howdy, I'm in Section B.</div>
+											</div>
+										</div>
+										<div class="accordion-group">
+											<div class="accordion-heading"
+												style="background-color: #0088CC;">
+												<a class="accordion-toggle toggle" style="color: #FFF;">Bootstrap
+													Support</a>
+											</div>
+											<div class="accordion-body collapse section">
+												<div class="accordion-inner">What up girl, this is
+													Section C.</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div>
-					<div class="row-fluid">
-						<div class="span4">
-							<h2>Description</h2>
-						</div>
-						<div class="span8">
-							<h2>Demo</h2>
-							<div data-behavior="Mercor.Accordion" data-mercor-accordion-options="{'alwaysHide' : 'true'}" class="accordion">
-								<div class="accordion-group">
-									<div class="accordion-heading">
-										<a class="accordion-toggle toggle"> Section 1 </a>
-									</div>
-									<div class="accordion-body in collapse section">
-										<div class="accordion-inner">I'm in Section A.</div>
-									</div>
+						<div>
+							<div class="row-fluid">
+								<div class="span4">
+									<h2>Description</h2>
 								</div>
-								<div class="accordion-group">
-									<div class="accordion-heading">
-										<a class="accordion-toggle toggle"> Section 2 </a>
-									</div>
-									<div class="accordion-body collapse section">
-										<div class="accordion-inner">Howdy, I'm in Section B.</div>
-									</div>
-								</div>
-								<div class="accordion-group">
-									<div class="accordion-heading"
-										style="background-color: #0088CC;">
-										<a class="accordion-toggle toggle" style="color: #FFF;">Bootstrap
-											Support</a>
-									</div>
-									<div class="accordion-body collapse section">
-										<div class="accordion-inner">What up girl, this is
-											Section C.</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div>
-					<div class="row-fluid">
-						<div class="span4">
-							<h2>Description</h2>
-						</div>
-						<div class="span8">
-							<h2>Demo</h2>
-							<div data-behavior="Mercor.Accordion" data-mercor-accordion-options="{'alwaysHide' : 'true'}" class="accordion">
-								<div class="accordion-group">
-									<div class="accordion-heading">
-										<a class="accordion-toggle toggle">Accordion</a>
-									</div>
-									<div class="accordion-body in collapse section">
-										<div class="accordion-inner">I'm in Section A.</div>
-									</div>
-								</div>
-								<div class="accordion-group">
-									<div class="accordion-heading"
-										style="background-color: #0088CC;">
-										<a class="accordion-toggle toggle" style="color: #FFF;">Bootstrap
-											Support</a>
-									</div>
-									<div class="accordion-body collapse section">
-										<div class="accordion-inner">
-											<p>Mercor Tabs support Bootstrap</p>
-											<pre class="prettyprint linenums">
+								<div class="span8">
+									<h2>Demo</h2>
+									<div data-behavior="Mercor.Accordion"
+										data-mercor-accordion-options="{'alwaysHide' : 'true'}"
+										class="accordion">
+										<div class="accordion-group">
+											<div class="accordion-heading">
+												<a class="accordion-toggle toggle">Accordion</a>
+											</div>
+											<div class="accordion-body in collapse section">
+												<div class="accordion-inner">I'm in Section A.</div>
+											</div>
+										</div>
+										<div class="accordion-group">
+											<div class="accordion-heading"
+												style="background-color: #0088CC;">
+												<a class="accordion-toggle toggle" style="color: #FFF;">Bootstrap
+													Support</a>
+											</div>
+											<div class="accordion-body collapse section">
+												<div class="accordion-inner">
+													<p>Mercor Tabs support Bootstrap</p>
+													<pre class="prettyprint linenums">
 												<code class="language-js">&lt;div data-behavior=&quot;Mercor.Accordion&quot; class=&quot;accordion&quot;&gt;
 	&lt;div class=&quot;accordion-group&quot;&gt;
 		&lt;div class=&quot;accordion-heading&quot;&gt;
@@ -345,87 +395,90 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 											</pre>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
 
-						</div>
-					</div>
-				</div>
-				<div>
-					<div class="row-fluid">
-						<div class="span4">
-							<h2>Description</h2>
-						</div>
-						<div class="span8">
-							<h2>Demo</h2>
-							<div class="mercor-element mercor-tab">
-								<div class="mercor-outer">
-									<div class="mercor-inner">
-										<ul class="mercor-header" data-behavior="Mercor.Tabs">
-											<li class="active"><a>Section 1</a></li>
-											<li><a>Section 2</a></li>
-											<li><a>Section 3</a></li>
-										</ul>
-										<div class="mercor-body tab-content">
-											<div class="active">
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-													elit, sed do eiusmod tempor incididunt ut labore et dolore
-													magna aliqua. Ut enim ad minim veniam, quis nostrud
-													exercitation ullamco laboris nisi ut aliquip ex ea commodo
-													consequat. Duis aute irure dolor in reprehenderit in
-													voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-													Excepteur sint occaecat cupidatat non proident, sunt in culpa
-													qui officia deserunt mollit anim id est laborum.</p>
-											</div>
-											<div class="mercor-body">
-												<p>{BODY}</p>
-											</div>
-											<div class="mercor-body">
-												<p>{BODY}</p>
-											</div>
-										</div>
-									</div>
 								</div>
 							</div>
-							<div data-behavior="Mercor.Accordion" data-mercor-accordion-options="{'alwaysHide' : 'true'}" class="accordion">
-								<div class="accordion-group">
-									<div class="accordion-heading">
-										<a class="accordion-toggle toggle">Tabs</a>
-									</div>
-									<div class="accordion-body in collapse section">
-										<div class="accordion-inner">I'm in Section A.</div>
-									</div>
+						</div>
+						<div>
+							<div class="row-fluid">
+								<div class="span4">
+									<h2>Description</h2>
 								</div>
-								<div class="accordion-group">
-									<div class="accordion-heading"
-										style="background-color: #0088CC;">
-										<a class="accordion-toggle toggle" style="color: #FFF;">Bootstrap
-											Support</a>
-									</div>
-									<div class="accordion-body collapse section">
-										<div class="accordion-inner">
-											<h3>Normal Tabs</h3>
-											<div class="tabbable">
-												<ul class="nav nav-tabs" data-behavior="Mercor.Tabs">
+								<div class="span8">
+									<h2>Demo</h2>
+									<div class="mercor-element mercor-tab mercor-tab-noborder">
+										<div class="mercor-outer">
+											<div class="mercor-inner">
+												<ul class="mercor-header" data-behavior="Mercor.Tabs">
 													<li class="active"><a>Section 1</a></li>
 													<li><a>Section 2</a></li>
 													<li><a>Section 3</a></li>
 												</ul>
-												<div class="tab-content">
+												<div class="mercor-body tab-content">
 													<div class="active">
-														<p>I'm in Section A.</p>
+														<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+															elit, sed do eiusmod tempor incididunt ut labore et
+															dolore magna aliqua. Ut enim ad minim veniam, quis
+															nostrud exercitation ullamco laboris nisi ut aliquip ex
+															ea commodo consequat. Duis aute irure dolor in
+															reprehenderit in voluptate velit esse cillum dolore eu
+															fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+															non proident, sunt in culpa qui officia deserunt mollit
+															anim id est laborum.</p>
 													</div>
-													<div>
-														<p>Howdy, I'm in Section B.</p>
+													<div class="mercor-body">
+														<p>{BODY}</p>
 													</div>
-													<div>
-														<p>What up girl, this is Section C.</p>
+													<div class="mercor-body">
+														<p>{BODY}</p>
 													</div>
 												</div>
 											</div>
-											<pre class="prettyprint linenums">
+										</div>
+									</div>
+									<div data-behavior="Mercor.Accordion"
+										data-mercor-accordion-options="{'alwaysHide' : 'true'}"
+										class="accordion">
+										<div class="accordion-group">
+											<div class="accordion-heading">
+												<a class="accordion-toggle toggle">Tabs</a>
+											</div>
+											<div class="accordion-body in collapse section">
+												<div class="accordion-inner">I'm in Section A.</div>
+											</div>
+										</div>
+										<div class="accordion-group">
+											<div class="accordion-heading"
+												style="background-color: #0088CC;">
+												<a class="accordion-toggle toggle" style="color: #FFF;">Bootstrap
+													Support</a>
+											</div>
+											<div class="accordion-body collapse section">
+												<div class="accordion-inner">
+													<h3>Normal Tabs</h3>
+													<div class="tabbable">
+														<ul class="nav nav-tabs" data-behavior="Mercor.Tabs">
+															<li class="active"><a>Section 1</a></li>
+															<li><a>Section 2</a></li>
+															<li><a>Section 3</a></li>
+														</ul>
+														<div class="tab-content">
+															<div class="active">
+																<p>I'm in Section A.</p>
+															</div>
+															<div>
+																<p>Howdy, I'm in Section B.</p>
+															</div>
+															<div>
+																<p>What up girl, this is Section C.</p>
+															</div>
+														</div>
+													</div>
+													<pre class="prettyprint linenums">
 								<code class="language-js">&lt;div class=&quot;tabbable&quot;&gt;
 	&lt;ul class=&quot;nav nav-tabs&quot; data-behavior=&quot;Mercor.Tabs&quot;&gt;
 		&lt;li class=&quot;active&quot;&gt;&lt;a&gt;Section 1&lt;/a&gt;&lt;/li&gt;
@@ -445,27 +498,27 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 							</pre>
-											<hr />
-											<h3>Left Tabs</h3>
-											<div class="tabbable tabs-left">
-												<ul class="nav nav-tabs" data-behavior="Mercor.Tabs">
-													<li class="active"><a>Section 1</a></li>
-													<li><a>Section 2</a></li>
-													<li><a>Section 3</a></li>
-												</ul>
-												<div class="tab-content">
-													<div class="active">
-														<p>I'm in Section A.</p>
+													<hr />
+													<h3>Left Tabs</h3>
+													<div class="tabbable tabs-left">
+														<ul class="nav nav-tabs" data-behavior="Mercor.Tabs">
+															<li class="active"><a>Section 1</a></li>
+															<li><a>Section 2</a></li>
+															<li><a>Section 3</a></li>
+														</ul>
+														<div class="tab-content">
+															<div class="active">
+																<p>I'm in Section A.</p>
+															</div>
+															<div>
+																<p>Howdy, I'm in Section B.</p>
+															</div>
+															<div>
+																<p>What up girl, this is Section C.</p>
+															</div>
+														</div>
 													</div>
-													<div>
-														<p>Howdy, I'm in Section B.</p>
-													</div>
-													<div>
-														<p>What up girl, this is Section C.</p>
-													</div>
-												</div>
-											</div>
-											<pre class="prettyprint linenums">
+													<pre class="prettyprint linenums">
 								<code class="language-js">&lt;div class=&quot;tabbable tabs-left&quot;&gt;
 	&lt;ul class=&quot;nav nav-tabs&quot; data-behavior=&quot;Mercor.Tabs&quot;&gt;
 		&lt;li class=&quot;active&quot;&gt;&lt;a&gt;Section 1&lt;/a&gt;&lt;/li&gt;
@@ -485,27 +538,27 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 							</pre>
-											<hr />
-											<h3>Right Tabs</h3>
-											<div class="tabbable tabs-right">
-												<ul class="nav nav-tabs" data-behavior="Mercor.Tabs">
-													<li class="active"><a>Section 1</a></li>
-													<li><a>Section 2</a></li>
-													<li><a>Section 3</a></li>
-												</ul>
-												<div class="tab-content">
-													<div class="active">
-														<p>I'm in Section A.</p>
+													<hr />
+													<h3>Right Tabs</h3>
+													<div class="tabbable tabs-right">
+														<ul class="nav nav-tabs" data-behavior="Mercor.Tabs">
+															<li class="active"><a>Section 1</a></li>
+															<li><a>Section 2</a></li>
+															<li><a>Section 3</a></li>
+														</ul>
+														<div class="tab-content">
+															<div class="active">
+																<p>I'm in Section A.</p>
+															</div>
+															<div>
+																<p>Howdy, I'm in Section B.</p>
+															</div>
+															<div>
+																<p>What up girl, this is Section C.</p>
+															</div>
+														</div>
 													</div>
-													<div>
-														<p>Howdy, I'm in Section B.</p>
-													</div>
-													<div>
-														<p>What up girl, this is Section C.</p>
-													</div>
-												</div>
-											</div>
-											<pre class="prettyprint linenums">
+													<pre class="prettyprint linenums">
 								<code class="language-js">&lt;div class=&quot;tabbable tabs-right&quot;&gt;
 	&lt;ul class=&quot;nav nav-tabs&quot; data-behavior=&quot;Mercor.Tabs&quot;&gt;
 		&lt;li class=&quot;active&quot;&gt;&lt;a&gt;Section 1&lt;/a&gt;&lt;/li&gt;
@@ -525,20 +578,21 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 							</pre>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+					<hr />
+					<div id="footer">
+						<p>footer</p>
+					</div>
 				</div>
-			</div>
-			<hr />
-			<div id="footer">
-				<p>footer</p>
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>

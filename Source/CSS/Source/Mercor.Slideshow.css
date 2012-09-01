@@ -1,0 +1,13 @@
+/*
+---
+
+name: Mercor.Slideshow
+
+requires: [/Mercor.Element, /Mercor.Icons]
+
+provides: [Mercor.Slideshow]
+
+...
+*/
+
+@CHARSET "UTF-8";

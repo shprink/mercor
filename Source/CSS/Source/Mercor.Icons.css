@@ -1,0 +1,52 @@
+/*
+---
+
+name: Mercor.Icons
+
+requires: [/Mercor.Element]
+
+provides: [Mercor.Icons]
+
+...
+*/
+
+@CHARSET "UTF-8";
+
+/* Mercor uses icons from http://www.gentleface.com */
+[class^="mercor-icon"]{
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+}
+
+.mercor-element .mercor-icon-br-down{
+	background-image: url("../icons/black/br_down_icon&16.png");
+}
+
+.mercor-element .mercor-icon-br-down.mercor-icon-white{
+	background-image: url("../icons/white/br_down_icon&16.png");
+}
+
+.mercor-element .mercor-icon-attention{
+	background-image: url("../icons/black/attention_icon&16.png");
+}
+
+.mercor-element .mercor-icon-attention.mercor-icon-white{
+	background-image: url("../icons/white/attention_icon&16.png");
+}
+
+.mercor-element .mercor-icon-delete{
+	background-image: url("../icons/black/delete_icon&16.png");
+}
+
+.mercor-element .mercor-icon-delete.mercor-icon-white{
+	background-image: url("../icons/white/delete_icon&16.png");
+}
+
+.mercor-element .mercor-icon-checkmark{
+	background-image: url("../icons/black/checkmark_icon&16.png");
+}
+
+.mercor-element .mercor-icon-checkmark.mercor-icon-white{
+	background-image: url("../icons/white/checkmark_icon&16.png");
+}

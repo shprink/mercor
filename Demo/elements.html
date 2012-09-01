@@ -3,13 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Mercor Library - Open Source library based on Mootools</title>
-<link rel="stylesheet" href="../Source/CSS/Mercor.Element.css">
-<link rel="stylesheet" href="../Source/CSS/Mercor.Alert.css">
-<link rel="stylesheet" href="../Source/CSS/Mercor.Tip.css">
-<link rel="stylesheet" href="../Source/CSS/Mercor.Modal.css">
-<link rel="stylesheet" href="../Source/CSS/Mercor.Tab.css">
-<link rel="stylesheet" href="../Source/CSS/Mercor.Slideshow.css">
-<link rel="stylesheet" href="../Source/CSS/Mercor.Accordion.css">
+<link rel="stylesheet" href="css/mercor-1.0.css">
 <link href="css/prettify.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/prettify.js"></script>
 <style type="text/css">
@@ -295,7 +289,7 @@ code,pre {
 							<div class="mercor-inner">
 								<button class="mercor-close" title="Close">x</button>
 								<div class="mercor-header">
-									<h3 class="mercor-header-title">Lorem ipsum dolor sit amet</h3>
+									<h3 class="mercor-header-title"><span class="mercor-icon-checkmark"></span> Lorem ipsum dolor sit amet</h3>
 								</div>
 								<div class="mercor-body">
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -320,7 +314,7 @@ code,pre {
 							<div class="mercor-inner">
 								<button class="mercor-close" title="Close">x</button>
 								<div class="mercor-header">
-									<h3 class="mercor-header-title">Lorem ipsum dolor sit amet</h3>
+									<h3 class="mercor-header-title"><span class="mercor-icon-checkmark"></span> Lorem ipsum dolor sit amet</h3>
 								</div>
 								<div class="mercor-body">
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -363,7 +357,7 @@ code,pre {
 							<div class="mercor-inner">
 								<button class="mercor-close" title="Close">x</button>
 								<div class="mercor-header">
-									<h3 class="mercor-header-title">Lorem ipsum dolor sit amet</h3>
+									<h3 class="mercor-header-title"><span class="mercor-icon-attention"></span> Lorem ipsum dolor sit amet</h3>
 								</div>
 								<div class="mercor-body">
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -388,7 +382,7 @@ code,pre {
 							<div class="mercor-inner">
 								<button class="mercor-close" title="Close">x</button>
 								<div class="mercor-header">
-									<h3 class="mercor-header-title">Lorem ipsum dolor sit amet</h3>
+									<h3 class="mercor-header-title"><span class="mercor-icon-attention"></span> Lorem ipsum dolor sit amet</h3>
 								</div>
 								<div class="mercor-body">
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -431,7 +425,7 @@ code,pre {
 							<div class="mercor-inner">
 								<button class="mercor-close" title="Close">x</button>
 								<div class="mercor-header">
-									<h3 class="mercor-header-title">Lorem ipsum dolor sit amet</h3>
+									<h3 class="mercor-header-title"><span class="mercor-icon-delete"></span> Lorem ipsum dolor sit amet</h3>
 								</div>
 								<div class="mercor-body">
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -456,7 +450,7 @@ code,pre {
 							<div class="mercor-inner">
 								<button class="mercor-close" title="Close">x</button>
 								<div class="mercor-header">
-									<h3 class="mercor-header-title">Lorem ipsum dolor sit amet</h3>
+									<h3 class="mercor-header-title"><span class="mercor-icon-delete"></span> Lorem ipsum dolor sit amet</h3>
 								</div>
 								<div class="mercor-body">
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -527,6 +521,7 @@ code,pre {
 							<div class="mercor-inner">
 								<div class="mercor-accordion-node active">
 									<div class="mercor-header">
+										<span class="mercor-icon-br"></span>
 										<a class="mercor-header-title">Lorem ipsum dolor sit amet</a>
 									</div>
 									<div class="mercor-body">
@@ -542,12 +537,14 @@ code,pre {
 								</div>
 								<div class="mercor-accordion-node">
 									<div class="mercor-header">
+										<span class="mercor-icon-br"></span>
 										<a class="mercor-header-title">Excepteur sint</a>
 									</div>
 									<div class="mercor-body" style="display: none;">{BODY}</div>
 								</div>
 								<div class="mercor-accordion-node">
 									<div class="mercor-header">
+										<span class="mercor-icon-br"></span>
 										<a class="mercor-header-title">Sunt in culpa</a>
 									</div>
 									<div class="mercor-body" style="display: none;">{BODY}</div>
@@ -563,6 +560,7 @@ code,pre {
 							<div class="mercor-inner">
 								<div class="mercor-accordion-node active">
 									<div class="mercor-header">
+										<span class="mercor-icon-br"></span>
 										<a class="mercor-header-title">Lorem ipsum dolor sit amet</a>
 									</div>
 									<div class="mercor-body">
@@ -578,12 +576,14 @@ code,pre {
 								</div>
 								<div class="mercor-accordion-node">
 									<div class="mercor-header">
+										<span class="mercor-icon-br"></span>
 										<a class="mercor-header-title">Excepteur sint</a>
 									</div>
 									<div class="mercor-body" style="display: none;">{BODY}</div>
 								</div>
 								<div class="mercor-accordion-node">
 									<div class="mercor-header">
+										<span class="mercor-icon-br"></span>
 										<a class="mercor-header-title">Sunt in culpa</a>
 									</div>
 									<div class="mercor-body" style="display: none;">{BODY}</div>
@@ -600,18 +600,21 @@ code,pre {
 		&lt;div class=&quot;mercor-inner&quot;&gt;
 			&lt;div class=&quot;mercor-accordion-node active&quot;&gt;
 				&lt;div class=&quot;mercor-header&quot;&gt;
+					&lt;span class=&quot;mercor-icon-br&quot;&gt;&lt;/span&gt;
 					&lt;a class=&quot;mercor-header-title&quot;&gt;{TITLE}&lt;/a&gt;
 				&lt;/div&gt;
 				&lt;div class=&quot;mercor-body&quot;&gt;{BODY}&lt;/div&gt;
 			&lt;/div&gt;
 			&lt;div class=&quot;mercor-accordion-node&quot;&gt;
 				&lt;div class=&quot;mercor-header&quot;&gt;
+					&lt;span class=&quot;mercor-icon-br&quot;&gt;&lt;/span&gt;
 					&lt;a class=&quot;mercor-header-title&quot;&gt;{TITLE}&lt;/a&gt;
 				&lt;/div&gt;
 				&lt;div class=&quot;mercor-body&quot;&gt;{BODY}&lt;/div&gt;
 			&lt;/div&gt;
 			&lt;div class=&quot;mercor-accordion-node&quot;&gt;
 				&lt;div class=&quot;mercor-header&quot;&gt;
+					&lt;span class=&quot;mercor-icon-br&quot;&gt;&lt;/span&gt;
 					&lt;a class=&quot;mercor-header-title&quot;&gt;{TITLE}&lt;/a&gt;
 				&lt;/div&gt;
 				&lt;div class=&quot;mercor-body&quot;&gt;{BODY}&lt;/div&gt;

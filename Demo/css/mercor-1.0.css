@@ -1,0 +1,792 @@
+/*
+---
+
+name: Mercor.Element
+
+version: 1.0
+
+description: CSS for Mercor Library
+
+authors: Julien Renaux
+
+repository: https://github.com/shprink/mercor
+
+requires: []
+
+provides: [Mercor.Element]
+
+license: MIT
+
+Copyright (c) 2012 Julien Renaux <contact@julienrenaux.fr>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+...
+*/
+@CHARSET "UTF-8";
+
+/* reset style within elements*/
+.mercor-element,.mercor-element>*,.mercor-element h1,.mercor-element h2,.mercor-element h3,.mercor-element h4,.mercor-element h5,.mercor-element h6{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 13px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	vertical-align: baseline;
+}
+
+.mercor-element h1,.mercor-element h2,.mercor-element h3,.mercor-element h4,.mercor-element h5,.mercor-element h6{
+	font-family: inherit;
+	font-weight: bold;
+	margin: 0;
+	text-rendering: optimizelegibility;
+}
+
+.mercor-element p {
+    margin: 0 0 10px;
+}
+
+.mercor-element h1 {
+	font-size: 30px;
+	line-height: 36px;
+}
+
+.mercor-element h2 {
+	font-size: 24px;
+	line-height: 36px;
+}
+
+.mercor-element h3 {
+	font-size: 18px;
+	line-height: 27px;
+}
+
+.mercor-element h4 {
+	font-size: 14px;
+	line-height: 18px;
+}
+
+.mercor-element h5 {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.mercor-element h6 {
+	font-size: 11px;
+	line-height: 18px;
+}
+
+.mercor-element h6 {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.mercor-element {
+	position: relative;
+}
+
+.mercor-element .mercor-outer,.mercor-element .mercor-inner {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.mercor-element .mercor-inner {
+	background-color: #FFF;
+	border: 1px solid #FFF;
+}
+
+.mercor-element .mercor-outer {
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.mercor-element .mercor-header {
+	padding: 5px 10px;
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
+	background-color: #CCC;
+	background: rgb(247, 247, 247); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background:
+		url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlYWVhZWEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top, rgba(247, 247, 247, 1) 0%,
+		rgba(234, 234, 234, 1) 100% ); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(247,
+		247, 247, 1) ), color-stop(100%, rgba(234, 234, 234, 1) ) );
+	/* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(247, 247, 247, 1) 0%,
+		rgba(234, 234, 234, 1) 100% ); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, r.mercor-headergba ( 247, 247, 247, 1)
+		0%, rgba(234, 234, 234, 1) 100% ); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(247, 247, 247, 1) 0%,
+		rgba(234, 234, 234, 1) 100% ); /* IE10+ */
+	background: linear-gradient(top, rgba(247, 247, 247, 1) 0%,
+		rgba(234, 234, 234, 1) 100% ); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient(   startColorstr='#f7f7f7',
+		endColorstr='#eaeaea', GradientType=0 ); /* IE6-8 */
+}
+
+.mercor-element .mercor-body {
+	padding: 10px;
+}
+
+.mercor-element .mercor-footer {
+	padding: 0px 10px 10px 10px;
+}
+
+.mercor-element button.mercor-close {
+	background: none repeat scroll 0 0 transparent;
+	border: 0 none;
+	cursor: pointer;
+	padding: 0;
+}
+
+.mercor-element .mercor-close {
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	opacity: 0.6;
+	cursor: pointer;
+	color: #333;
+	font-size: 12px;
+	font-weight: bold;
+	text-shadow: 0 1px 0 #FFFFFF;
+	font-family: sans-serif;
+}
+
+.mercor-element .mercor-close:hover {
+	opacity: 1;
+}
+
+.mercor-arrow {
+	height: 0;
+	position: absolute;
+	width: 0;
+}
+
+.mercor-element.arrow-above .mercor-arrow {
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid #FFF;
+	bottom: -5px;
+	left: 50%;
+	margin-left: -5px;
+}
+
+.mercor-element.arrow-left .mercor-arrow {
+	border-bottom: 5px solid transparent;
+	border-left: 5px solid #FFF;
+	border-top: 5px solid transparent;
+	margin-top: -5px;
+	right: -5px;
+	top: 50%;
+}
+
+.mercor-element.arrow-below .mercor-arrow {
+	border-bottom: 5px solid #FFF;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	left: 50%;
+	margin-left: -5px;
+	top: -5px;
+}
+
+.mercor-element.arrow-right .mercor-arrow {
+	border-bottom: 5px solid transparent;
+	border-right: 5px solid #FFF;
+	border-top: 5px solid transparent;
+	left: -5px;
+	margin-top: -5px;
+	top: 50%;
+}
+
+
+/*
+---
+
+name: Mercor.Icons
+
+requires: [/Mercor.Element]
+
+provides: [Mercor.Icons]
+
+...
+*/
+
+@CHARSET "UTF-8";
+
+/* Mercor uses icons from http://www.gentleface.com */
+[class^="mercor-icon"]{
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+}
+
+.mercor-element .mercor-icon-br-down{
+	background-image: url("../icons/black/br_down_icon&16.png");
+}
+
+.mercor-element .mercor-icon-br-down.mercor-icon-white{
+	background-image: url("../icons/white/br_down_icon&16.png");
+}
+
+.mercor-element .mercor-icon-attention{
+	background-image: url("../icons/black/attention_icon&16.png");
+}
+
+.mercor-element .mercor-icon-attention.mercor-icon-white{
+	background-image: url("../icons/white/attention_icon&16.png");
+}
+
+.mercor-element .mercor-icon-delete{
+	background-image: url("../icons/black/delete_icon&16.png");
+}
+
+.mercor-element .mercor-icon-delete.mercor-icon-white{
+	background-image: url("../icons/white/delete_icon&16.png");
+}
+
+.mercor-element .mercor-icon-checkmark{
+	background-image: url("../icons/black/checkmark_icon&16.png");
+}
+
+.mercor-element .mercor-icon-checkmark.mercor-icon-white{
+	background-image: url("../icons/white/checkmark_icon&16.png");
+}
+
+/*
+---
+
+name: Mercor.Accordion
+
+requires: [/Mercor.Element, /Mercor.Icons]
+
+provides: [Mercor.Accordion]
+
+...
+*/
+
+@CHARSET "UTF-8";
+
+.mercor-element.mercor-accordion {
+	border: 1px solid #F1F1F1;
+}
+
+.mercor-element.mercor-accordion .mercor-outer,.mercor-element.mercor-accordion .mercor-inner {
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+}
+
+
+.mercor-element.mercor-accordion .mercor-header {
+	padding: 8px 10px;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	cursor: pointer;
+	border-bottom: 1px solid #F1F1F1;
+	background: rgb(255,255,255); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmN2Y3ZjciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(247,247,247,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(247,247,247,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7f7f7',GradientType=0 ); /* IE6-8 */
+}
+
+.mercor-element.mercor-accordion .mercor-header a{
+	color: #333;
+}
+
+.mercor-element.mercor-accordion .mercor-accordion-node.active .mercor-header a,
+.mercor-element.mercor-accordion .mercor-accordion-node:hover .mercor-header a{
+	color: #FFF;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.mercor-element.mercor-accordion .mercor-accordion-node.active .mercor-header,
+.mercor-element.mercor-accordion .mercor-accordion-node.active:hover .mercor-header{
+	background: rgb(0,136,204); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwODhjYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDc0YmMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(0,136,204,1) 0%, rgba(0,116,188,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,136,204,1)), color-stop(100%,rgba(0,116,188,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(0,136,204,1) 0%,rgba(0,116,188,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(0,136,204,1) 0%,rgba(0,116,188,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(0,136,204,1) 0%,rgba(0,116,188,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(0,136,204,1) 0%,rgba(0,116,188,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0088cc', endColorstr='#0074bc',GradientType=0 ); /* IE6-8 */
+}
+
+.mercor-element.mercor-accordion .mercor-accordion-node:hover .mercor-header{
+	background: rgb(131,196,229); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzgzYzRlNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM3ZGJjZTMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(131,196,229,1) 0%, rgba(125,188,227,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(131,196,229,1)), color-stop(100%,rgba(125,188,227,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(131,196,229,1) 0%,rgba(125,188,227,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(131,196,229,1) 0%,rgba(125,188,227,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(131,196,229,1) 0%,rgba(125,188,227,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(131,196,229,1) 0%,rgba(125,188,227,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#83c4e5', endColorstr='#7dbce3',GradientType=0 ); /* IE6-8 */
+}
+
+.mercor-element .mercor-body-content {
+	padding: 10px;
+}
+
+.mercor-element.mercor-accordion .mercor-accordion-node .mercor-icon-br{
+	float: right;
+}
+
+.mercor-element.mercor-accordion .mercor-accordion-node.active:hover .mercor-icon-br,
+.mercor-element.mercor-accordion .mercor-accordion-node.active .mercor-icon-br{
+	background-image: url("../icons/white/br_up_icon&16.png");
+}
+
+.mercor-element.mercor-accordion .mercor-accordion-node:hover .mercor-icon-br{
+	background-image: url("../icons/white/br_down_icon&16.png");
+}
+
+.mercor-element.mercor-accordion .mercor-accordion-node .mercor-icon-br{
+	background-image: url("../icons/black/br_down_icon&16.png");
+}
+
+/*
+---
+
+name: Mercor.Alert
+
+requires: [/Mercor.Element, /Mercor.Icons]
+
+provides: [Mercor.Alert]
+
+...
+*/
+@CHARSET "UTF-8";
+
+#mercor-alert-container {
+	position: fixed;
+}
+
+#mercor-alert-container.top-left {
+	top: 10px;
+	left: 10px;
+}
+
+#mercor-alert-container.top-right {
+	top: 10px;
+	right: 10px;
+}
+
+#mercor-alert-container.bottom-left {
+	bottom: 10px;
+	left: 10px;
+}
+
+#mercor-alert-container.bottom-right {
+	bottom: 10px;
+	right: 10px;
+}
+
+.mercor-alert {
+	color: #000;
+	margin-bottom: 10px;
+display: block;
+	position: relative;
+}
+.mercor-element.mercor-alert .mercor-header{
+	background: transparent;
+}
+.mercor-element.mercor-alert .mercor-body {
+	padding: 5px 10px;
+}
+.mercor-element.mercor-alert-success .mercor-inner{
+	border: 1px solid #E8FC53;
+	background: #dbf043;
+}
+
+.mercor-element.mercor-alert-success .mercor-header{
+	background: #dbf043; /* Old browsers */
+	background: -moz-linear-gradient(top, #dbf043 0%, #c3d825 100%);
+	/* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #dbf043),
+		color-stop(100%, #c3d825) ); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #dbf043 0%, #c3d825 100%);
+	/* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #dbf043 0%, #c3d825 100%);
+	/* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #dbf043 0%, #c3d825 100%);
+	/* IE10+ */
+	background: linear-gradient(top, #dbf043 0%, #c3d825 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient(   startColorstr='#dbf043',
+		endColorstr='#c3d825', GradientType=0 ); /* IE6-9 */
+}
+
+.mercor-element.mercor-alert-notice .mercor-inner{
+	border: 1px solid #FFF98C;
+	background: #fff95b;
+}
+
+.mercor-element.mercor-alert-notice .mercor-header{
+	background: #fff95b; /* Old browsers */
+	background: -moz-linear-gradient(top, #fff95b 0%, #ede100 100%);
+	/* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff95b),
+		color-stop(100%, #ede100) ); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #fff95b 0%, #ede100 100%);
+	/* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #fff95b 0%, #ede100 100%);
+	/* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #fff95b 0%, #ede100 100%);
+	/* IE10+ */
+	background: linear-gradient(top, #fff95b 0%, #ede100 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient(   startColorstr='#fff95b',
+		endColorstr='#ede100', GradientType=0 ); /* IE6-9 */
+}
+
+.mercor-element.mercor-alert-error .mercor-inner{
+	border: 1px solid #FF8944;
+	background: #ff8944;
+}
+
+.mercor-element.mercor-alert-error .mercor-header{
+	background: #ff8944; /* Old browsers */
+	background: -moz-linear-gradient(top, #ff8944 0%, #f25e0e 100%);
+	/* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ff8944),
+		color-stop(100%, #f25e0e) ); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ff8944 0%, #f25e0e 100%);
+	/* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ff8944 0%, #f25e0e 100%);
+	/* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ff8944 0%, #f25e0e 100%);
+	/* IE10+ */
+	background: linear-gradient(top, #ff8944 0%, #f25e0e 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient(   startColorstr='#ff8944',
+		endColorstr='#f25e0e', GradientType=0 ); /* IE6-9 */
+}
+
+/*
+---
+
+name: Mercor.Modal
+
+requires: [/Mercor.Element, /Mercor.Icons]
+
+provides: [Mercor.Modal]
+
+...
+*/
+
+@CHARSET "UTF-8";
+
+
+#mercor-modal{
+	font-family: Arial,Verdana,sans-serif;
+	border: 1px solid #FFF;
+	background-color: white;
+	color:#000;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    background: rgb(255,255,255); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(229,229,229,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-8 */
+}
+
+#mercor-modal .mercor-header{
+	-moz-border-radius: 5px 5px 0px 0px;
+	-webkit-border-radius: 5px 5px 0px 0px;
+	border-radius: 5px 5px 0px 0px;
+	padding: 5px;
+	border-bottom: 1px solid #FFF;
+	margin-bottom: 5px;
+	background: rgb(229,229,229); /* Old browsers */
+	background: rgb(229,229,229); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(229,229,229,1) 1%, rgba(206,206,206,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(229,229,229,1)), color-stop(100%,rgba(206,206,206,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(229,229,229,1) 1%,rgba(206,206,206,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(229,229,229,1) 1%,rgba(206,206,206,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(229,229,229,1) 1%,rgba(206,206,206,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(229,229,229,1) 1%,rgba(206,206,206,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#cecece',GradientType=0 ); /* IE6-8 */
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+	font-size: 1.2em;
+    line-height: 1.25;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+#mercor-modal .mercor-inner{
+	padding: 5px;	
+}
+
+#mercor-modal .mercor-body{
+	font-size: 13px;
+}	
+
+#mercor-modal .mercor-footer{
+	padding: 5px;
+	border-top: 1px solid #CCC;
+	margin-top: 5px;
+}
+
+#mercor-modal .mercor-close,
+#mercor-modal-custom .mercor-close{
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	background-image: url("../img/close.png"); /* http://www.gentleface.com */
+	opacity: 0.5;
+	cursor: pointer;
+}
+#mercor-modal .mercor-close:hover,
+#mercor-modal-custom .mercor-close:hover{
+	opacity: 1;
+}
+
+#mercor-modal .spinner-msg,
+#mercor-modal-custom .spinner-msg{
+	text-align: center;
+	font-weight: bold;
+}
+
+#mercor-modal .spinner-img,
+#mercor-modal .error-img,.error-img,
+#mercor-modal-custom .spinner-img, 
+#mercor-modal-custom .error-img{
+	width: 24px;
+	height: 24px;
+	margin: 0 auto;
+}
+
+#mercor-modal .spinner-img,
+#mercor-modal-custom .spinner-img{
+	background: url(../img/spinner.gif) no-repeat;
+}
+
+#mercor-modal .error-img,
+#mercor-modal-custom .error-img{
+	background: url(../img/error.png) no-repeat;
+}
+
+/*
+---
+
+name: Mercor.Slideshow
+
+requires: [/Mercor.Element, /Mercor.Icons]
+
+provides: [Mercor.Slideshow]
+
+...
+*/
+
+@CHARSET "UTF-8";
+
+
+/*
+---
+
+name: Mercor.Tab
+
+requires: [/Mercor.Element, /Mercor.Icons]
+
+provides: [Mercor.Tab]
+
+...
+*/
+
+@CHARSET "UTF-8";
+
+.mercor-element.mercor-tab {
+	border: 1px solid #F1F1F1;
+}
+
+.mercor-element.mercor-tab-noborder,.mercor-element.mercor-tab-noborder .mercor-inner
+	{
+	border: none;
+}
+
+.mercor-element.mercor-tab-noborder .mercor-outer {
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
+.mercor-element.mercor-tab .mercor-outer,.mercor-element.mercor-tab .mercor-inner
+	{
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+}
+
+.mercor-element.mercor-tab ul.mercor-header {
+	padding: 0 0 0 5px;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	cursor: pointer;
+	border-bottom: 1px solid #F1F1F1;
+	list-style: none outside none;
+	margin: 0 0 0.3em;
+	height: 34px;
+}
+
+.mercor-element.mercor-tab ul.mercor-header  li {
+	float: left;
+	padding: 0;
+	position: relative;
+}
+
+.mercor-element.mercor-tab ul.mercor-header li a {
+	display: block;
+}
+
+.mercor-element.mercor-tab ul.mercor-header li.active a:hover {
+	background: #FFFFFF;
+	color: #000;
+}
+
+.mercor-element.mercor-tab ul.mercor-header li a:hover {
+	color: #000;
+	text-decoration: none;
+	background: rgb(131,196,229); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzgzYzRlNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM3ZGJjZTMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(131,196,229,1) 0%, rgba(125,188,227,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(131,196,229,1)), color-stop(100%,rgba(125,188,227,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(131,196,229,1) 0%,rgba(125,188,227,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(131,196,229,1) 0%,rgba(125,188,227,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(131,196,229,1) 0%,rgba(125,188,227,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(131,196,229,1) 0%,rgba(125,188,227,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#83c4e5', endColorstr='#7dbce3',GradientType=0 ); /* IE6-8 */
+}
+
+.mercor-element.mercor-tab ul.mercor-header:after,.mercor-element.mercor-tab ul.mercor-header:after{
+	clear: both;
+}
+
+.mercor-element.mercor-tab ul.mercor-header a {
+	font-size: 13px;
+	height: 16px;
+	line-height: 16px;
+	padding: 9px 25px;
+	color: #333;
+}
+
+.mercor-element.mercor-tab ul.mercor-header .active a {
+	background-color: #FFFFFF;
+	border-color: #D5DCE0 #D5DCE0 -moz-use-text-color;
+	border-style: solid solid none;
+	border-width: 1px 1px 0;
+	color: #000000;
+	height: 17px;
+	margin-top: -4px;
+	padding: 11px 24px 10px;
+}
+
+/*
+---
+
+name: Mercor.Tip
+
+requires: [/Mercor.Element, /Mercor.Icons]
+
+provides: [Mercor.Tip]
+
+...
+*/
+
+@CHARSET "UTF-8";
+
+.mercor-element.mercor-tip .mercor-body {
+	padding: 2px 5px;
+	text-align: center;
+}
+
+.mercor-element.mercor-tip.mercor-tip-sticky .mercor-body {
+	padding: 2px 18px;
+	text-align: center;
+}
+
+.mercor-element.mercor-tip {
+	max-width: 200px;
+}
+
+.mercor-element.mercor-tip .mercor-close {
+	top: 1px;
+	right: 1px;
+}
+
+.mercor-element.mercor-tip-complexe {
+	max-width: 300px;
+}
+
+.mercor-bootstrap-element.popover{
+	display: block;
+}
+
+.mercor-bootstrap-element.tooltip mercor-title {
+	padding: 0px 8px;
+	text-align: center;
+}
+
+.mercor-bootstrap-element.tooltip button.mercor-close {
+	background: none repeat scroll 0 0 transparent;
+	border: 0 none;
+	cursor: pointer;
+	padding: 0;
+}
+
+.mercor-bootstrap-element.tooltip .mercor-close {
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	opacity: 0.6;
+	cursor: pointer;
+	color: #FFF;
+	font-size: 12px;
+	font-weight: bold;
+	text-shadow: 0 1px 0 #FFFFFF;
+	font-family: sans-serif;
+}

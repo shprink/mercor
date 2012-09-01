@@ -1,0 +1,17 @@
+name: "MercorCSS"
+
+copyright: "&copy; 2012 Julien Renaux"
+
+authors: "Julien Renaux <contact@julienrenaux.fr>"
+
+version: "1.0"
+
+sources:
+  - Source/Mercor.Element.css
+  - Source/Mercor.Icons.css
+  - Source/Mercor.Accordion.css
+  - Source/Mercor.Alert.css
+  - Source/Mercor.Modal.css
+  - Source/Mercor.Slideshow.css
+  - Source/Mercor.Tab.css
+  - Source/Mercor.Tip.css

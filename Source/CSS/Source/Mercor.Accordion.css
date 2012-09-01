@@ -1,0 +1,102 @@
+/*
+---
+
+name: Mercor.Accordion
+
+requires: [/Mercor.Element, /Mercor.Icons]
+
+provides: [Mercor.Accordion]
+
+...
+*/
+
+@CHARSET "UTF-8";
+
+.mercor-element.mercor-accordion {
+	border: 1px solid #F1F1F1;
+}
+
+.mercor-element.mercor-accordion .mercor-outer,.mercor-element.mercor-accordion .mercor-inner {
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+}
+
+
+.mercor-element.mercor-accordion .mercor-header {
+	padding: 8px 10px;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	cursor: pointer;
+	border-bottom: 1px solid #F1F1F1;
+	background: rgb(255,255,255); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmN2Y3ZjciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(247,247,247,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(247,247,247,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7f7f7',GradientType=0 ); /* IE6-8 */
+}
+
+.mercor-element.mercor-accordion .mercor-header a{
+	color: #333;
+}
+
+.mercor-element.mercor-accordion .mercor-accordion-node.active .mercor-header a,
+.mercor-element.mercor-accordion .mercor-accordion-node:hover .mercor-header a{
+	color: #FFF;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.mercor-element.mercor-accordion .mercor-accordion-node.active .mercor-header,
+.mercor-element.mercor-accordion .mercor-accordion-node.active:hover .mercor-header{
+	background: rgb(0,136,204); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwODhjYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDc0YmMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(0,136,204,1) 0%, rgba(0,116,188,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,136,204,1)), color-stop(100%,rgba(0,116,188,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(0,136,204,1) 0%,rgba(0,116,188,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(0,136,204,1) 0%,rgba(0,116,188,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(0,136,204,1) 0%,rgba(0,116,188,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(0,136,204,1) 0%,rgba(0,116,188,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0088cc', endColorstr='#0074bc',GradientType=0 ); /* IE6-8 */
+}
+
+.mercor-element.mercor-accordion .mercor-accordion-node:hover .mercor-header{
+	background: rgb(131,196,229); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzgzYzRlNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM3ZGJjZTMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(131,196,229,1) 0%, rgba(125,188,227,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(131,196,229,1)), color-stop(100%,rgba(125,188,227,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(131,196,229,1) 0%,rgba(125,188,227,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(131,196,229,1) 0%,rgba(125,188,227,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(131,196,229,1) 0%,rgba(125,188,227,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(131,196,229,1) 0%,rgba(125,188,227,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#83c4e5', endColorstr='#7dbce3',GradientType=0 ); /* IE6-8 */
+}
+
+.mercor-element .mercor-body-content {
+	padding: 10px;
+}
+
+.mercor-element.mercor-accordion .mercor-accordion-node .mercor-icon-br{
+	float: right;
+}
+
+.mercor-element.mercor-accordion .mercor-accordion-node.active:hover .mercor-icon-br,
+.mercor-element.mercor-accordion .mercor-accordion-node.active .mercor-icon-br{
+	background-image: url("../icons/white/br_up_icon&16.png");
+}
+
+.mercor-element.mercor-accordion .mercor-accordion-node:hover .mercor-icon-br{
+	background-image: url("../icons/white/br_down_icon&16.png");
+}
+
+.mercor-element.mercor-accordion .mercor-accordion-node .mercor-icon-br{
+	background-image: url("../icons/black/br_down_icon&16.png");
+}
