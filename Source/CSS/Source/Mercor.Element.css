@@ -107,15 +107,25 @@ SOFTWARE.
 	border-radius: 5px;
 }
 
-.mercor-element .mercor-inner {
+.mercor-element > .mercor-inner {
 	background-color: #FFF;
 	border: 1px solid #FFF;
 }
 
-.mercor-element .mercor-outer {
+.mercor-element > .mercor-outer {
 	box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.mercor-element-noborder > .mercor-inner{
+	border: none;
+}
+
+.mercor-element-noborder > .mercor-outer {
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
 }
 
 .mercor-element .mercor-header {

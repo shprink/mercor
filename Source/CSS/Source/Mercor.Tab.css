@@ -16,19 +16,11 @@ provides: [Mercor.Tab]
 	border: 1px solid #F1F1F1;
 }
 
-.mercor-element.mercor-tab-noborder,.mercor-element.mercor-tab-noborder .mercor-inner
-	{
+.mercor-element-noborder.mercor-tab{
 	border: none;
 }
 
-.mercor-element.mercor-tab-noborder .mercor-outer {
-	box-shadow: none;
-	-moz-box-shadow: none;
-	-webkit-box-shadow: none;
-}
-
-.mercor-element.mercor-tab .mercor-outer,.mercor-element.mercor-tab .mercor-inner
-	{
+.mercor-element.mercor-tab .mercor-outer,.mercor-element.mercor-tab .mercor-inner{
 	-moz-border-radius: 0px;
 	-webkit-border-radius: 0px;
 	border-radius: 0px;
