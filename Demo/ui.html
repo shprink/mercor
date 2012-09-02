@@ -407,9 +407,18 @@
 										be set to an absolute pixel size.
 									</li>
 								</ul>
-								<p><span class="label label-info">Heads up!</span> The options can be modified using the <code>data-mercor-accordion-options=&quot;{}&quot;</code> parameter.</p>
-								<p><b>Example:</b> <code>data-mercor-accordion-options=&quot;{&#039;display&#039;: -1, &#039;alwaysHide&#039; : &#039;true&#039;}&quot;</code></p>
-								
+								<p>
+									<span class="label label-info">Heads up!</span> The options can
+									be modified using the
+									<code>data-mercor-accordion-options=&quot;{}&quot;</code>
+									parameter.
+								</p>
+								<p>
+									<b>Example:</b>
+									<code>data-mercor-accordion-options=&quot;{&#039;display&#039;:
+										-1, &#039;alwaysHide&#039; : &#039;true&#039;}&quot;</code>
+								</p>
+
 							</div>
 							<div class="span8">
 								<h3>
@@ -607,6 +616,65 @@
 										href="http://twitter.github.com/bootstrap/components.html#navs">Bootstrap
 										Tabbable</a> also on left and right!
 								</p>
+								<hr />
+								<h3>Options</h3>
+								<ul>
+									<li>selectedClass - (<em>string</em>) the css class for
+										the tab when it is selected; defaults to <em>'tabSelected'</em></li>
+									<li>deselectedClass - (<em>string</em>) the class for the
+										tab when it isn't selected; defaults to <em>empty string</em></li>
+									<li>mouseoverClass - (<em>string</em>) the class for the
+										tab when the user mouses over; defaults to <em>'tabOver'</em></li>
+									<li>rearrangeDOM - (<em>boolean</em>) arranges the tabs
+										and sections in the DOM to be in the same order as they are in
+										the class; defaults to <em>true</em>.
+									</li>
+									<li>tabs - (<em>array</em>) a collection of DOM elements
+										for the tabs (these get the above classes added to them when
+										the user interacts with the interface); can also be a <a
+										target="_blank"
+										href="http://www.mootools.net/docs/core/Element/Element#dollars">$$</a>
+										selector (<em>string</em>).
+									</li>
+									<li>clickers - (<em>array</em>) a collection of DOM
+										elements for the clickers; if your tab contains a child DOM
+										element that the user clicks - not the whole tab but an
+										element within it - to switch the content, pass in an array of
+										them here. If you don't pass these in, the array of tabs is
+										used instead (the default). Can also be a <a target="_blank"
+										href="http://www.mootools.net/docs/core/Element/Element#dollars">$$</a>
+										selector (<em>string</em>).
+									</li>
+									<li>sections - (<em>array</em>) a collection of DOM
+										elements for the sections (these change when the clickers are
+										clicked); can also be a <a target="_blank"
+										href="http://www.mootools.net/docs/core/Element/Element#dollars">$$</a>
+										selector (<em>string</em>).
+									</li>
+									<li>initPanel - (<em>integer</em>) the panel to show on
+										init; defaults to <em>0</em> (zero)
+									</li>
+									<li>smooth - (<em>boolean</em>) use opacity effect to
+										smooth transitions; defaults to <em>false</em></li>
+									<li>smoothSize - (<em>boolean</em>) smoothly resize the
+										sections from one section to the other; <em>false</em> is
+										default
+									</li>
+									<li>cookieName - (<em>string</em>) if defined (it isn't by
+										default), the browser will remember the user's previous tab
+										selection using a cookie
+									</li>
+									<li>cookieDays - (<em>integer</em>) how many days to
+										remember the user's tab selection with the cookie; it's
+										ignored if cookieName isn't set; defaults to <em>999</em></li>
+									<li>effectOptions - (<em>object</em>) the options to pass
+										on to the transition effect if the "smooth" option is set to <em>true</em>;
+										defaults to <em>{duration: 500}</em></li>
+									<li>preventDefault - (<em>boolean</em>) if <code>true</code>
+										(the default), clicks to the tabs call <code>preventDefault</code>
+										on tab clicks.
+									</li>
+								</ul>
 							</div>
 							<div class="span8">
 								<h3>Demo</h3>
