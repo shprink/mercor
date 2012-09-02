@@ -14,7 +14,6 @@ provides: [Mercor.Accordion]
 
 .mercor-element.mercor-accordion {
 	border: 1px solid #F1F1F1;
-	margin-bottom: 15px;
 }
 
 .mercor-element.mercor-accordion .mercor-outer,.mercor-element.mercor-accordion .mercor-inner {

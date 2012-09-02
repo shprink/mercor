@@ -99,6 +99,16 @@ SOFTWARE.
 
 .mercor-element {
 	position: relative;
+	margin-bottom: 15px;
+}
+
+.mercor-element a {
+    color: #0088CC;
+    text-decoration: none;
+}
+.mercor-element a:hover {
+    color: #005580;
+    text-decoration: underline;
 }
 
 .mercor-element .mercor-outer,.mercor-element .mercor-inner {
@@ -291,7 +301,6 @@ provides: [Mercor.Accordion]
 
 .mercor-element.mercor-accordion {
 	border: 1px solid #F1F1F1;
-	margin-bottom: 15px;
 }
 
 .mercor-element.mercor-accordion .mercor-outer,.mercor-element.mercor-accordion .mercor-inner {

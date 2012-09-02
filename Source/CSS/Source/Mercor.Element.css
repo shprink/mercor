@@ -99,6 +99,16 @@ SOFTWARE.
 
 .mercor-element {
 	position: relative;
+	margin-bottom: 15px;
+}
+
+.mercor-element a {
+    color: #0088CC;
+    text-decoration: none;
+}
+.mercor-element a:hover {
+    color: #005580;
+    text-decoration: underline;
 }
 
 .mercor-element .mercor-outer,.mercor-element .mercor-inner {
