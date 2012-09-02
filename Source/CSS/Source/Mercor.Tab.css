@@ -16,10 +16,6 @@ provides: [Mercor.Tab]
 	border: 1px solid #F1F1F1;
 }
 
-.mercor-element-noborder.mercor-tab{
-	border: none;
-}
-
 .mercor-element.mercor-tab .mercor-outer,.mercor-element.mercor-tab .mercor-inner{
 	-moz-border-radius: 0px;
 	-webkit-border-radius: 0px;
@@ -31,7 +27,6 @@ provides: [Mercor.Tab]
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
 	border-radius: 0;
-	cursor: pointer;
 	border-bottom: 1px solid #F1F1F1;
 	list-style: none outside none;
 	margin: 0 0 0.3em;
@@ -46,6 +41,7 @@ provides: [Mercor.Tab]
 
 .mercor-element.mercor-tab ul.mercor-header li a {
 	display: block;
+	cursor: pointer;
 }
 
 .mercor-element.mercor-tab ul.mercor-header li.active a:hover {

@@ -118,16 +118,6 @@ SOFTWARE.
 	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
 
-.mercor-element-noborder > .mercor-outer > .mercor-inner{
-	border: none;
-}
-
-.mercor-element-noborder > .mercor-outer {
-	box-shadow: none;
-	-moz-box-shadow: none;
-	-webkit-box-shadow: none;
-}
-
 .mercor-element .mercor-header {
 	padding: 5px 10px;
 	-moz-border-radius: 5px 5px 0 0;
